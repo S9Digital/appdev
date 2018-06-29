@@ -1,23 +1,37 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import styled from "styled-components";
 
+const Wrapper = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+`;
+const Section = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  height: 100%;
+`;
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Wrapper>
+        <Section>
+          <Text>weather</Text>
+        </Section>
+        <Section>
+          <Text>set my sleep schedule</Text>
+        </Section>
+        <Section>
+          <Text>nav</Text>
+        </Section>
+      </Wrapper>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
