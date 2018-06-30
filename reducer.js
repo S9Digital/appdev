@@ -17,3 +17,7 @@ const DEFAULT_STATE = {
 };
 
 //will need to handle errors from light API
+export default function reducer(state = DEFAULT_STATE, action) {
+  //navigation
+  return state;
+}

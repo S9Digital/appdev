@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import styled from "styled-components";
+import { Provider } from "react-redux";
+import { middleware } from "./store.js";
 
 const Wrapper = styled.View`
   display: flex;
@@ -10,7 +12,15 @@ const Wrapper = styled.View`
   width: 100%;
   height: 100%;
 `;
-const Section = styled.View`
+const WideSection = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 33%;
+  height: 100%;
+`;
+const NarrowSection = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
@@ -18,20 +28,49 @@ const Section = styled.View`
   width: 33%;
   height: 100%;
 `;
+
+const Container = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export default class App extends React.Component {
   render() {
     return (
+      // <Provider store={store}>
       <Wrapper>
-        <Section>
-          <Text>weather</Text>
-        </Section>
-        <Section>
-          <Text>set my sleep schedule</Text>
-        </Section>
-        <Section>
-          <Text>nav</Text>
-        </Section>
+        <WideSection>
+          <Container>
+            <Text>weather</Text>
+          </Container>
+          <Container>
+            <Text>power</Text>
+          </Container>
+        </WideSection>
+        <NarrowSection>
+          <Container>
+            <Text>time</Text>
+          </Container>
+          <Container>
+            <Text>sleep - - - - - - - - -bar</Text>
+          </Container>
+          <Container>
+            <Text>set my sleep schedule</Text>
+          </Container>
+        </NarrowSection>
+        <WideSection>
+          <Container>
+            <Text>lights</Text>
+            <Text>nap</Text>
+          </Container>
+          <Container>
+            <Text>alarm</Text>
+          </Container>
+        </WideSection>
       </Wrapper>
+      // </Provider>
     );
   }
 }
