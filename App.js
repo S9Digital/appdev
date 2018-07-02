@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import styled from "styled-components";
 import { Provider } from "react-redux";
-import { middleware } from "./store.js";
-
+import { middleware } from "./store";
+import Clock from "./components/clock";
 const Wrapper = styled.View`
   display: flex;
   align-items: center;
@@ -51,7 +51,7 @@ export default class App extends React.Component {
         </WideSection>
         <NarrowSection>
           <Container>
-            <Text>time</Text>
+            <Clock />
           </Container>
           <Container>
             <Text>sleep - - - - - - - - -bar</Text>
