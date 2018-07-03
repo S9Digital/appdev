@@ -1,6 +1,7 @@
 {
   "name": "ario-light",
   "version": "0.1.0",
+  "description": "Lighting Control and timing UI built in React Native",
   "private": true,
   "devDependencies": {
     "jest-expo": "~27.0.0",
