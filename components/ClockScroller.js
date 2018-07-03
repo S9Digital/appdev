@@ -1,5 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Flatlist
+} from "react-native";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import Moment from "react-moment";
 
@@ -10,10 +18,14 @@ const Wrapper = styled.View`
   justify-content: center;
 `;
 
-export default class ClockScroller extends react.componenet {
+export class ClockScroller extends React.Componenet {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Wrapper>
+        <Text>adjust the time here</Text>
         <Flatlist />
         <FlatList />
         <Flatlist />
@@ -21,3 +33,11 @@ export default class ClockScroller extends react.componenet {
     );
   }
 }
+
+const mapStateToProps = () => ({});
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClockScroller);

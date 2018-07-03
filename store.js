@@ -1,14 +1,7 @@
-// import { createStore, applyMiddleware } from "redux";
-// import rootReducer from "./reducer";
-// import {
-//   reduxifyNavigator,
-//   createReactNavigationReduxMiddleware
-// } from "react-navigation-redux-helpers";
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import reducer from "./reducer";
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
-// const middleware = createReactNavigationReduxMiddleware(
-//   "root",
-//   state => state.navigation
-// );
-// const addListener = reduxifyNavigator("root");
-
-// export { middleware, addListener };
+export default store;

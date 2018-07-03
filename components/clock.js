@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Moment from "react-moment";
+import { connect } from "react-redux";
+//import ClockScroller from "./ClockScroller";
 
 const ClockContainer = styled.View`
   flex: 1;
@@ -35,20 +37,32 @@ const TimeText = styled.Text`
   font-size: 36px;
 `;
 
-export default class Clock extends React.Component {
-  render() {
-    return (
-      <ClockContainer>
-        <Moment interval={1000} element={TimeText} format="h:mm A" />
+export class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      timeAdjust: false
+    };
+  }
+
+  toggleTimeAdjust() {
+    this.setState({ timeAdjust: true });
+  }
+  back() {
+    this.setState({ timeAdjust: false });
+  }
+  renderLightBar() {
+    if (!this.state.timeAdjust) {
+      return (
         <BarContainer>
           <LightBar>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.toggleTimeAdjust()}>
               <Image
                 style={{ width: 25, height: 25 }}
                 source={require("../assets/bell.png")}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.toggleTimeAdjust()}>
               <Image
                 style={{ width: 25, height: 25 }}
                 source={require("../assets/moon.png")}
@@ -56,8 +70,34 @@ export default class Clock extends React.Component {
             </TouchableOpacity>
           </LightBar>
         </BarContainer>
+      );
+    }
+    if (this.state.timeAdjust) {
+      return (
+        <View>
+          <TouchableOpacity onPress={() => this.back()}>
+            <Text>back</Text>
+          </TouchableOpacity>
+        </View>
+      );
+      //   <ClockScroller />;
+    }
+  }
+
+  render() {
+    return (
+      <ClockContainer>
+        <Moment interval={1000} element={TimeText} format="h:mm A" />
+        {this.renderLightBar()}
         <Text>set my sleep schedule</Text>
       </ClockContainer>
     );
   }
 }
+const mapStateToProps = () => ({});
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Clock);
