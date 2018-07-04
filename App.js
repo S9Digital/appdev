@@ -2,9 +2,12 @@ import React from "react";
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
 import styled from "styled-components";
 import { Provider } from "react-redux";
+import { compose } from "redux";
 import thunk from "redux-thunk";
 import store from "./store";
-import Clock from "./components/Clock";
+import { Clock } from "./components/Clock";
+
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const Wrapper = styled.View`
   display: flex;
