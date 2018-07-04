@@ -53,7 +53,7 @@ export class ClockScroller extends React.Component {
       hoursPage: 0
     };
   }
-  loadMore() {
+  scrollUp() {
     const dataLength = initialData.length - 1;
     const { hoursData, hoursPage } = this.state;
     let start = hoursPage + 1;
@@ -71,10 +71,30 @@ export class ClockScroller extends React.Component {
 
     this.setState({ hoursData: [...newData] });
   }
+
+  scrollDown() {
+    const dataLength = initialData.length - 1;
+    const { hoursData, hoursPage } = this.state;
+    let start = hoursPage - 1;
+    let end = hoursPage + itemsPerPage - 1;
+    let newData = initialData.slice(start, end);
+    this.setState({ hoursPage: hoursPage - 1 });
+    if (start === dataLength - 1) {
+      newData = initialData.slice(-2).concat(initialData.slice(0, 1));
+      this.setState({ hoursPage: dataLength - 1 });
+    }
+    if (start === -1) {
+      newData = initialData.slice(-1).concat(initialData.slice(0, 2));
+      this.setState({ hoursPage: dataLength });
+    }
+
+    this.setState({ hoursData: [...newData] });
+  }
+
   renderScrollWheel() {
     return (
       <WheelContainer>
-        <TouchableOpacity onPress={() => this.loadMore()}>
+        <TouchableOpacity onPress={() => this.scrollUp()}>
           <Image
             style={{ height: 25, width: 25 }}
             source={require("../assets/upArrow.png")}
@@ -90,7 +110,7 @@ export class ClockScroller extends React.Component {
             </View>
           )}
         />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => this.scrollDown()}>
           <Image
             style={{ height: 25, width: 25 }}
             source={require("../assets/downArrow.png")}
