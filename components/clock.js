@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Moment from "react-moment";
 import { connect } from "react-redux";
 import { ClockScroller } from "./ClockScroller";
+import { hours, minutes, timeOfDay } from "../constants";
 
 const ClockContainer = styled.View`
   flex: 1;
@@ -85,7 +86,13 @@ export class Clock extends React.Component {
     if (this.state.timeAdjust) {
       return (
         <ClockContainer>
-          <ClockScroller />;
+          <BarContainer>
+            <ClockScroller
+              data={hours}
+              onPick={hour => this.setState({ hours })}
+            />
+            <ClockScroller data={minutes} />
+          </BarContainer>
           <TouchableOpacity onPress={() => this.back()}>
             <Text>back</Text>
           </TouchableOpacity>

@@ -21,14 +21,6 @@ const Wrapper = styled.View`
   justify-content: center;
 `;
 
-const ListRow = styled.View`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
 const WheelContainer = styled.View`
   flex: 1;
   display: flex;
@@ -41,57 +33,53 @@ const WheelContainer = styled.View`
 const ListItem = styled.View``;
 const ListText = styled.Text``;
 
-const itemsPerPage = 3;
-const initialData = hours;
 export class ClockScroller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       itemsPerPage: 3,
-      initialData: hours,
-      hoursData: initialData.slice(0, 3),
-      hoursPage: 0
+      time: this.props.data,
+      page: 0
     };
   }
+
   scrollUp() {
-    const dataLength = initialData.length - 1;
-    const { hoursData, hoursPage } = this.state;
-    let start = hoursPage + 1;
-    let end = hoursPage + 1 + itemsPerPage;
-    let newData = initialData.slice(start, end);
-    this.setState({ hoursPage: hoursPage + 1 });
+    const dataLength = this.props.data.length - 1;
+    const { itemsPerPage, page } = this.state;
+    let start = page + 1;
+    let end = page + 1 + itemsPerPage;
+    let newData = this.props.data.slice(start, end);
+    this.setState({ page: page + 1 });
     if (end > dataLength + 1) {
-      newData = initialData.slice(-2).concat(initialData.slice(0, 1));
-      this.setState({ hoursPage: -2 });
+      newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
+      this.setState({ page: -2 });
     }
     if (start < 0) {
-      newData = initialData.slice(-1).concat(initialData.slice(0, 2));
-      this.setState({ hoursPage: -1 });
+      newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
+      this.setState({ page: -1 });
     }
-
-    this.setState({ hoursData: [...newData] });
+    this.setState({ time: [...newData] });
   }
 
   scrollDown() {
-    const dataLength = initialData.length - 1;
-    const { hoursData, hoursPage } = this.state;
-    let start = hoursPage - 1;
-    let end = hoursPage + itemsPerPage - 1;
-    let newData = initialData.slice(start, end);
-    this.setState({ hoursPage: hoursPage - 1 });
+    const dataLength = this.props.data.length - 1;
+    const { itemsPerPage, page } = this.state;
+    let start = page - 1;
+    let end = page + itemsPerPage - 1;
+    let newData = this.props.data.slice(start, end);
+    this.setState({ page: page - 1 });
     if (start === dataLength - 1) {
-      newData = initialData.slice(-2).concat(initialData.slice(0, 1));
-      this.setState({ hoursPage: dataLength - 1 });
+      newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
+      this.setState({ page: dataLength - 1 });
     }
     if (start === -1) {
-      newData = initialData.slice(-1).concat(initialData.slice(0, 2));
-      this.setState({ hoursPage: dataLength });
+      newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
+      this.setState({ page: dataLength });
     }
-
-    this.setState({ hoursData: [...newData] });
+    this.setState({ time: [...newData] });
   }
 
-  renderScrollWheel() {
+  render() {
     return (
       <WheelContainer>
         <TouchableOpacity onPress={() => this.scrollUp()}>
@@ -102,7 +90,7 @@ export class ClockScroller extends React.Component {
         </TouchableOpacity>
         <FlatList
           pagingEnabled
-          data={this.state.hoursData}
+          data={this.state.time}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <View style={{ width: 50, height: 100 }}>
@@ -119,20 +107,13 @@ export class ClockScroller extends React.Component {
       </WheelContainer>
     );
   }
-  render() {
-    if (this.state.hoursData) {
-      return (
-        <Wrapper>
-          <ListRow>{this.renderScrollWheel()}</ListRow>
-        </Wrapper>
-      );
-    } else {
-      return <View />;
-    }
-  }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state, props) => ({
+  sleepTime: state.sleeptime,
+  wakeTime: state.wakeTime,
+  alarmTime: alarmTime
+});
 const mapDispatchToProps = dispatch => ({});
 
 export default connect(
