@@ -14,12 +14,15 @@ const ClockContainer = styled.View`
 `;
 
 const BarContainer = styled.View`
-  flex: 1;
+  flex: 2;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
+  border-radius: 4;
+  border-width: 0.5;
+  border-color: #d6d7da;
 `;
 
 const LightBar = styled.View`
@@ -34,6 +37,18 @@ const LightBar = styled.View`
   background-color: #80e5ff;
 `;
 
+const TimeButton = styled.View`
+  padding-left: 25px;
+`;
+const ButtonContainer = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+`;
+
 const TimeText = styled.Text`
   font-size: 36px;
 `;
@@ -42,7 +57,9 @@ export class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timeAdjust: false
+      timeAdjust: false,
+      selectedHour: "",
+      selectedMinute: ""
     };
   }
 
@@ -86,16 +103,30 @@ export class Clock extends React.Component {
     if (this.state.timeAdjust) {
       return (
         <ClockContainer>
+          <Text>Set Alarm</Text>
           <BarContainer>
             <ClockScroller
               data={hours}
-              onPick={hour => this.setState({ hours })}
+              onPick={hour => this.setState({ selectedHour: hour })}
             />
-            <ClockScroller data={minutes} />
+            <Text style={{ fontSize: 40, paddingBottom: 10 }}>:</Text>
+            <ClockScroller
+              data={minutes}
+              onPick={minute => this.setState({ selectedMinute: minute })}
+            />
           </BarContainer>
-          <TouchableOpacity onPress={() => this.back()}>
-            <Text>back</Text>
-          </TouchableOpacity>
+          <ButtonContainer>
+            <TouchableOpacity onPress={() => this.back()}>
+              <TimeButton>
+                <Text>Cancel</Text>
+              </TimeButton>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.back()}>
+              <TimeButton>
+                <Text>Set</Text>
+              </TimeButton>
+            </TouchableOpacity>
+          </ButtonContainer>
         </ClockContainer>
       );
     }
