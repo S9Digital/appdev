@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { compose } from "redux";
 import thunk from "redux-thunk";
 import store from "./store";
-import { Clock } from "./components/Clock";
+import Clock from "./components/Clock";
 
 const Wrapper = styled.View`
   display: flex;
@@ -53,14 +53,14 @@ export default class App extends React.Component {
       <Provider store={store}>
         <Wrapper>
           {/* <ImageBackground
-          style={{
-            width: "100%",
-            height: "100%",
-            flex: 1,
-            flexDirection: "row"
-          }}
-          source={require("./assets/mountain_background.jpg")}
-        > */}
+            style={{
+              width: "100%",
+              height: "100%",
+              flex: 1,
+              flexDirection: "row"
+            }}
+            source={require("./assets/mountain_background.jpg")}
+          > */}
           <WideSection>
             <Container>
               <Text>weather</Text>

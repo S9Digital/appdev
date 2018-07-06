@@ -34,9 +34,8 @@ const LightBar = styled.View`
   flex-wrap: nowrap;
   width: 200px;
   height: 30px;
-  background-color: #80e5ff;
 `;
-
+//colors to use when I get linear gradient working #b7ad70, #858ca8
 const TimeButton = styled.View`
   padding-left: 25px;
 `;
@@ -53,7 +52,7 @@ const TimeText = styled.Text`
   font-size: 36px;
 `;
 
-export class Clock extends React.Component {
+class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -139,7 +138,7 @@ export class Clock extends React.Component {
     }
   }
 }
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   alarmTime: state.alarmTime,
   modal: state.modal
 });
@@ -148,7 +147,7 @@ const mapDispatchToProps = dispatch => ({
     return dispatch(setAlarmTime(hour, mins));
   },
   modalOpen: component => {
-    return dispatch(modalOPen(component));
+    return dispatch(modalOpen(component));
   },
   modalClose: () => {
     dispatch(returnHome());
