@@ -7,8 +7,6 @@ import thunk from "redux-thunk";
 import store from "./store";
 import { Clock } from "./components/Clock";
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const Wrapper = styled.View`
   display: flex;
   align-items: center;
@@ -29,7 +27,19 @@ const NarrowSection = styled.View`
   align-items: center;
   justify-content: center;
 `;
-
+const Button = styled.View`
+  background-color: #000000;
+  flex-wrap: nowrap;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  margin-bottom: 10px;
+`;
+const ButtonText = styled.Text`
+  color: white;
+`;
 const Container = styled.View`
   flex: 1;
   display: flex;
@@ -67,8 +77,12 @@ export default class App extends React.Component {
           </NarrowSection>
           <WideSection>
             <Container>
-              <Text>lights</Text>
-              <Text>nap</Text>
+              <Button>
+                <ButtonText>lights</ButtonText>
+              </Button>
+              <Button>
+                <ButtonText>nap</ButtonText>
+              </Button>
             </Container>
             <Container>
               <Text>alarm</Text>

@@ -65,7 +65,6 @@ export class ClockScroller extends React.Component {
     }
     this.setState({ time: [...newData] });
     this.props.onPick(this.state.time[2].key);
-    //console.log(this.state.time[2].key); //correct item of array to use for time
   }
 
   scrollDown() {

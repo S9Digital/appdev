@@ -2,9 +2,17 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Moment from "react-moment";
-import { connect } from "react-redux";
 import { ClockScroller } from "./ClockScroller";
 import { hours, minutes, timeOfDay } from "../constants";
+import {
+  setAlarmTime,
+  setSleepTime,
+  setWakeTime,
+  modalOpen,
+  returnHome
+} from "../actions/TimeActions";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 const ClockContainer = styled.View`
   flex: 1;
@@ -14,20 +22,12 @@ const ClockContainer = styled.View`
 `;
 
 const BarContainer = styled.View`
-  flex: 2;
-  display: flex;
-  flex-direction: row;
+  height: 100px;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
-  border-radius: 4;
-  border-width: 0.5;
-  border-color: #d6d7da;
 `;
 
 const LightBar = styled.View`
-  flex: 1;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -63,23 +63,24 @@ export class Clock extends React.Component {
     };
   }
 
-  toggleTimeAdjust() {
-    this.setState({ timeAdjust: true });
-  }
-  back() {
-    this.setState({ timeAdjust: false });
-  }
+  // toggleTimeAdjust() {
+  //   this.setState({ timeAdjust: true });
+  // }
+  // back() {
+  //   this.setState({ timeAdjust: false });
+  // }
+
   renderLightBar() {
     return (
       <BarContainer>
         <LightBar>
-          <TouchableOpacity onPress={() => this.toggleTimeAdjust()}>
+          <TouchableOpacity onPress={() => this.props.modalOpen("wake time")}>
             <Image
               style={{ width: 25, height: 25 }}
               source={require("../assets/bell.png")}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.toggleTimeAdjust()}>
+          <TouchableOpacity onPress={() => this.props.modalOpen("sleep time")}>
             <Image
               style={{ width: 25, height: 25 }}
               source={require("../assets/moon.png")}
@@ -91,7 +92,7 @@ export class Clock extends React.Component {
   }
 
   render() {
-    if (!this.state.timeAdjust) {
+    if (!this.props.modal) {
       return (
         <ClockContainer>
           <Moment interval={1000} element={TimeText} format="h:mm A" />
@@ -100,7 +101,7 @@ export class Clock extends React.Component {
         </ClockContainer>
       );
     }
-    if (this.state.timeAdjust) {
+    if (this.props.modal) {
       return (
         <ClockContainer>
           <Text>Set Alarm</Text>
@@ -108,20 +109,26 @@ export class Clock extends React.Component {
             <ClockScroller
               data={hours}
               onPick={hour => this.setState({ selectedHour: hour })}
+              value={parseInt(this.state.selectedHour, 10)}
             />
             <Text style={{ fontSize: 40, paddingBottom: 10 }}>:</Text>
             <ClockScroller
               data={minutes}
               onPick={minute => this.setState({ selectedMinute: minute })}
+              //value={parseInt(this.state.selectedMinute, 10)}
             />
           </BarContainer>
           <ButtonContainer>
-            <TouchableOpacity onPress={() => this.back()}>
+            <TouchableOpacity onPress={() => this.props.modalClose()}>
               <TimeButton>
                 <Text>Cancel</Text>
               </TimeButton>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.back()}>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.setTime();
+              }}
+            >
               <TimeButton>
                 <Text>Set</Text>
               </TimeButton>
@@ -132,8 +139,21 @@ export class Clock extends React.Component {
     }
   }
 }
-const mapStateToProps = state => ({});
-const mapDispatchToProps = dispatch => ({});
+const mapStateToProps = (state, props) => ({
+  alarmTime: state.alarmTime,
+  modal: state.modal
+});
+const mapDispatchToProps = dispatch => ({
+  setTime: () => {
+    return dispatch(setAlarmTime(hour, mins));
+  },
+  modalOpen: component => {
+    return dispatch(modalOPen(component));
+  },
+  modalClose: () => {
+    dispatch(returnHome());
+  }
+});
 
 export default connect(
   mapStateToProps,
