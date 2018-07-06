@@ -2,7 +2,15 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Moment from "react-moment";
-import { modalOpen, returnHome } from "../actions/TimeActions";
+import ClockScroller from "./ClockScroller";
+import { hours, minutes, timeOfDay } from "../constants";
+import {
+  setAlarmTime,
+  setSleepTime,
+  setWakeTime,
+  modalOpen,
+  returnHome
+} from "../actions/TimeActions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -34,7 +42,6 @@ const LightBar = styled.View`
   flex-wrap: nowrap;
   width: 200px;
   height: 30px;
-  background-color: #80e5ff;
 `;
 //colors to use when I get linear gradient working #b7ad70, #858ca8
 const TimeButton = styled.View`
@@ -53,50 +60,55 @@ const TimeText = styled.Text`
   font-size: 36px;
 `;
 
-class Clock extends React.Component {
+class ClockAdjust extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timeAdjust: false,
       selectedHour: "",
       selectedMinute: ""
     };
   }
-
-  renderLightBar() {
-    return (
-      <BarContainer>
-        <LightBar>
-          <TouchableOpacity onPress={() => this.props.modalOpen("wake time")}>
-            <Image
-              style={{ width: 25, height: 25 }}
-              source={require("../assets/bell.png")}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.modalOpen("sleep time")}>
-            <Image
-              style={{ width: 25, height: 25 }}
-              source={require("../assets/moon.png")}
-            />
-          </TouchableOpacity>
-        </LightBar>
-      </BarContainer>
-    );
-  }
-
   render() {
     return (
       <ClockContainer>
-        <Moment interval={1000} element={TimeText} format="h:mm A" />
-        {this.renderLightBar()}
-        <Text>set my sleep schedule</Text>
+        <Text>Set Alarm</Text>
+        <ScrollContainer>
+          <ClockScroller
+            data={hours}
+            onPick={hour => this.setState({ selectedHour: hour })}
+            //value={parseInt(this.state.selectedHour, 10)}
+          />
+          <Text style={{ fontSize: 40, paddingBottom: 10 }}>:</Text>
+          <ClockScroller
+            data={minutes}
+            onPick={minute => this.setState({ selectedMinute: minute })}
+            //value={parseInt(this.state.selectedMinute, 10)}
+          />
+        </ScrollContainer>
+        <ButtonContainer>
+          <TouchableOpacity onPress={() => this.props.modalClose()}>
+            <TimeButton>
+              <Text>Cancel</Text>
+            </TimeButton>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.setTime(
+                this.state.selectedHour,
+                this.state.selectedMinute
+              );
+            }}
+          >
+            <TimeButton>
+              <Text>Set</Text>
+            </TimeButton>
+          </TouchableOpacity>
+        </ButtonContainer>
       </ClockContainer>
     );
   }
 }
 const mapStateToProps = state => ({
-  sleepTime: state.sleepTime,
-  wakeTime: state.wakeTime,
   alarmTime: state.alarmTime,
   modal: state.modal
 });
@@ -115,4 +127,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Clock);
+)(ClockAdjust);

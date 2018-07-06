@@ -36,7 +36,7 @@ const WheelContainer = styled.View`
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
-export class ClockScroller extends React.Component {
+class ClockScroller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -137,7 +137,7 @@ export class ClockScroller extends React.Component {
 const mapStateToProps = (state, props) => ({
   sleepTime: state.sleeptime,
   wakeTime: state.wakeTime,
-  alarmTime: alarmTime
+  alarmTime: state.alarmTime
 });
 const mapDispatchToProps = dispatch => ({});
 
