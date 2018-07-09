@@ -42,9 +42,7 @@ class ClockScroller extends React.Component {
     this.state = {
       itemsPerPage: 3,
       time: this.props.data.slice(0, 3),
-      page: 0,
-      selectedHour: [],
-      selectedMinute: []
+      page: 0
     };
   }
 
@@ -88,8 +86,8 @@ class ClockScroller extends React.Component {
   //   onEndReach() {
   //     setState({ time: this.props.data.concat(this.props.data) });
   //   }
-  onSwipeUp() {}
-  onSwipeDown() {}
+  //   onSwipeUp() {}
+  //   onSwipeDown() {}
   render() {
     return (
       <WheelContainer>

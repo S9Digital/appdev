@@ -1,17 +1,11 @@
-import {
-  SET_ALARM_TIME,
-  SET_SLEEP_TIME,
-  SET_WAKE_TIME,
-  MODAL_OPEN,
-  RETURN_HOME
-} from "./actions/TimeActions";
+import { SET_TIME, MODAL_OPEN, RETURN_HOME } from "./actions/TimeActions";
 import Moment from "react-moment";
 
 const DEFAULT_STATE = {
-  wakeTime: 0,
-  sleepTime: 0,
+  wakeTime: null,
+  sleepTime: null,
   alarm: false,
-  alarmTime: 0,
+  alarmTime: null,
   alarmDuration: 0,
   alarmSoundId: "",
   scene: "",
@@ -29,22 +23,31 @@ const DEFAULT_STATE = {
 //will need to handle errors from light API
 export default function reducer(state = DEFAULT_STATE, action) {
   //navigation
-  //time
   if (action.type === "MODAL_OPEN") {
     return { ...state, modal: action.component };
   }
   if (action.type === "RETURN_HOME") {
     return { ...state, modal: null };
   }
-  if (action.type === "SET_ALARM_TIME") {
-    console.log(action.hour + " : " + action.minutes);
-    return { ...state };
-  }
-  if (action.type === "SET_SLEEP_TIME") {
-    return { ...state, sleepTime: action.time };
-  }
-  if (action.type === "SET_WAKE_TIME") {
-    return { ...state, wakeTime: action.time };
+  //time
+  if (action.type === "SET_TIME") {
+    const hour = action.hour;
+    const minutes = action.minutes;
+    const modal = action.modal;
+    const str = hour.concat(":").concat(minutes);
+    // console.log(str);
+    //Moment(str, "HH:mm")
+    if (modal === "wakeTime") {
+      console.log("wakeTime");
+      return { ...state, wakeTime: str };
+    }
+    if (modal === "sleepTime") {
+      console.log("sleepTime");
+      return { ...state, sleepTime: str };
+    }
+    if (modal === "alarmTime") {
+      return { ...state, alarmTime: str, alarm: true };
+    }
   }
   return state;
 }

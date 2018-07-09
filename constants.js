@@ -77,3 +77,15 @@ export const minutes = [
 ];
 
 export const timeOfDay = [{ key: "AM" }, { key: "PM" }];
+
+export const duration = [
+  { key: "0" },
+  { key: "5" },
+  { key: "10" },
+  { key: "15" },
+  { key: "30" },
+  { key: "45" },
+  { key: "60" }
+];
+
+//sounds

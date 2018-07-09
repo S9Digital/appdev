@@ -63,6 +63,13 @@ const Container = styled.View`
   justify-content: center;
 `;
 
+const ModalContainer = styled.Modal`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 class Landing extends React.Component {
   constructor(props) {
     super(props);
@@ -70,19 +77,21 @@ class Landing extends React.Component {
       modalVisibile: false
     };
   }
+
   renderModalView() {
     if (this.props.modal !== null) {
       return (
-        <Modal
+        <ModalContainer
           animationType="slide"
           transparent={false}
-          visible={this.state.modalVisible}
+          supportedOrientations={["portrait", "landscape"]}
+          visible={true}
           onRequestClose={() => {
             alert("Modal has been closed.");
           }}
         >
-          <ClockAdjust />
-        </Modal>
+          <ClockAdjust type={this.props.modal} />
+        </ModalContainer>
       );
     }
   }

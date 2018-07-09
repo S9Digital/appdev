@@ -4,13 +4,7 @@ import styled from "styled-components";
 import Moment from "react-moment";
 import ClockScroller from "./ClockScroller";
 import { hours, minutes, timeOfDay } from "../constants";
-import {
-  setAlarmTime,
-  setSleepTime,
-  setWakeTime,
-  modalOpen,
-  returnHome
-} from "../actions/TimeActions";
+import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -19,6 +13,8 @@ const ClockContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 `;
 
 const BarContainer = styled.View`
@@ -35,15 +31,6 @@ const ScrollContainer = styled.View`
   justify-content: center;
 `;
 
-const LightBar = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  width: 200px;
-  height: 30px;
-`;
-//colors to use when I get linear gradient working #b7ad70, #858ca8
 const TimeButton = styled.View`
   padding-left: 25px;
 `;
@@ -64,8 +51,8 @@ class ClockAdjust extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedHour: "",
-      selectedMinute: ""
+      selectedHour: "2",
+      selectedMinute: "01"
     };
   }
   render() {
@@ -93,10 +80,12 @@ class ClockAdjust extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              this.props.setTime(
+              this.props.setClockData(
                 this.state.selectedHour,
-                this.state.selectedMinute
+                this.state.selectedMinute,
+                this.props.modal
               );
+              this.props.modalClose();
             }}
           >
             <TimeButton>
@@ -110,17 +99,19 @@ class ClockAdjust extends React.Component {
 }
 const mapStateToProps = state => ({
   alarmTime: state.alarmTime,
+  wakeTime: state.wakeTime,
+  sleepTime: state.sleepTime,
   modal: state.modal
 });
 const mapDispatchToProps = dispatch => ({
-  setTime: (hour, mins) => {
-    return dispatch(setAlarmTime(hour, mins));
+  setClockData: (hour, mins, modal) => {
+    return dispatch(setTime(hour, mins, modal));
   },
   modalOpen: component => {
     return dispatch(modalOpen(component));
   },
   modalClose: () => {
-    dispatch(returnHome());
+    return dispatch(returnHome());
   }
 });
 

@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Moment from "react-moment";
-import { modalOpen, returnHome } from "../actions/TimeActions";
+import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -11,6 +11,7 @@ const ClockContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
 `;
 
 const BarContainer = styled.View`
@@ -67,13 +68,13 @@ class Clock extends React.Component {
     return (
       <BarContainer>
         <LightBar>
-          <TouchableOpacity onPress={() => this.props.modalOpen("wake time")}>
+          <TouchableOpacity onPress={() => this.props.modalOpen("sleepTime")}>
             <Image
               style={{ width: 25, height: 25 }}
               source={require("../assets/bell.png")}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.modalOpen("sleep time")}>
+          <TouchableOpacity onPress={() => this.props.modalOpen("wakeTime")}>
             <Image
               style={{ width: 25, height: 25 }}
               source={require("../assets/moon.png")}
@@ -101,9 +102,6 @@ const mapStateToProps = state => ({
   modal: state.modal
 });
 const mapDispatchToProps = dispatch => ({
-  setTime: (hour, mins) => {
-    return dispatch(setAlarmTime(hour, mins));
-  },
   modalOpen: component => {
     return dispatch(modalOpen(component));
   },
