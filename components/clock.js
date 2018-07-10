@@ -77,7 +77,7 @@ class Clock extends React.Component {
           <TouchableOpacity onPress={() => this.props.modalOpen("wakeTime")}>
             <Image
               style={{ width: 25, height: 25 }}
-              source={require("../assets/moon.png")}
+              source={require("../assets/sleep.png")}
             />
           </TouchableOpacity>
         </LightBar>

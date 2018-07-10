@@ -11,17 +11,17 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        {/* <ImageBackground
-            style={{
-              width: "100%",
-              height: "100%",
-              flex: 1,
-              flexDirection: "row"
-            }}
-            source={require("./assets/mountain_background.jpg")}
-          > */}
-        <Landing />
-        {/* </ImageBackground> */}
+        <ImageBackground
+          style={{
+            width: "100%",
+            height: "100%",
+            flex: 1,
+            flexDirection: "row"
+          }}
+          source={require("./assets/mountain_background.jpg")}
+        >
+          <Landing />
+        </ImageBackground>
       </Provider>
     );
   }

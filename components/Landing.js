@@ -45,16 +45,18 @@ const NarrowSection = styled.View`
 `;
 const Button = styled.View`
   background-color: #000000;
+  flex-direction: row;
   flex-wrap: nowrap;
   border-radius: 20px;
   align-items: center;
-  justify-content: center;
-  width: 100px;
+  justify-content: space-around;
+  width: 150px;
   height: 40px;
   margin-bottom: 10px;
 `;
 const ButtonText = styled.Text`
   color: white;
+  margin-right: 10px;
 `;
 const Container = styled.View`
   flex: 1;
@@ -101,7 +103,7 @@ class Landing extends React.Component {
         {this.renderModalView()}
         <WideSection>
           <Container>
-            <Text>weather</Text>
+            <ButtonText>weather</ButtonText>
           </Container>
           <Container>
             <Image
@@ -116,14 +118,26 @@ class Landing extends React.Component {
         <WideSection>
           <Container>
             <Button>
-              <ButtonText>lights</ButtonText>
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require("../assets/bell.png")}
+              />
+              <ButtonText>Adjust Lights</ButtonText>
             </Button>
             <Button>
-              <ButtonText>nap</ButtonText>
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require("../assets/stopwatch.png")}
+              />
+              <ButtonText>Take A Nap</ButtonText>
             </Button>
           </Container>
           <Container>
             <Text>alarm</Text>
+            <Image
+              style={{ width: 20, height: 20 }}
+              source={require("../assets/bell.png")}
+            />
           </Container>
         </WideSection>
       </Wrapper>
