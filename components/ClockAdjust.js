@@ -8,11 +8,12 @@ import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-const ClockContainer = styled.View`
+const WheelContainer = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
 `;
@@ -57,7 +58,7 @@ class ClockAdjust extends React.Component {
   }
   render() {
     return (
-      <ClockContainer>
+      <WheelContainer>
         <Text>Set Alarm</Text>
         <ScrollContainer>
           <ClockScroller
@@ -93,7 +94,7 @@ class ClockAdjust extends React.Component {
             </TimeButton>
           </TouchableOpacity>
         </ButtonContainer>
-      </ClockContainer>
+      </WheelContainer>
     );
   }
 }

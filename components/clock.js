@@ -46,12 +46,27 @@ const ButtonContainer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: nowrap;
 `;
 
+const Container = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+`;
+
 const TimeText = styled.Text`
-  font-size: 36px;
+  font-size: 100px;
+  color: white;
+`;
+const AmPmText = styled.Text`
+  font-size: 25px;
+  color: white;
+  padding-top: 58px;
 `;
 
 class Clock extends React.Component {
@@ -88,7 +103,10 @@ class Clock extends React.Component {
   render() {
     return (
       <ClockContainer>
-        <Moment interval={1000} element={TimeText} format="h:mm A" />
+        <Container>
+          <Moment interval={1000} element={TimeText} format="h:mm" />
+          <Moment interval={1000} element={AmPmText} format=" A" />
+        </Container>
         {this.renderLightBar()}
         <Text style={{ color: "white" }}>set my sleep schedule</Text>
       </ClockContainer>

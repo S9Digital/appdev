@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  StatusBar
+} from "react-native";
 import styled from "styled-components";
 import { Provider } from "react-redux";
 import { compose } from "redux";

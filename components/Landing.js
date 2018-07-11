@@ -5,7 +5,8 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Modal
+  Modal,
+  StatusBar
 } from "react-native";
 import styled from "styled-components";
 import Moment from "react-moment";
@@ -13,6 +14,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ClockScroller from "./ClockScroller";
 import ClockAdjust from "./ClockAdjust";
+import LightsAdjust from "./LightsAdjust";
 import Clock from "./Clock";
 import { hours, minutes, timeOfDay } from "../constants";
 import {
@@ -49,35 +51,38 @@ const Button = styled.View`
   flex-wrap: nowrap;
   border-radius: 20px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 150px;
   height: 40px;
   margin-bottom: 10px;
 `;
 const ButtonText = styled.Text`
   color: white;
-  margin-right: 10px;
+  margin-left: 20px;
 `;
+//  margin-right: 10px;
+//margin-bottom: 5px;
 const ButtonContainer = styled.View`
   border-radius: 25px;
   border: 2px solid #279fdc;
   padding: 10px;
+  opacity: 0.8;
 `;
 const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-bottom: 10%;
+  padding-bottom: 20px;
 `;
-const ContainerAlarm = styled.View`
+
+const AlarmContainer = styled.View`
   flex: 1;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-bottom: 18%;
+  padding-bottom: 25px;
 `;
-
 const ModalContainer = styled.Modal`
   flex: 1;
   display: flex;
@@ -98,15 +103,16 @@ class Landing extends React.Component {
     if (this.props.modal !== null) {
       return (
         <ModalContainer
-          animationType="slide"
-          transparent={false}
+          animationType="fade"
+          transparent={true}
           supportedOrientations={["portrait", "landscape"]}
           visible={true}
           onRequestClose={() => {
             alert("Modal has been closed.");
           }}
         >
-          <ClockAdjust type={this.props.modal} />
+          {/* <ClockAdjust type={this.props.modal} /> */}
+          <LightsAdjust type={this.props.modal} />
         </ModalContainer>
       );
     }
@@ -114,6 +120,7 @@ class Landing extends React.Component {
   render() {
     return (
       <Wrapper>
+        {/* <StatusBar hidden={true} /> not working here or on modal*/}
         {this.renderModalView()}
         <WideSection>
           <Container>
@@ -134,12 +141,15 @@ class Landing extends React.Component {
         <WideSection>
           <Container>
             <Button>
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require("../assets/bell.png")}
-              />
-              <ButtonText>Adjust Lights</ButtonText>
+              <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
+                <Image
+                  style={{ width: 20, height: 20 }}
+                  source={require("../assets/bell.png")}
+                />
+                <ButtonText>Adjust Lights</ButtonText>
+              </TouchableOpacity>
             </Button>
+
             <Button>
               <Image
                 style={{ width: 20, height: 20 }}
@@ -147,8 +157,15 @@ class Landing extends React.Component {
               />
               <ButtonText>Take A Nap</ButtonText>
             </Button>
+            <Button>
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require("../assets/bell.png")}
+              />
+              <ButtonText>Sleep Sounds</ButtonText>
+            </Button>
           </Container>
-          <ContainerAlarm>
+          <AlarmContainer>
             <TouchableOpacity
               onPress={() =>
                 this.setState({ alarmText: !this.state.alarmText })
@@ -158,11 +175,11 @@ class Landing extends React.Component {
                 {this.state.alarmText ? "Alarm On" : "Alarm Off"}
               </ButtonText>
               <Image
-                style={{ width: 20, height: 20 }}
+                style={{ width: 20, height: 20, opacity: 0.7 }}
                 source={require("../assets/bell.png")}
               />
             </TouchableOpacity>
-          </Container>
+          </AlarmContainer>
         </WideSection>
       </Wrapper>
     );
