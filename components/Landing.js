@@ -61,13 +61,21 @@ const ButtonText = styled.Text`
 const ButtonContainer = styled.View`
   border-radius: 25px;
   border: 2px solid #279fdc;
-  margin: 20px;
+  padding: 10px;
 `;
 const Container = styled.View`
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 10%;
+`;
+const ContainerAlarm = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 18%;
 `;
 
 const ModalContainer = styled.Modal`
@@ -140,7 +148,7 @@ class Landing extends React.Component {
               <ButtonText>Take A Nap</ButtonText>
             </Button>
           </Container>
-          <Container>
+          <ContainerAlarm>
             <TouchableOpacity
               onPress={() =>
                 this.setState({ alarmText: !this.state.alarmText })
