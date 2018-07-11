@@ -90,7 +90,7 @@ class Clock extends React.Component {
       <ClockContainer>
         <Moment interval={1000} element={TimeText} format="h:mm A" />
         {this.renderLightBar()}
-        <Text>set my sleep schedule</Text>
+        <Text style={{ color: "white" }}>set my sleep schedule</Text>
       </ClockContainer>
     );
   }

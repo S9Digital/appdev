@@ -58,6 +58,11 @@ const ButtonText = styled.Text`
   color: white;
   margin-right: 10px;
 `;
+const ButtonContainer = styled.View`
+  border-radius: 25px;
+  border: 2px solid #279fdc;
+  margin: 20px;
+`;
 const Container = styled.View`
   flex: 1;
   display: flex;
@@ -76,7 +81,8 @@ class Landing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalVisibile: false
+      modalVisibile: false,
+      alarmText: false
     };
   }
 
@@ -106,10 +112,12 @@ class Landing extends React.Component {
             <ButtonText>weather</ButtonText>
           </Container>
           <Container>
-            <Image
-              style={{ width: 25, height: 25 }}
-              source={require("../assets/power.png")}
-            />
+            <ButtonContainer>
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require("../assets/power-button-off.png")}
+              />
+            </ButtonContainer>
           </Container>
         </WideSection>
         <NarrowSection>
@@ -133,11 +141,19 @@ class Landing extends React.Component {
             </Button>
           </Container>
           <Container>
-            <Text>alarm</Text>
-            <Image
-              style={{ width: 20, height: 20 }}
-              source={require("../assets/bell.png")}
-            />
+            <TouchableOpacity
+              onPress={() =>
+                this.setState({ alarmText: !this.state.alarmText })
+              }
+            >
+              <ButtonText>
+                {this.state.alarmText ? "Alarm On" : "Alarm Off"}
+              </ButtonText>
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require("../assets/bell.png")}
+              />
+            </TouchableOpacity>
           </Container>
         </WideSection>
       </Wrapper>

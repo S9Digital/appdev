@@ -20,6 +20,10 @@ const DEFAULT_STATE = {
   modal: null
 };
 
+//tracking to be added
+//modalEntry: {enter: 0, leave: 0, duration: 0, modalType: '',  }
+//landing: {enter: 0, leave: 0, duration: 0, firstButtonClicked: ''}
+
 //will need to handle errors from light API
 export default function reducer(state = DEFAULT_STATE, action) {
   //navigation
@@ -38,11 +42,9 @@ export default function reducer(state = DEFAULT_STATE, action) {
     // console.log(str);
     //Moment(str, "HH:mm")
     if (modal === "wakeTime") {
-      console.log("wakeTime");
       return { ...state, wakeTime: str };
     }
     if (modal === "sleepTime") {
-      console.log("sleepTime");
       return { ...state, sleepTime: str };
     }
     if (modal === "alarmTime") {
