@@ -89,3 +89,13 @@ export const duration = [
 ];
 
 //sounds
+export const sleepSounds = [
+  { key: "Default" },
+  { key: "Classic" },
+  { key: "Jazz" },
+  { key: "Rock" },
+  { key: "Synth" },
+  { key: "Folk" },
+  { key: "Rap" },
+  { key: "World" }
+];

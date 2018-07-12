@@ -1,24 +1,40 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  FlatList
+} from "react-native";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
+import SoundScroller from "./SoundScroller";
+import { sleepSounds } from "../constants";
 
 const Container = styled.View`
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.9);
+  background-color: rgba(43, 45, 48, 0.99);
   width: 100%;
   height: 100%;
+`;
+
+const ContentContainer = styled.View`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
 
 const PresetsContainer = styled.View`
   display: flex;
   flex: 1;
   width: 400px;
-  margin-bottom: 20px;
+  margin-top: 30px;
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
@@ -29,44 +45,31 @@ const Presets = styled.View`
   display: flex;
   flex: 1;
   flex-direction: row;
-`;
-const Box = styled.View`
-  display: flex;
-  flex: 1;
-  border-radius: 10px;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 90px;
-  height: 80px;
-  margin: 5px;
 `;
-const BoxTitle = styled.Text`
-  font-size: 12;
-  color: white;
-`;
-const Tone = styled.View`
+
+const Volume = styled.View`
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: flex-start;
 `;
-const ToneBar = styled.View`
-  width: 400px;
-  height: 30px;
+const VolumeBar = styled.View`
+  width: 500px;
+  height: 25px;
   border-radius: 30px;
   background-color: white;
 `;
-const Brightness = styled.View`
+const Duration = styled.View`
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: flex-start;
 `;
-const BrightnessBar = styled.View`
-  width: 400px;
-  height: 30px;
+const DurationBar = styled.View`
+  width: 500px;
+  height: 25px;
   border-radius: 30px;
   background-color: white;
 `;
@@ -75,6 +78,8 @@ const ButtonContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  width: 100px;
 `;
 const Button = styled.View`
   border-radius: 30px;
@@ -83,52 +88,44 @@ const Button = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 30px;
 `;
 
 const Title = styled.Text`
-  font-size: 20;
+  font-size: 12;
   color: white;
   margin-bottom: 5px;
 `;
-class LightsAdjust extends React.Component {
+class SleepSounds extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      selectedSound: "default"
+    };
   }
   render() {
     return (
       <Container>
         <PresetsContainer>
-          <Title>Presets</Title>
+          <Title>Select Sleep Sounds</Title>
           <Presets>
-            <Box>
-              <BoxTitle>Relax</BoxTitle>
-            </Box>
-            <Box>
-              <BoxTitle>Bedtime</BoxTitle>
-            </Box>
-            <Box>
-              <BoxTitle>Engergize</BoxTitle>
-            </Box>
-            <Box>
-              <BoxTitle>Circadium</BoxTitle>
-            </Box>
+            <SoundScroller
+              data={sleepSounds}
+              //   onPick={sound => this.setState({ selectedSound: sound })}
+            />
           </Presets>
         </PresetsContainer>
-        <Tone>
-          <Title>Tone</Title>
-          <ToneBar />
-        </Tone>
-        <Brightness>
-          <Title>Brightness</Title>
-          <BrightnessBar />
-        </Brightness>
+        <Volume>
+          <Title>Volume</Title>
+          <VolumeBar />
+        </Volume>
+        <Duration>
+          <Title>Duration</Title>
+          <DurationBar />
+        </Duration>
         <ButtonContainer>
           <Button>
             <TouchableOpacity onPress={() => this.props.modalClose()}>
-              <Text>cancel</Text>
+              <Text style={{ padding: 10 }}>Close</Text>
             </TouchableOpacity>
           </Button>
         </ButtonContainer>
@@ -151,4 +148,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LightsAdjust);
+)(SleepSounds);

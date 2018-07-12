@@ -15,6 +15,7 @@ import { bindActionCreators } from "redux";
 import ClockScroller from "./ClockScroller";
 import ClockAdjust from "./ClockAdjust";
 import LightsAdjust from "./LightsAdjust";
+import SleepSounds from "./SleepSounds";
 import Clock from "./Clock";
 import { hours, minutes, timeOfDay } from "../constants";
 import {
@@ -112,7 +113,8 @@ class Landing extends React.Component {
           }}
         >
           {/* <ClockAdjust type={this.props.modal} /> */}
-          <LightsAdjust type={this.props.modal} />
+          {/* <LightsAdjust type={this.props.modal} /> */}
+          <SleepSounds />
         </ModalContainer>
       );
     }
@@ -158,11 +160,13 @@ class Landing extends React.Component {
               <ButtonText>Take A Nap</ButtonText>
             </Button>
             <Button>
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require("../assets/bell.png")}
-              />
-              <ButtonText>Sleep Sounds</ButtonText>
+              <TouchableOpacity onPress={() => this.props.modalOpen("sounds")}>
+                <Image
+                  style={{ width: 20, height: 20 }}
+                  source={require("../assets/bell.png")}
+                />
+                <ButtonText>Sleep Sounds</ButtonText>
+              </TouchableOpacity>
             </Button>
           </Container>
           <AlarmContainer>
