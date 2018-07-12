@@ -166,10 +166,10 @@ class Landing extends React.Component {
             <TouchableOpacity onPress={() => this.props.modalOpen("alarm")}>
               <Button>
                 <Image
-                  style={{ width: 20, height: 20 }}
+                  style={{ width: 20, height: 20, marginRight: 2 }}
                   source={require("../assets/stopwatch.png")}
                 />
-                <ButtonText>Take A Nap</ButtonText>
+                <ButtonText style={{ marginRight: 10 }}>Take A Nap</ButtonText>
               </Button>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.props.modalOpen("sounds")}>

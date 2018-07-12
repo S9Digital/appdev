@@ -10,6 +10,7 @@ import {
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
+import { setSleepSound } from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";
 
@@ -99,7 +100,7 @@ class SleepSounds extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedSound: "default"
+      selectedSound: this.props.alarmSoundId
     };
   }
   render() {
@@ -124,7 +125,12 @@ class SleepSounds extends React.Component {
         </Duration>
         <ButtonContainer>
           <Button>
-            <TouchableOpacity onPress={() => this.props.modalClose()}>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.setSoundData(this.state.selectedSound);
+                this.props.modalClose();
+              }}
+            >
               <Text style={{ padding: 10 }}>Close</Text>
             </TouchableOpacity>
           </Button>
@@ -134,9 +140,13 @@ class SleepSounds extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  modal: state.modal
+  modal: state.modal,
+  alarmSoundId: state.alarmSoundId
 });
 const mapDispatchToProps = dispatch => ({
+  setSoundData: sound => {
+    return dispatch(setSleepSound(sound));
+  },
   modalOpen: component => {
     return dispatch(modalOpen(component));
   },

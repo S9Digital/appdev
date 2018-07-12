@@ -68,40 +68,41 @@ class SoundScroller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemsPerPage: 1,
-      sound: this.props.data.slice(0, 1),
-      page: 0
+      page: 0,
+      sound: this.props.data.slice(0, 1)
     };
   }
 
   scrollRight() {
     const dataLength = this.props.data.length - 1;
-    const { itemsPerPage, page } = this.state;
-    let start = page + 1;
-    let end = page + 1 + itemsPerPage;
-    let newData = this.props.data.slice(start, end);
+    const { page } = this.state;
     this.setState({ page: page + 1 });
-    if (end > dataLength + 1) {
-      newData = this.props.data.slice(0, 1);
-      this.setState({ page: 0 });
+    const start = page + 1;
+    const end = page + 2;
+    let newData = this.props.data.slice(start, end);
+    if (end > dataLength) {
+      this.setState({ page: -1 });
+      newData = this.props.data.slice(start, end);
     }
     this.setState({ sound: [...newData] });
-    this.props.onPick(this.state.sound[0].key);
+    this.props.onPick(this.props.data[start].key);
   }
 
   scrollLeft() {
     const dataLength = this.props.data.length - 1;
-    const { itemsPerPage, page } = this.state;
-    let start = page - 1;
-    let end = page + itemsPerPage - 1;
-    let newData = this.props.data.slice(start, end);
+    const { page } = this.state;
     this.setState({ page: page - 1 });
+    let start = page - 1;
+    let end = page;
+    let newData = this.props.data.slice(start, end);
     if (start < 0) {
-      newData = this.props.data.slice(dataLength - 1, dataLength);
       this.setState({ page: dataLength });
+      start = dataLength;
+      end = dataLength + 1;
+      newData = this.props.data.slice(start, end);
     }
     this.setState({ sound: [...newData] });
-    this.props.onPick(this.state.sound[0].key);
+    this.props.onPick(this.props.data[start].key);
   }
 
   render() {
