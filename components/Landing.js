@@ -16,6 +16,7 @@ import ClockScroller from "./ClockScroller";
 import ClockAdjust from "./ClockAdjust";
 import LightsAdjust from "./LightsAdjust";
 import SleepSounds from "./SleepSounds";
+import AlarmSettings from "./AlarmSettings";
 import Clock from "./Clock";
 import { hours, minutes, timeOfDay } from "../constants";
 import {
@@ -114,7 +115,8 @@ class Landing extends React.Component {
         >
           {/* <ClockAdjust type={this.props.modal} /> */}
           {/* <LightsAdjust type={this.props.modal} /> */}
-          <SleepSounds />
+          {/* <SleepSounds /> */}
+          <AlarmSettings />
         </ModalContainer>
       );
     }
@@ -142,32 +144,33 @@ class Landing extends React.Component {
         </NarrowSection>
         <WideSection>
           <Container>
-            <Button>
-              <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
+            <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
+              <Button>
                 <Image
                   style={{ width: 20, height: 20 }}
                   source={require("../assets/bell.png")}
                 />
                 <ButtonText>Adjust Lights</ButtonText>
-              </TouchableOpacity>
-            </Button>
-
-            <Button>
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require("../assets/stopwatch.png")}
-              />
-              <ButtonText>Take A Nap</ButtonText>
-            </Button>
-            <Button>
-              <TouchableOpacity onPress={() => this.props.modalOpen("sounds")}>
+              </Button>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.modalOpen("alarm")}>
+              <Button>
+                <Image
+                  style={{ width: 20, height: 20 }}
+                  source={require("../assets/stopwatch.png")}
+                />
+                <ButtonText>Take A Nap</ButtonText>
+              </Button>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.modalOpen("sounds")}>
+              <Button>
                 <Image
                   style={{ width: 20, height: 20 }}
                   source={require("../assets/bell.png")}
                 />
                 <ButtonText>Sleep Sounds</ButtonText>
-              </TouchableOpacity>
-            </Button>
+              </Button>
+            </TouchableOpacity>
           </Container>
           <AlarmContainer>
             <TouchableOpacity
