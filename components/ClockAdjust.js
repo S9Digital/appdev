@@ -13,7 +13,7 @@ const WheelContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(43, 45, 48, 0.99);
   width: 100%;
   height: 100%;
 `;
@@ -28,12 +28,21 @@ const ScrollContainer = styled.View`
   flex: 1;
   display: flex;
   flex-direction: row;
+  width: 300px
   align-items: center;
   justify-content: center;
 `;
 
 const TimeButton = styled.View`
-  padding-left: 25px;
+  height: 30px;
+  width: 100px;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 `;
 const ButtonContainer = styled.View`
   flex: 1;
@@ -42,10 +51,12 @@ const ButtonContainer = styled.View`
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
+  width: 300px;
 `;
 
 const TimeText = styled.Text`
   font-size: 36px;
+  color: white;
 `;
 
 class ClockAdjust extends React.Component {
@@ -59,7 +70,7 @@ class ClockAdjust extends React.Component {
   render() {
     return (
       <WheelContainer>
-        <Text>Set Alarm</Text>
+        <Text style={{ fontSize: 12, color: "white" }}>Set Alarm</Text>
         <ScrollContainer>
           <ClockScroller
             data={hours}

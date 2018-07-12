@@ -103,6 +103,19 @@ class Landing extends React.Component {
 
   renderModalView() {
     if (this.props.modal !== null) {
+      let modal;
+      if (this.props.modal === "sounds") {
+        modal = <SleepSounds />;
+      } else if (this.props.modal === "alarm") {
+        modal = <AlarmSettings />;
+      } else if (this.props.modal === "lights") {
+        modal = <LightsAdjust />;
+      } else if (
+        this.props.modal === "sleepTime" ||
+        this.props.modal === "wakeTime"
+      ) {
+        modal = <ClockAdjust type={this.props.modal} />;
+      }
       return (
         <ModalContainer
           animationType="fade"
@@ -113,10 +126,7 @@ class Landing extends React.Component {
             alert("Modal has been closed.");
           }}
         >
-          {/* <ClockAdjust type={this.props.modal} /> */}
-          {/* <LightsAdjust type={this.props.modal} /> */}
-          {/* <SleepSounds /> */}
-          <AlarmSettings />
+          {modal}
         </ModalContainer>
       );
     }
