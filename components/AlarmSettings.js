@@ -5,7 +5,8 @@ import {
   View,
   Image,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  Slider
 } from "react-native";
 import styled from "styled-components";
 import { connect } from "react-redux";
@@ -61,6 +62,7 @@ const Duration = styled.View`
   flex: 1;
   justify-content: center;
   align-items: flex-start;
+  height: 30px;
 `;
 const DurationBar = styled.View`
   width: 500px;
@@ -102,7 +104,7 @@ class AlarmSettings extends React.Component {
     return (
       <Container>
         <PresetsContainer>
-          <Title>Select Alarm Sounds</Title>
+          <Title>Select Alarm Sound</Title>
           <Presets>
             <SoundScroller
               data={sleepSounds}
@@ -112,7 +114,27 @@ class AlarmSettings extends React.Component {
         </PresetsContainer>
         <Duration>
           <Title>Duration</Title>
-          <DurationBar />
+          <Slider
+            minimumTrackTintColor="rgb(202,207,218)"
+            maximumTrackTintColor="rgba(14,14,14,0.4)"
+            thumbTintColor="transparent"
+            trackStyle={{
+              height: 30,
+              width: 10,
+              borderwidth: 1,
+              borderRadius: 15,
+              backgroundColor: "rgb(202,207,218)"
+            }}
+            style={{
+              height: 20,
+              width: 500,
+              borderWidth: 1,
+              borderRadius: 15,
+              backgroundColor: "rgba(14,14,14,0.2)"
+            }}
+            value={0}
+            maximumValue={1}
+          />
         </Duration>
         <Info>
           <Title>

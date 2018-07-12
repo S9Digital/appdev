@@ -74,48 +74,40 @@ class SoundScroller extends React.Component {
     };
   }
 
-  //   scrollUp() {
-  //     const dataLength = this.props.data.length - 1;
-  //     const { itemsPerPage, page } = this.state;
-  //     let start = page + 1;
-  //     let end = page + 1 + itemsPerPage;
-  //     let newData = this.props.data.slice(start, end);
-  //     this.setState({ page: page + 1 });
-  //     if (end > dataLength + 1) {
-  //       newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
-  //       this.setState({ page: -2 });
-  //     }
-  //     if (start < 0) {
-  //       newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
-  //       this.setState({ page: -1 });
-  //     }
-  //     this.setState({ sound: [...newData] });
-  //     this.props.onPick(this.state.sound[1].key);
-  //   }
+  scrollRight() {
+    const dataLength = this.props.data.length - 1;
+    const { itemsPerPage, page } = this.state;
+    let start = page + 1;
+    let end = page + 1 + itemsPerPage;
+    let newData = this.props.data.slice(start, end);
+    this.setState({ page: page + 1 });
+    if (end > dataLength + 1) {
+      newData = this.props.data.slice(0, 1);
+      this.setState({ page: 0 });
+    }
+    this.setState({ sound: [...newData] });
+    this.props.onPick(this.state.sound[0].key);
+  }
 
-  //   scrollDown() {
-  //     const dataLength = this.props.data.length - 1;
-  //     const { itemsPerPage, page } = this.state;
-  //     let start = page - 1;
-  //     let end = page + itemsPerPage - 1;
-  //     let newData = this.props.data.slice(start, end);
-  //     this.setState({ page: page - 1 });
-  //     if (start === dataLength - 1) {
-  //       newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
-  //       this.setState({ page: dataLength - 1 });
-  //     }
-  //     if (start === -1) {
-  //       newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
-  //       this.setState({ page: dataLength });
-  //     }
-  //     this.setState({ sound: [...newData] });
-  //     this.props.onPick(this.state.sound[0].key);
-  //   }
+  scrollLeft() {
+    const dataLength = this.props.data.length - 1;
+    const { itemsPerPage, page } = this.state;
+    let start = page - 1;
+    let end = page + itemsPerPage - 1;
+    let newData = this.props.data.slice(start, end);
+    this.setState({ page: page - 1 });
+    if (start < 0) {
+      newData = this.props.data.slice(dataLength - 1, dataLength);
+      this.setState({ page: dataLength });
+    }
+    this.setState({ sound: [...newData] });
+    this.props.onPick(this.state.sound[0].key);
+  }
 
   render() {
     return (
       <WheelContainer>
-        <TouchableOpacity onPress={() => this.scrollUp()}>
+        <TouchableOpacity onPress={() => this.scrollLeft()}>
           <Button>
             <ButtonContainer>
               <Image
@@ -145,7 +137,7 @@ class SoundScroller extends React.Component {
             )}
           />
         </Container>
-        <TouchableOpacity onPress={() => this.scrollDown()}>
+        <TouchableOpacity onPress={() => this.scrollRight()}>
           <Button>
             <ButtonContainer>
               <Image

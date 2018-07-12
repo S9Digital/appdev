@@ -75,6 +75,8 @@ const ButtonContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  width: 100px;
 `;
 const Button = styled.View`
   border-radius: 30px;
@@ -83,8 +85,6 @@ const Button = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 30px;
 `;
 
 const Title = styled.Text`
@@ -128,7 +128,7 @@ class LightsAdjust extends React.Component {
         <ButtonContainer>
           <Button>
             <TouchableOpacity onPress={() => this.props.modalClose()}>
-              <Text>cancel</Text>
+              <Text style={{ padding: 10 }}>cancel</Text>
             </TouchableOpacity>
           </Button>
         </ButtonContainer>

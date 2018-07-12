@@ -110,7 +110,7 @@ class SleepSounds extends React.Component {
           <Presets>
             <SoundScroller
               data={sleepSounds}
-              //   onPick={sound => this.setState({ selectedSound: sound })}
+              onPick={sound => this.setState({ selectedSound: sound })}
             />
           </Presets>
         </PresetsContainer>
