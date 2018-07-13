@@ -4,6 +4,7 @@ import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
+import { lightTone, lightBrightness } from "../actions/LightActions";
 
 const Container = styled.View`
   display: flex;
@@ -96,7 +97,10 @@ const Title = styled.Text`
 class LightsAdjust extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      toneValue: this.props.lightTone,
+      brightnessValue: this.props.lightBrightness
+    };
   }
   render() {
     return (
@@ -127,7 +131,9 @@ class LightsAdjust extends React.Component {
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}
-            value={70}
+            step={1}
+            value={this.state.toneValue}
+            onValueChange={toneValue => this.setState({ toneValue })}
             maximumValue={100}
           />
         </Tone>
@@ -140,14 +146,24 @@ class LightsAdjust extends React.Component {
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}
-            value={20}
+            step={1}
+            value={this.state.brightnessValue}
+            onValueChange={brightnessValue =>
+              this.setState({ brightnessValue })
+            }
             maximumValue={100}
           />
         </Brightness>
         <ButtonContainer>
           <Button>
-            <TouchableOpacity onPress={() => this.props.modalClose()}>
-              <Text style={{ padding: 10 }}>cancel</Text>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.setLightTone(this.state.toneValue);
+                this.props.setLightBrightness(this.state.brightnessValue);
+                this.props.modalClose();
+              }}
+            >
+              <Text style={{ padding: 10 }}>DONE</Text>
             </TouchableOpacity>
           </Button>
         </ButtonContainer>
@@ -156,9 +172,17 @@ class LightsAdjust extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  modal: state.modal
+  modal: state.modal,
+  lightTone: state.lightTone,
+  lightBrightness: state.lightBrightness
 });
 const mapDispatchToProps = dispatch => ({
+  setLightTone: tone => {
+    return dispatch(lightTone(tone));
+  },
+  setLightBrightness: brightness => {
+    return dispatch(lightBrightness(brightness));
+  },
   modalOpen: component => {
     return dispatch(modalOpen(component));
   },

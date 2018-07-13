@@ -1,5 +1,6 @@
 import { SET_TIME, MODAL_OPEN, RETURN_HOME } from "./actions/TimeActions";
 import { SET_SLEEP_SOUND, SET_ALARM_DURATION } from "./actions/SoundActions";
+import { SET_LIGHT_TONE, SET_LIGHT_BRIGHTNESS } from "./actions/LightActions";
 import Moment from "react-moment";
 
 const DEFAULT_STATE = {
@@ -11,7 +12,8 @@ const DEFAULT_STATE = {
   alarmSoundId: "default",
   scene: "",
   lightsNumber: 0,
-  lightsLevel: 0,
+  lightBrightness: 20,
+  lightTone: 70,
   lightsPower: false,
   napEnd: 0,
   napSound: false,
@@ -50,6 +52,13 @@ export default function reducer(state = DEFAULT_STATE, action) {
     if (modal === "alarmTime") {
       return { ...state, alarmTime: str, alarm: true };
     }
+  }
+  //light
+  if (action.type === "SET_LIGHT_TONE") {
+    return { ...state, lightTone: action.tone };
+  }
+  if (action.type === "SET_LIGHT_BRIGHTNESS") {
+    return { ...state, lightBrightness: action.brightness };
   }
   //sound
   if (action.type == "SET_ALARM_DURATION") {
