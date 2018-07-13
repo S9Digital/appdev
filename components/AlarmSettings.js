@@ -11,6 +11,7 @@ import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
+import { alarmDuration } from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";
 
@@ -108,7 +109,8 @@ class AlarmSettings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedSound: "default"
+      selectedSound: "default",
+      value: this.props.alarmDuration
     };
   }
   render() {
@@ -133,9 +135,12 @@ class AlarmSettings extends React.Component {
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}
-            value={50}
-            maximumValue={100}
+            step={1}
+            value={this.state.value}
+            onValueChange={value => this.setState({ value })}
+            maximumValue={120}
           />
+          <Text style={{ color: "white" }}>{this.state.value}s</Text>
         </Duration>
         <Info>
           <Title>
@@ -154,7 +159,12 @@ class AlarmSettings extends React.Component {
             </TouchableOpacity>
           </Button2>
           <Button>
-            <TouchableOpacity onPress={() => this.props.modalClose()}>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.setAlarmDuration(this.state.value);
+                this.props.modalClose();
+              }}
+            >
               <Text style={{ padding: 10, fontSize: 10 }}>DONE</Text>
             </TouchableOpacity>
           </Button>
@@ -164,9 +174,13 @@ class AlarmSettings extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  modal: state.modal
+  modal: state.modal,
+  alarmDuration: state.alarmDuration
 });
 const mapDispatchToProps = dispatch => ({
+  setAlarmDuration: duration => {
+    return dispatch(alarmDuration(duration));
+  },
   modalOpen: component => {
     return dispatch(modalOpen(component));
   },

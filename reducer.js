@@ -1,5 +1,5 @@
 import { SET_TIME, MODAL_OPEN, RETURN_HOME } from "./actions/TimeActions";
-import { SET_SLEEP_SOUND } from "./actions/SoundActions";
+import { SET_SLEEP_SOUND, SET_ALARM_DURATION } from "./actions/SoundActions";
 import Moment from "react-moment";
 
 const DEFAULT_STATE = {
@@ -7,7 +7,7 @@ const DEFAULT_STATE = {
   sleepTime: null,
   alarm: false,
   alarmTime: null,
-  alarmDuration: 0,
+  alarmDuration: 60,
   alarmSoundId: "default",
   scene: "",
   lightsNumber: 0,
@@ -40,7 +40,6 @@ export default function reducer(state = DEFAULT_STATE, action) {
     const minutes = action.minutes;
     const modal = action.modal;
     const str = hour.concat(":").concat(minutes);
-    console.log(str);
     //Moment(str, "HH:mm")
     if (modal === "wakeTime") {
       return { ...state, wakeTime: str };
@@ -53,8 +52,10 @@ export default function reducer(state = DEFAULT_STATE, action) {
     }
   }
   //sound
+  if (action.type == "SET_ALARM_DURATION") {
+    return { ...state, alarmDuration: action.duration };
+  }
   if (action.type === "SET_SLEEP_SOUND") {
-    console.log(action.sound);
     return { ...state, alarmSoundId: action.sound };
   }
   return state;
