@@ -72,7 +72,11 @@ class SoundScroller extends React.Component {
       sound: this.props.data.slice(0, 1)
     };
   }
-
+  // componentDidMount() {
+  //   if (this.props.alarmSoundId !== this.state.sound) {
+  //     this.setState({ sound: this.props.alarmSoundId });
+  //   }
+  // }
   scrollRight() {
     const dataLength = this.props.data.length - 1;
     const { page } = this.state;
@@ -153,7 +157,9 @@ class SoundScroller extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({});
+const mapStateToProps = (state, props) => ({
+  alarmSoundId: state.alarmSoundId
+});
 const mapDispatchToProps = dispatch => ({});
 
 export default connect(

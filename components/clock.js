@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+//import LinearGreadient from "react-native-linear-gradient"; needs to be linked for android
 import styled from "styled-components";
 import Moment from "react-moment";
 import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
@@ -124,7 +125,7 @@ const mapDispatchToProps = dispatch => ({
     return dispatch(modalOpen(component));
   },
   modalClose: () => {
-    dispatch(returnHome());
+    return dispatch(returnHome());
   }
 });
 

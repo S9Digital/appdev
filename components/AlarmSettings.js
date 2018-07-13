@@ -5,9 +5,9 @@ import {
   View,
   Image,
   TouchableOpacity,
-  FlatList,
-  Slider
+  FlatList
 } from "react-native";
+import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
@@ -19,7 +19,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.99);
+  background-color: rgba(43, 45, 48, 0.95);
   width: 100%;
   height: 100%;
 `;
@@ -62,7 +62,7 @@ const Duration = styled.View`
   flex: 1;
   justify-content: center;
   align-items: flex-start;
-  height: 30px;
+  height: 100px;
 `;
 const DurationBar = styled.View`
   width: 500px;
@@ -76,7 +76,7 @@ const ButtonContainer = styled.View`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 100px;
+  width: 300px;
 `;
 const Button = styled.View`
   border-radius: 30px;
@@ -85,6 +85,17 @@ const Button = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  margin: 10px;
+`;
+const Button2 = styled.View`
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(83, 86, 91);
+  margin: 10px;
 `;
 
 const Title = styled.Text`
@@ -108,32 +119,22 @@ class AlarmSettings extends React.Component {
           <Presets>
             <SoundScroller
               data={sleepSounds}
-              //   onPick={sound => this.setState({ selectedSound: sound })}
+              onPick={sound => this.setState({ selectedSound: sound })}
             />
           </Presets>
         </PresetsContainer>
         <Duration>
           <Title>Duration</Title>
+
           <Slider
             minimumTrackTintColor="rgb(202,207,218)"
-            maximumTrackTintColor="rgba(14,14,14,0.4)"
-            thumbTintColor="transparent"
-            trackStyle={{
-              height: 30,
-              width: 10,
-              borderwidth: 1,
-              borderRadius: 15,
-              backgroundColor: "rgb(202,207,218)"
-            }}
-            style={{
-              height: 20,
-              width: 500,
-              borderWidth: 1,
-              borderRadius: 15,
-              backgroundColor: "rgba(14,14,14,0.2)"
-            }}
-            value={0}
-            maximumValue={1}
+            maximumTrackTintColor="rgba(24,24,24,1)"
+            thumbTintColor="white"
+            thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
+            trackStyle={{ height: 25, borderRadius: 20 }}
+            style={{ width: 500, height: 50 }}
+            value={50}
+            maximumValue={100}
           />
         </Duration>
         <Info>
@@ -145,9 +146,16 @@ class AlarmSettings extends React.Component {
           </Title>
         </Info>
         <ButtonContainer>
+          <Button2>
+            <TouchableOpacity onPress={() => this.props.modalClose()}>
+              <Text style={{ padding: 10, color: "white", fontSize: 10 }}>
+                PREVIEW
+              </Text>
+            </TouchableOpacity>
+          </Button2>
           <Button>
             <TouchableOpacity onPress={() => this.props.modalClose()}>
-              <Text style={{ padding: 10 }}>Close</Text>
+              <Text style={{ padding: 10, fontSize: 10 }}>DONE</Text>
             </TouchableOpacity>
           </Button>
         </ButtonContainer>

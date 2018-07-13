@@ -13,7 +13,7 @@ const WheelContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(43, 45, 48, 0.99);
+  background-color: rgba(43, 45, 48, 0.95);
   width: 100%;
   height: 100%;
 `;
@@ -52,6 +52,7 @@ const ButtonContainer = styled.View`
   justify-content: center;
   flex-wrap: nowrap;
   width: 300px;
+  height: 50px;
 `;
 
 const TimeText = styled.Text`

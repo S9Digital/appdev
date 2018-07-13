@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
@@ -9,7 +10,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.9);
+  background-color: rgba(43, 45, 48, 0.95);
   width: 100%;
   height: 100%;
 `;
@@ -119,11 +120,29 @@ class LightsAdjust extends React.Component {
         </PresetsContainer>
         <Tone>
           <Title>Tone</Title>
-          <ToneBar />
+          <Slider
+            minimumTrackTintColor="linear-gradient( rgb(205,255,255) 0%, rgb(253,254,198) 100%);"
+            maximumTrackTintColor="rgba(24,24,24,1)"
+            thumbTintColor="white"
+            thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
+            trackStyle={{ height: 25, borderRadius: 20 }}
+            style={{ width: 500, height: 50 }}
+            value={70}
+            maximumValue={100}
+          />
         </Tone>
         <Brightness>
           <Title>Brightness</Title>
-          <BrightnessBar />
+          <Slider
+            minimumTrackTintColor="rgb(202,207,218)"
+            maximumTrackTintColor="rgba(24,24,24,1)"
+            thumbTintColor="white"
+            thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
+            trackStyle={{ height: 25, borderRadius: 20 }}
+            style={{ width: 500, height: 50 }}
+            value={20}
+            maximumValue={100}
+          />
         </Brightness>
         <ButtonContainer>
           <Button>

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   FlatList
 } from "react-native";
+import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
@@ -19,7 +20,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.99);
+  background-color: rgba(43, 45, 48, 0.95);
   width: 100%;
   height: 100%;
 `;
@@ -117,11 +118,29 @@ class SleepSounds extends React.Component {
         </PresetsContainer>
         <Volume>
           <Title>Volume</Title>
-          <VolumeBar />
+          <Slider
+            minimumTrackTintColor="rgb(202,207,218)"
+            maximumTrackTintColor="rgba(24,24,24,1)"
+            thumbTintColor="white"
+            thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
+            trackStyle={{ height: 25, borderRadius: 20 }}
+            style={{ width: 500, height: 50 }}
+            value={50}
+            maximumValue={100}
+          />
         </Volume>
         <Duration>
           <Title>Duration</Title>
-          <DurationBar />
+          <Slider
+            minimumTrackTintColor="rgb(202,207,218)"
+            maximumTrackTintColor="rgba(24,24,24,1)"
+            thumbTintColor="white"
+            thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
+            trackStyle={{ height: 25, borderRadius: 20 }}
+            style={{ width: 500, height: 50 }}
+            value={50}
+            maximumValue={100}
+          />
         </Duration>
         <ButtonContainer>
           <Button>
