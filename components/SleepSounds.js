@@ -11,7 +11,11 @@ import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
-import { setSleepSound } from "../actions/SoundActions";
+import {
+  setSleepSound,
+  soundVolume,
+  soundDuration
+} from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";
 
@@ -101,7 +105,9 @@ class SleepSounds extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedSound: this.props.alarmSoundId
+      selectedSound: this.props.alarmSoundId,
+      volumeValue: this.props.sleepSoundVolume,
+      durationValue: this.props.sleepSoundDuration
     };
   }
   render() {
@@ -125,7 +131,9 @@ class SleepSounds extends React.Component {
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}
-            value={50}
+            step={1}
+            value={this.state.volumeValue}
+            onValueChange={volumeValue => this.setState({ volumeValue })}
             maximumValue={100}
           />
         </Volume>
@@ -138,7 +146,9 @@ class SleepSounds extends React.Component {
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}
-            value={50}
+            step={1}
+            value={this.state.durationValue}
+            onValueChange={durationValue => this.setState({ durationValue })}
             maximumValue={100}
           />
         </Duration>
@@ -147,6 +157,8 @@ class SleepSounds extends React.Component {
             <TouchableOpacity
               onPress={() => {
                 this.props.setSoundData(this.state.selectedSound);
+                this.props.setSoundVolume(this.state.volumeValue);
+                this.props.setSoundDuration(this.state.durationValue);
                 this.props.modalClose();
               }}
             >
@@ -160,11 +172,19 @@ class SleepSounds extends React.Component {
 }
 const mapStateToProps = state => ({
   modal: state.modal,
-  alarmSoundId: state.alarmSoundId
+  alarmSoundId: state.alarmSoundId,
+  sleepSoundDuration: state.sleepSoundDuration,
+  sleepSoundVolume: state.sleepSoundVolume
 });
 const mapDispatchToProps = dispatch => ({
   setSoundData: sound => {
     return dispatch(setSleepSound(sound));
+  },
+  setSoundVolume: volume => {
+    return dispatch(soundVolume(volume));
+  },
+  setSoundDuration: duration => {
+    return dispatch(soundDuration(duration));
   },
   modalOpen: component => {
     return dispatch(modalOpen(component));

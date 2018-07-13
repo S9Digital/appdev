@@ -1,5 +1,10 @@
 import { SET_TIME, MODAL_OPEN, RETURN_HOME } from "./actions/TimeActions";
-import { SET_SLEEP_SOUND, SET_ALARM_DURATION } from "./actions/SoundActions";
+import {
+  SET_SLEEP_SOUND,
+  SET_ALARM_DURATION,
+  SET_SOUND_VOLUME,
+  SET_SOUND_DURATION
+} from "./actions/SoundActions";
 import { SET_LIGHT_TONE, SET_LIGHT_BRIGHTNESS } from "./actions/LightActions";
 import Moment from "react-moment";
 
@@ -12,6 +17,8 @@ const DEFAULT_STATE = {
   alarmSoundId: "default",
   scene: "",
   lightsNumber: 0,
+  sleepSoundVolume: 50,
+  sleepSoundDuration: 50,
   lightBrightness: 20,
   lightTone: 70,
   lightsPower: false,
@@ -66,6 +73,12 @@ export default function reducer(state = DEFAULT_STATE, action) {
   }
   if (action.type === "SET_SLEEP_SOUND") {
     return { ...state, alarmSoundId: action.sound };
+  }
+  if (action.type == "SET_SOUND_VOLUME") {
+    return { ...state, sleepSoundVolume: action.volume };
+  }
+  if (action.type == "SET_SOUND_DURATION") {
+    return { ...state, sleepSoundDuration: action.duration };
   }
   return state;
 }
