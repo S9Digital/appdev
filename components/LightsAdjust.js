@@ -4,7 +4,11 @@ import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
-import { lightTone, lightBrightness } from "../actions/LightActions";
+import {
+  lightTone,
+  lightBrightness,
+  lightPreset
+} from "../actions/LightActions";
 
 const Container = styled.View`
   display: flex;
@@ -35,6 +39,9 @@ const Presets = styled.View`
 const Box = styled.View`
   display: flex;
   flex: 1;
+  border-width: 1px;
+  border-color: ${props =>
+    props.selected === true ? "rgba(158, 167, 182, 1)" : "rgba(0, 0, 0, 0.8)"};
   border-radius: 10px;
   justify-content: center;
   align-items: center;
@@ -99,27 +106,54 @@ class LightsAdjust extends React.Component {
     super(props);
     this.state = {
       toneValue: this.props.lightTone,
-      brightnessValue: this.props.lightBrightness
+      brightnessValue: this.props.lightBrightness,
+      scene: this.props.scene
     };
   }
+
   render() {
     return (
       <Container>
         <PresetsContainer>
           <Title>Presets</Title>
           <Presets>
-            <Box>
-              <BoxTitle>Relax</BoxTitle>
-            </Box>
-            <Box>
-              <BoxTitle>Bedtime</BoxTitle>
-            </Box>
-            <Box>
-              <BoxTitle>Engergize</BoxTitle>
-            </Box>
-            <Box>
-              <BoxTitle>Circadium</BoxTitle>
-            </Box>
+            <TouchableOpacity
+              style={{ flex: 1 }}
+              onPress={() => {
+                this.props.setLightPreset("relax");
+              }}
+            >
+              <Box selected={this.props.scene === "relax"}>
+                <BoxTitle>Relax</BoxTitle>
+              </Box>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.setLightPreset("bedtime");
+              }}
+            >
+              <Box selected={this.props.scene === "bedtime"}>
+                <BoxTitle>Bedtime</BoxTitle>
+              </Box>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.setLightPreset("energize");
+              }}
+            >
+              <Box selected={this.props.scene === "energize"}>
+                <BoxTitle>Engergize</BoxTitle>
+              </Box>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.setLightPreset("circadium");
+              }}
+            >
+              <Box selected={this.props.scene === "circadium"}>
+                <BoxTitle>Circadium</BoxTitle>
+              </Box>
+            </TouchableOpacity>
           </Presets>
         </PresetsContainer>
         <Tone>
@@ -174,7 +208,9 @@ class LightsAdjust extends React.Component {
 const mapStateToProps = state => ({
   modal: state.modal,
   lightTone: state.lightTone,
-  lightBrightness: state.lightBrightness
+  lightBrightness: state.lightBrightness,
+  scenes: state.scene,
+  scene: state.scene
 });
 const mapDispatchToProps = dispatch => ({
   setLightTone: tone => {
@@ -182,6 +218,9 @@ const mapDispatchToProps = dispatch => ({
   },
   setLightBrightness: brightness => {
     return dispatch(lightBrightness(brightness));
+  },
+  setLightPreset: preset => {
+    return dispatch(lightPreset(preset));
   },
   modalOpen: component => {
     return dispatch(modalOpen(component));

@@ -34,8 +34,9 @@ const LightBar = styled.View`
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
-  width: 200px;
+  width: 400px;
   height: 30px;
+  border-radius: 25px;
   background-color: #80e5ff;
 `;
 //colors to use when I get linear gradient working #b7ad70, #858ca8
@@ -70,6 +71,14 @@ const AmPmText = styled.Text`
   padding-top: 58px;
 `;
 
+const IconBorder = styled.View`
+  background-color: rgb(14, 14, 14);
+  border-radius: 35px;
+  margin: 5px;
+  height: 30px;
+  width: 30px;
+`;
+
 class Clock extends React.Component {
   constructor(props) {
     super(props);
@@ -85,16 +94,24 @@ class Clock extends React.Component {
       <BarContainer>
         <LightBar>
           <TouchableOpacity onPress={() => this.props.modalOpen("sleepTime")}>
-            <Image
-              style={{ width: 25, height: 25 }}
-              source={require("../assets/bell.png")}
-            />
+            <IconBorder>
+              <Image
+                style={{
+                  width: 25,
+                  height: 25,
+                  marginLeft: 2
+                }}
+                source={require("../assets/bell.png")}
+              />
+            </IconBorder>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.modalOpen("wakeTime")}>
-            <Image
-              style={{ width: 25, height: 25 }}
-              source={require("../assets/sleep.png")}
-            />
+            <IconBorder>
+              <Image
+                style={{ width: 25, height: 25, marginRight: -5 }}
+                source={require("../assets/sleep.png")}
+              />
+            </IconBorder>
           </TouchableOpacity>
         </LightBar>
       </BarContainer>
