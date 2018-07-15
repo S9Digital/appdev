@@ -118,7 +118,12 @@ class LightsAdjust extends React.Component {
           <Title>Presets</Title>
           <Presets>
             <TouchableOpacity
-              style={{ flex: 1 }}
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
               onPress={() => {
                 this.props.setLightPreset("relax");
               }}
@@ -128,6 +133,12 @@ class LightsAdjust extends React.Component {
               </Box>
             </TouchableOpacity>
             <TouchableOpacity
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
               onPress={() => {
                 this.props.setLightPreset("bedtime");
               }}
@@ -137,6 +148,12 @@ class LightsAdjust extends React.Component {
               </Box>
             </TouchableOpacity>
             <TouchableOpacity
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
               onPress={() => {
                 this.props.setLightPreset("energize");
               }}
@@ -146,6 +163,12 @@ class LightsAdjust extends React.Component {
               </Box>
             </TouchableOpacity>
             <TouchableOpacity
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
               onPress={() => {
                 this.props.setLightPreset("circadium");
               }}
