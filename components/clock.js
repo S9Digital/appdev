@@ -16,11 +16,31 @@ const ClockContainer = styled.View`
 `;
 
 const BarContainer = styled.View`
-  height: 100px;
+  display: flex;
+  flex: 1;
+  height: 200px;
+  padding-bottom: 200px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
-
+const TextBarTop = styled.View`
+  display: flex;
+  flex: 1;
+  width: 425px;
+  height: 30px;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+`;
+const TextBarBottom = styled.View`
+  display: flex;
+  flex: 1;
+  width: 425px;
+  height: 30px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
 const ScrollContainer = styled.View`
   flex: 1;
   display: flex;
@@ -57,18 +77,26 @@ const Container = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   width: 400px;
+  padding-top: 200px;
 `;
 
 const TimeText = styled.Text`
   font-size: 100px;
   color: white;
+  padding-top: 80px;
 `;
 const AmPmText = styled.Text`
   font-size: 25px;
   color: white;
-  padding-top: 58px;
+`;
+
+const AlarmText = styled.Text`
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
 `;
 
 const IconBorder = styled.View`
@@ -92,6 +120,10 @@ class Clock extends React.Component {
   renderLightBar() {
     return (
       <BarContainer>
+        <TextBarTop>
+          <AlarmText>Wake</AlarmText>
+          <AlarmText>Bedtime</AlarmText>
+        </TextBarTop>
         <LightBar>
           <TouchableOpacity onPress={() => this.props.modalOpen("sleepTime")}>
             <IconBorder>
@@ -114,6 +146,13 @@ class Clock extends React.Component {
             </IconBorder>
           </TouchableOpacity>
         </LightBar>
+        <TextBarBottom>
+          <AlarmText>7:00AM</AlarmText>
+          <AlarmText>10:00PM</AlarmText>
+        </TextBarBottom>
+        <Text style={{ color: "white", fontSize: 26 }}>
+          set my sleep schedule
+        </Text>
       </BarContainer>
     );
   }
@@ -126,7 +165,6 @@ class Clock extends React.Component {
           <Moment interval={1000} element={AmPmText} format=" A" />
         </Container>
         {this.renderLightBar()}
-        <Text style={{ color: "white" }}>set my sleep schedule</Text>
       </ClockContainer>
     );
   }
