@@ -56,6 +56,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
     const str = hour.concat(":").concat(minutes);
     //Moment(str, "HH:mm")
     if (modal === "wakeTime") {
+      console.log(str);
       return { ...state, wakeTime: str };
     }
     if (modal === "sleepTime") {

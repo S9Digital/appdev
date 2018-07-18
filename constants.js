@@ -13,6 +13,21 @@ export const hours = [
   { key: "12" }
 ];
 
+export const napHours = [
+  { key: "01" },
+  { key: "02" },
+  { key: "03" },
+  { key: "04" },
+  { key: "05" },
+  { key: "06" },
+  { key: "07" },
+  { key: "08" },
+  { key: "09" },
+  { key: "10" },
+  { key: "11" },
+  { key: "12" }
+];
+
 export const minutes = [
   { key: "00" },
   { key: "01" },

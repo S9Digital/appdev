@@ -13,9 +13,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import styled from "styled-components";
 import Moment from "react-moment";
-// import GestureRecognizer, {
-//   swipeDirections
-// } from "react-native-swipe-gestures";
 import { hours, minutes, timeOfDay } from "../constants";
 
 const Wrapper = styled.View`
@@ -29,19 +26,18 @@ const WheelContainer = styled.View`
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 240px;
+  width: 500px;
   align-items: center;
   justify-content: center;
 `;
-
-const screenHeight = Dimensions.get("window").height;
-const screenWidth = Dimensions.get("window").width;
 
 class ClockScroller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       itemsPerPage: 3,
-      time: this.props.data.slice(0, 5),
+      time: this.props.data,
       page: 0
     };
   }
@@ -91,10 +87,6 @@ class ClockScroller extends React.Component {
   render() {
     return (
       <WheelContainer>
-        {/* <GestureRecognizer
-          onSwipeUp={state => this.onSwipeUp(state)}
-          onSwipeDown={state => this.onSwipeDown(state)}
-        > */}
         <FlatList
           pagingEnabled
           data={this.state.time}
@@ -104,7 +96,7 @@ class ClockScroller extends React.Component {
             <View
               style={{
                 width: 40,
-                height: 50,
+                height: 48,
                 flex: 1,
                 justifyContent: "center",
                 alignItems: "center"
@@ -114,7 +106,6 @@ class ClockScroller extends React.Component {
             </View>
           )}
         />
-        {/* </GestureRecognizer> */}
       </WheelContainer>
     );
   }

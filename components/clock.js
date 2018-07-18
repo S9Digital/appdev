@@ -92,19 +92,30 @@ const AmPmText = styled.Text`
   color: white;
 `;
 
-const AlarmText = styled.Text`
+const AlarmTitle = styled.Text`
   font-size: 16px;
   color: white;
   font-weight: bold;
-  padding: 10px;
+  margin: 5px;
+`;
+
+const AlarmText = styled.Text`
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 5px;
 `;
 
 const IconBorder = styled.View`
   background-color: rgb(14, 14, 14);
-  border-radius: 35px;
-  margin: 5px;
+  border-radius: 30px;
+  margin: 1px;
+  padding: 5px;
   height: 30px;
   width: 30px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 class Clock extends React.Component {
@@ -121,37 +132,45 @@ class Clock extends React.Component {
     return (
       <BarContainer>
         <TextBarTop>
-          <AlarmText>Wake</AlarmText>
-          <AlarmText>Bedtime</AlarmText>
+          <AlarmTitle>Wake</AlarmTitle>
+          <AlarmTitle>Bedtime</AlarmTitle>
         </TextBarTop>
         <LightBar>
-          <TouchableOpacity onPress={() => this.props.modalOpen("sleepTime")}>
+          <TouchableOpacity onPress={() => this.props.modalOpen("wakeTime")}>
             <IconBorder>
               <Image
                 style={{
-                  width: 25,
-                  height: 25,
-                  marginLeft: 2
+                  width: 20,
+                  height: 20
                 }}
                 source={require("../assets/bell.png")}
               />
             </IconBorder>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.modalOpen("wakeTime")}>
+          <TouchableOpacity onPress={() => this.props.modalOpen("sleepTime")}>
             <IconBorder>
               <Image
-                style={{ width: 25, height: 25, marginRight: -5 }}
+                style={{ width: 20, height: 20 }}
                 source={require("../assets/sleep.png")}
               />
             </IconBorder>
           </TouchableOpacity>
         </LightBar>
         <TextBarBottom>
-          <AlarmText>7:00AM</AlarmText>
+          <Moment element={AlarmText} format="h:mm A">
+            {this.props.wakeTime ? this.props.wakeTime : null}
+          </Moment>
           <AlarmText>10:00PM</AlarmText>
         </TextBarBottom>
-        <Text style={{ color: "white", fontSize: 26 }}>
-          set my sleep schedule
+        <Text
+          style={{
+            color: "white",
+            fontWeight: "bold",
+            fontSize: 20,
+            marginTop: 30
+          }}
+        >
+          Set my sleep schedule
         </Text>
       </BarContainer>
     );

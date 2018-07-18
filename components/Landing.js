@@ -35,13 +35,19 @@ const Wrapper = styled.View`
   width: 100%;
   height: 100%;
 `;
-const WideSection = styled.View`
+const LeftSection = styled.View`
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 `;
-const NarrowSection = styled.View`
+const RightSection = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+`;
+const Section = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
@@ -51,19 +57,18 @@ const Button = styled.View`
   background-color: #000000;
   flex-direction: row;
   flex-wrap: nowrap;
-  border-radius: 20px;
+  border-radius: 35px;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 40px;
+  width: 160px;
+  height: 45px;
   margin-bottom: 10px;
 `;
 const ButtonText = styled.Text`
   color: white;
-  margin-left: 20px;
+  font-size: 14px;
+  margin-left: 10px;
 `;
-//  margin-right: 10px;
-//margin-bottom: 5px;
 const ButtonContainer = styled.View`
   border-radius: 25px;
   border: 2px solid #279fdc;
@@ -74,16 +79,31 @@ const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
-  padding-bottom: 20px;
+  justify-content: flex-start;
+  margin: 20px;
 `;
-
+const PowerContainer = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 20px;
+`;
+const PowerTextContainer = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+`;
 const AlarmContainer = styled.View`
   flex: 1;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-bottom: 25px;
+  margin-bottom: 25px;
+  margin-right: 25px;
 `;
 const ModalContainer = styled.Modal`
   flex: 1;
@@ -136,23 +156,26 @@ class Landing extends React.Component {
       <Wrapper>
         {/* <StatusBar hidden={true} /> not working here or on modal*/}
         {this.renderModalView()}
-        <WideSection>
+        <LeftSection>
           <Container>
             <ButtonText>weather</ButtonText>
           </Container>
-          <Container>
+          <PowerContainer>
             <ButtonContainer>
               <Image
                 style={{ width: 20, height: 20 }}
                 source={require("../assets/power-button-off.png")}
               />
             </ButtonContainer>
-          </Container>
-        </WideSection>
-        <NarrowSection>
+            <PowerTextContainer>
+              <ButtonText>Screen Off</ButtonText>
+            </PowerTextContainer>
+          </PowerContainer>
+        </LeftSection>
+        <Section>
           <Clock />
-        </NarrowSection>
-        <WideSection>
+        </Section>
+        <RightSection>
           <Container>
             <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
               <Button>
@@ -166,7 +189,7 @@ class Landing extends React.Component {
             <TouchableOpacity onPress={() => this.props.modalOpen("alarm")}>
               <Button>
                 <Image
-                  style={{ width: 20, height: 20, marginRight: 2 }}
+                  style={{ width: 20, height: 20 }}
                   source={require("../assets/stopwatch.png")}
                 />
                 <ButtonText style={{ marginRight: 10 }}>Take A Nap</ButtonText>
@@ -189,7 +212,7 @@ class Landing extends React.Component {
               }
             >
               <ButtonText>
-                {this.state.alarmText ? "Alarm On" : "Alarm Off"}
+                {this.state.alarmText ? "ALARM ON" : "ALARM OFF"}
               </ButtonText>
               <Image
                 style={{ width: 20, height: 20, opacity: 0.7 }}
@@ -197,7 +220,7 @@ class Landing extends React.Component {
               />
             </TouchableOpacity>
           </AlarmContainer>
-        </WideSection>
+        </RightSection>
       </Wrapper>
     );
   }
