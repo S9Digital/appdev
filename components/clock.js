@@ -59,7 +59,7 @@ const LightBar = styled.View`
   border-radius: 25px;
   background-color: #80e5ff;
 `;
-//colors to use when I get linear gradient working #b7ad70, #858ca8
+
 const TimeButton = styled.View`
   padding-left: 25px;
 `;

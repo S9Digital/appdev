@@ -156,20 +156,17 @@ class Landing extends React.Component {
         modal = <ClockAdjust type={this.props.modal} />;
       }
       return (
-        <View>
-          <StatusBar hidden={true} />
-          <ModalContainer
-            animationType="fade"
-            transparent={true}
-            supportedOrientations={["portrait", "landscape"]}
-            visible={true}
-            onRequestClose={() => {
-              alert("Modal has been closed.");
-            }}
-          >
-            {modal}
-          </ModalContainer>
-        </View>
+        <ModalContainer
+          animationType="fade"
+          transparent={true}
+          supportedOrientations={["portrait", "landscape"]}
+          visible={true}
+          onRequestClose={() => {
+            alert("Modal has been closed.");
+          }}
+        >
+          {modal}
+        </ModalContainer>
       );
     }
   }
