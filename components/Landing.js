@@ -71,9 +71,8 @@ const ButtonText = styled.Text`
 `;
 const ButtonContainer = styled.View`
   border-radius: 25px;
-  border: 2px solid #279fdc;
+  border: 3px solid #d32b4f;
   padding: 10px;
-  opacity: 0.8;
 `;
 const Container = styled.View`
   flex: 1;
@@ -164,7 +163,7 @@ class Landing extends React.Component {
             <ButtonContainer>
               <Image
                 style={{ width: 20, height: 20 }}
-                source={require("../assets/power-button-off.png")}
+                source={require("../assets/power.png")}
               />
             </ButtonContainer>
             <PowerTextContainer>
@@ -181,7 +180,7 @@ class Landing extends React.Component {
               <Button>
                 <Image
                   style={{ width: 20, height: 20 }}
-                  source={require("../assets/bell.png")}
+                  source={require("../assets/lightbulb.png")}
                 />
                 <ButtonText>Adjust Lights</ButtonText>
               </Button>
@@ -199,7 +198,7 @@ class Landing extends React.Component {
               <Button>
                 <Image
                   style={{ width: 20, height: 20 }}
-                  source={require("../assets/bell.png")}
+                  source={require("../assets/notes.png")}
                 />
                 <ButtonText>Sleep Sounds</ButtonText>
               </Button>
@@ -215,7 +214,7 @@ class Landing extends React.Component {
                 {this.state.alarmText ? "ALARM ON" : "ALARM OFF"}
               </ButtonText>
               <Image
-                style={{ width: 20, height: 20, opacity: 0.7 }}
+                style={{ width: 20, height: 20 }}
                 source={require("../assets/bell.png")}
               />
             </TouchableOpacity>

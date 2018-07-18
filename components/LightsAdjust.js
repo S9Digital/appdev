@@ -13,9 +13,9 @@ import {
 const Container = styled.View`
   display: flex;
   flex: 1;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.95);
+  background-color: rgba(43, 45, 48, 0.98);
   width: 100%;
   height: 100%;
 `;
@@ -23,8 +23,10 @@ const Container = styled.View`
 const PresetsContainer = styled.View`
   display: flex;
   flex: 1;
-  width: 400px;
+  width: 500px;
+  height: 180px;
   margin-bottom: 20px;
+  margin-top: 50px;
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
@@ -35,21 +37,24 @@ const Presets = styled.View`
   display: flex;
   flex: 1;
   flex-direction: row;
+  margin-top: 5px;
 `;
 const Box = styled.View`
   display: flex;
   flex: 1;
-  border-width: 1px;
+  border-width: 1.5px;
   border-color: ${props =>
-    props.selected === true ? "rgba(158, 167, 182, 1)" : "rgba(0, 0, 0, 0.8)"};
-  border-radius: 10px;
+    props.selected === true
+      ? "rgba(158, 167, 182, 0.8)"
+      : "rgba(23, 23, 24, 0.8)"};
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 90px;
-  height: 80px;
-  margin: 5px;
+  background-color: rgba(23, 23, 24, 0.8);
+  width: 115px;
+  height: 110px;
+  margin: 4px;
 `;
 const BoxTitle = styled.Text`
   font-size: 12;
@@ -61,35 +66,25 @@ const Tone = styled.View`
   justify-content: center;
   align-items: flex-start;
 `;
-const ToneBar = styled.View`
-  width: 400px;
-  height: 30px;
-  border-radius: 30px;
-  background-color: white;
-`;
 const Brightness = styled.View`
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: flex-start;
 `;
-const BrightnessBar = styled.View`
-  width: 400px;
-  height: 30px;
-  border-radius: 30px;
-  background-color: white;
-`;
+
 const ButtonContainer = styled.View`
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 100px;
+  width: 200px;
 `;
 const Button = styled.View`
   border-radius: 30px;
   background-color: white;
+  width: 100px;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -97,9 +92,8 @@ const Button = styled.View`
 `;
 
 const Title = styled.Text`
-  font-size: 20;
+  font-size: 14;
   color: white;
-  margin-bottom: 5px;
 `;
 class LightsAdjust extends React.Component {
   constructor(props) {
@@ -118,12 +112,6 @@ class LightsAdjust extends React.Component {
           <Title>Presets</Title>
           <Presets>
             <TouchableOpacity
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
               onPress={() => {
                 this.props.setLightPreset("relax");
               }}
@@ -133,12 +121,6 @@ class LightsAdjust extends React.Component {
               </Box>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
               onPress={() => {
                 this.props.setLightPreset("bedtime");
               }}
@@ -148,12 +130,6 @@ class LightsAdjust extends React.Component {
               </Box>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
               onPress={() => {
                 this.props.setLightPreset("energize");
               }}
@@ -163,12 +139,6 @@ class LightsAdjust extends React.Component {
               </Box>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
               onPress={() => {
                 this.props.setLightPreset("circadium");
               }}

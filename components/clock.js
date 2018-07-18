@@ -88,8 +88,9 @@ const TimeText = styled.Text`
   padding-top: 80px;
 `;
 const AmPmText = styled.Text`
-  font-size: 25px;
+  font-size: 20px;
   color: white;
+  margin-bottom: 25px;
 `;
 
 const AlarmTitle = styled.Text`
@@ -143,14 +144,14 @@ class Clock extends React.Component {
                   width: 20,
                   height: 20
                 }}
-                source={require("../assets/bell.png")}
+                source={require("../assets/sun.png")}
               />
             </IconBorder>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.modalOpen("sleepTime")}>
             <IconBorder>
               <Image
-                style={{ width: 20, height: 20 }}
+                style={{ width: 16, height: 16 }}
                 source={require("../assets/sleep.png")}
               />
             </IconBorder>

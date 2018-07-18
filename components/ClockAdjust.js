@@ -13,7 +13,7 @@ const Container = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(43, 45, 48, 0.95);
+  background-color: rgba(43, 45, 48, 0.98);
   width: 100%;
   height: 100%;
 `;
@@ -22,29 +22,31 @@ const Content = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 `;
 
 const ScrollContainer = styled.View`
   flex: 1;
   display: flex;
   flex-direction: row;
-  width: 300px
+  width: 400px
   height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: rgba(24, 24, 24, 0.8);
   border-radius: 35px;
   align-items: center;
   justify-content: center;
-  margin-top: 200px;
-  margin-bottom: 200px;
-  z-index: 1;
+  z-index: 3;
 `;
 const AlarmContainer = styled.View`
   flex: 1;
   display: flex;
   width: 400px;
   height: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -79,6 +81,7 @@ const TimeText = styled.Text`
 const InfoText = styled.Text`
   font-size: 14px;
   color: white;
+  margin-right: 50px;
 `;
 class ClockAdjust extends React.Component {
   constructor(props) {
@@ -137,7 +140,15 @@ class ClockAdjust extends React.Component {
     return (
       <AlarmContainer>
         <InfoText>Select alarm sound</InfoText>
-        <InfoText>Classic -></InfoText>
+        <TouchableOpacity>
+          <InfoText>
+            Classic{" "}
+            <Image
+              style={{ width: 12, height: 12 }}
+              source={require("../assets/arrow.png")}
+            />
+          </InfoText>
+        </TouchableOpacity>
       </AlarmContainer>
     );
   }

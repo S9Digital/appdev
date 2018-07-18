@@ -24,7 +24,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.95);
+  background-color: rgba(43, 45, 48, 0.98);
   width: 100%;
   height: 100%;
 `;
