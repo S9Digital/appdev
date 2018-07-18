@@ -115,16 +115,6 @@ const Slider = styled.View`
   border-radius: 14px;
   margin: 5px;
 `;
-// &:before {
-//     position: absolute;
-//     content: "";
-//     height: 8px;
-//     width: 20px;
-//     left: 4px;
-//     bottom: 4px;
-//     background-color: white;
-//     border-radius: 50%;
-//   }
 const SliderThumb = styled.View`
   height: 30;
   width: 30;
@@ -132,14 +122,6 @@ const SliderThumb = styled.View`
   background-color: rgb(17, 134, 117);
   margin-left: ${props => (props.alarm === true ? 30 : 0)};
 `;
-//17,134, 117
-//  transition: 0.4s;
-// const Input = styled.Input`
-//   &:checked {
-//     background-color: #2196f3;
-//     transform: translateX(26px);
-//   }
-// `;
 const ModalContainer = styled.Modal`
   flex: 1;
   display: flex;
