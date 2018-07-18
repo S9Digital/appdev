@@ -9,6 +9,7 @@ import {
   lightBrightness,
   lightPreset
 } from "../actions/LightActions";
+import _ from "underscore";
 
 const Container = styled.View`
   display: flex;
@@ -206,15 +207,15 @@ const mapStateToProps = state => ({
   scene: state.scene
 });
 const mapDispatchToProps = dispatch => ({
-  setLightTone: tone => {
+  setLightTone: _.throttle(tone => {
     return dispatch(lightTone(tone));
-  },
-  setLightBrightness: brightness => {
+  }, 1500),
+  setLightBrightness: _.throttle(brightness => {
     return dispatch(lightBrightness(brightness));
-  },
-  setLightPreset: preset => {
+  }, 1500),
+  setLightPreset: _.throttle(preset => {
     return dispatch(lightPreset(preset));
-  },
+  }, 1500),
   modalOpen: component => {
     return dispatch(modalOpen(component));
   },

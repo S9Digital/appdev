@@ -99,16 +99,54 @@ const PowerTextContainer = styled.View`
 const AlarmContainer = styled.View`
   flex: 1;
   display: flex;
+  flex-direction: row;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: center;
+  flex-wrap: nowrap;
+  height: 100px;
+  width: 250px;
   margin-bottom: 25px;
   margin-right: 25px;
 `;
+const Slider = styled.View`
+  background-color: rgba(17, 134, 117, 0.5);
+  height: 30px;
+  width: 60px;
+  border-radius: 14px;
+  margin: 5px;
+`;
+// &:before {
+//     position: absolute;
+//     content: "";
+//     height: 8px;
+//     width: 20px;
+//     left: 4px;
+//     bottom: 4px;
+//     background-color: white;
+//     border-radius: 50%;
+//   }
+const SliderThumb = styled.View`
+  height: 30;
+  width: 30;
+  border-radius: 30;
+  background-color: rgb(17, 134, 117);
+  margin-left: ${props => (props.alarm === true ? 30 : 0)};
+`;
+//17,134, 117
+//  transition: 0.4s;
+// const Input = styled.Input`
+//   &:checked {
+//     background-color: #2196f3;
+//     transform: translateX(26px);
+//   }
+// `;
 const ModalContainer = styled.Modal`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 `;
 
 class Landing extends React.Component {
@@ -136,98 +174,128 @@ class Landing extends React.Component {
         modal = <ClockAdjust type={this.props.modal} />;
       }
       return (
-        <ModalContainer
-          animationType="fade"
-          transparent={true}
-          supportedOrientations={["portrait", "landscape"]}
-          visible={true}
-          onRequestClose={() => {
-            alert("Modal has been closed.");
-          }}
-        >
-          {modal}
-        </ModalContainer>
+        <View>
+          <StatusBar hidden={true} />
+          <ModalContainer
+            animationType="fade"
+            transparent={true}
+            supportedOrientations={["portrait", "landscape"]}
+            visible={true}
+            onRequestClose={() => {
+              alert("Modal has been closed.");
+            }}
+          >
+            {modal}
+          </ModalContainer>
+        </View>
       );
     }
   }
-  render() {
+
+  renderLeft() {
     return (
-      <Wrapper>
-        {/* <StatusBar hidden={true} /> not working here or on modal*/}
-        {this.renderModalView()}
-        <LeftSection>
-          <Container>
-            <ButtonText>weather</ButtonText>
-          </Container>
-          <PowerContainer>
-            <ButtonContainer>
+      <LeftSection>
+        <Container>
+          <ButtonText>weather</ButtonText>
+        </Container>
+        <PowerContainer>
+          <ButtonContainer>
+            <Image
+              style={{ width: 20, height: 20 }}
+              source={require("../assets/power.png")}
+            />
+          </ButtonContainer>
+          <PowerTextContainer>
+            <ButtonText>Screen Off</ButtonText>
+          </PowerTextContainer>
+        </PowerContainer>
+      </LeftSection>
+    );
+  }
+
+  renderRight() {
+    return (
+      <RightSection>
+        <Container>
+          <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
+            <Button>
               <Image
                 style={{ width: 20, height: 20 }}
-                source={require("../assets/power.png")}
+                source={require("../assets/lightbulb.png")}
               />
-            </ButtonContainer>
-            <PowerTextContainer>
-              <ButtonText>Screen Off</ButtonText>
-            </PowerTextContainer>
-          </PowerContainer>
-        </LeftSection>
-        <Section>
-          <Clock />
-        </Section>
-        <RightSection>
-          <Container>
-            <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
-              <Button>
-                <Image
-                  style={{ width: 20, height: 20 }}
-                  source={require("../assets/lightbulb.png")}
-                />
-                <ButtonText>Adjust Lights</ButtonText>
-              </Button>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.props.modalOpen("alarm")}>
-              <Button>
-                <Image
-                  style={{ width: 20, height: 20 }}
-                  source={require("../assets/stopwatch.png")}
-                />
-                <ButtonText style={{ marginRight: 10 }}>Take A Nap</ButtonText>
-              </Button>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.props.modalOpen("sounds")}>
-              <Button>
-                <Image
-                  style={{ width: 20, height: 20 }}
-                  source={require("../assets/notes.png")}
-                />
-                <ButtonText>Sleep Sounds</ButtonText>
-              </Button>
-            </TouchableOpacity>
-          </Container>
-          <AlarmContainer>
-            <TouchableOpacity
-              onPress={() =>
-                this.setState({ alarmText: !this.state.alarmText })
-              }
+              <ButtonText>Adjust Lights</ButtonText>
+            </Button>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.modalOpen("alarm")}>
+            <Button>
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require("../assets/stopwatch.png")}
+              />
+              <ButtonText style={{ marginRight: 10 }}>Take A Nap</ButtonText>
+            </Button>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.modalOpen("sounds")}>
+            <Button>
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require("../assets/notes.png")}
+              />
+              <ButtonText>Sleep Sounds</ButtonText>
+            </Button>
+          </TouchableOpacity>
+        </Container>
+        <AlarmContainer>
+          <Image
+            style={{ width: 40, height: 40 }}
+            source={require("../assets/bell.png")}
+          />
+          <TouchableOpacity
+            style={{ flex: 1, flexDirection: "row" }}
+            onPress={() => this.setState({ alarmText: !this.state.alarmText })}
+          >
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "flex-start",
+                alignItems: "center",
+                flexDirection: "column",
+                height: 50,
+                width: 200
+              }}
             >
               <ButtonText>
                 {this.state.alarmText ? "ALARM ON" : "ALARM OFF"}
               </ButtonText>
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require("../assets/bell.png")}
-              />
-            </TouchableOpacity>
-          </AlarmContainer>
-        </RightSection>
+              <ButtonText>10:00</ButtonText>
+            </View>
+            <Slider>
+              <SliderThumb alarm={this.state.alarmText} />
+            </Slider>
+          </TouchableOpacity>
+        </AlarmContainer>
+      </RightSection>
+    );
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        {this.renderModalView()}
+        {this.renderLeft()}
+        <Section>
+          <Clock />
+        </Section>
+        {this.renderRight()}
       </Wrapper>
     );
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   alarmTime: state.alarmTime,
-  modal: state.modal
+  modal: state.modal,
+  alarm: state.alarm
 });
 const mapDispatchToProps = dispatch => ({
   setTime: (hour, mins) => {

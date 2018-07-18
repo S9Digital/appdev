@@ -27,6 +27,8 @@ export default class App extends React.Component {
           }}
           source={require("./assets/mountain_background.jpg")}
         >
+          <StatusBar hidden={true} />
+
           <Landing />
         </ImageBackground>
       </Provider>
