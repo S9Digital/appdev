@@ -13,8 +13,14 @@ import { compose } from "redux";
 import thunk from "redux-thunk";
 import store from "./store";
 import Landing from "./components/Landing";
+import { System } from "../System";
 
 export default class App extends React.Component {
+
+  await System.getInstance().getWaitLock();
+  await System.getInstance().releaseWakeLock();
+  System.getInstance().getWaitLock();
+
   render() {
     return (
       <Provider store={store}>
