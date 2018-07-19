@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+   "name": "Ario Light",
+   "icon": "./assets/lightbulb.png",
+   "version": "1.0.0",
+   "slug": "ArioLight",
+   "sdkVersion": "27.0.0",
+   "ios": {
+     "bundleIdentifier": "com.ArioHospitality.ArioLight"
+   },
+   "android": {
+     "package": "com.ArioHospitality.ArioLight"
+   }
   }
 }

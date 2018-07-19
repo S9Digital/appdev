@@ -171,7 +171,7 @@ class Clock extends React.Component {
             marginTop: 30
           }}
         >
-          Set my sleep schedule
+          HI Set my sleep schedule
         </Text>
       </BarContainer>
     );
