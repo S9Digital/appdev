@@ -36,9 +36,6 @@ const DEFAULT_STATE = {
   userActions: []
 };
 
-//tracking to be added
-//modalEntry: {enter: 0, leave: 0, duration: 0, modalType: '',  }
-//landing: {enter: 0, leave: 0, duration: 0, firstButtonClicked: ''}
 newDate() {
   const time = new Date();
   return time;
