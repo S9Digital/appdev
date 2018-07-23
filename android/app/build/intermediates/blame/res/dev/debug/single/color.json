@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_hint_foreground_material_dark.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_hint_foreground_material_light.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/wallet_secondary_text_holo_dark.xml",
+        "source": "/Users/acatmore/.android/build-cache/93c6799aaa38af787fcb90c1242679ad1b42da0e/output/res/color/wallet_secondary_text_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/switch_thumb_material_dark.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/wallet_primary_text_holo_light.xml",
+        "source": "/Users/acatmore/.android/build-cache/93c6799aaa38af787fcb90c1242679ad1b42da0e/output/res/color/wallet_primary_text_holo_light.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/acatmore/.android/build-cache/4954c32a90967e14040c862edeaaf531b0bdff00/output/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/switch_thumb_material_light.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_search_url_text.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_primary_text_material_light.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/com_facebook_send_button_text_color.xml",
+        "source": "/Users/acatmore/.android/build-cache/2e6a92d4ce2a56e4c3edad1b1a6e8ff2b56ea701/output/res/color/com_facebook_send_button_text_color.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/com_facebook_button_text_color.xml",
+        "source": "/Users/acatmore/.android/build-cache/3ea058b0d68c1c2ba0865707d58188f64a8ee03a/output/res/color/com_facebook_button_text_color.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color/common_google_signin_btn_text_light.xml",
+        "source": "/Users/acatmore/.android/build-cache/4954c32a90967e14040c862edeaaf531b0bdff00/output/res/color/common_google_signin_btn_text_light.xml"
+    }
+]

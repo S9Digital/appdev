@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-android-accelerometer/android/react-native-android-accelerometer.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-android-accelerometer/android/react-native-android-accelerometer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-android-wakelock/android/react-native-android-wakelock.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-android-wakelock/android/react-native-android-wakelock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-linear-gradient/android/react-native-linear-gradient.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-linear-gradient/android/react-native-linear-gradient.iml" />
+    </modules>
+  </component>
+</project>

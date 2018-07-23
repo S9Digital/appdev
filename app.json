@@ -6,12 +6,12 @@
     "slug": "Ario-Light",
     "sdkVersion": "27.0.0",
     "ios": {
-      "bundleIdentifier": "com.yourcompany.yourappname",
+      "bundleIdentifier": "com.yourcompany.ArioLight",
       "publishBundlePath": "ios/ario-light/Supporting/shell-app.bundle",
       "publishManifestPath": "ios/ario-light/Supporting/shell-app-manifest.json"
     },
     "android": {
-      "package": "com.yourcompany.yourappname",
+      "package": "com.ArioHospitality.ArioLight",
       "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
       "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
     },

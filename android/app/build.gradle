@@ -21,7 +21,8 @@ android {
 
   defaultConfig {
     applicationId 'com.yourcompany.yourappname'
-    targetSdkVersion 25
+    minSdkVersion 23
+    targetSdkVersion 26
     versionCode 1
     versionName '1.0.0'
     ndk {
@@ -43,19 +44,23 @@ android {
       // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
       // to pre-dex each module and produce an APK that can be tested on
       // Android Lollipop without time consuming dex merging processes.
-      minSdkVersion 21
+      minSdkVersion 23
+      targetSdkVersion 26
     }
     devRemoteKernel {
-      minSdkVersion 21
+      minSdkVersion 23
+      targetSdkVersion 26
     }
-    dev19 {
+    // dev19 {
       // For debugging / development on older SDK versions. Increases build
       // time so use 'dev' if not running on older SDKs.
-      minSdkVersion 19
-    }
+    //   minSdkVersion 23
+    //   targetSdkVersion 26
+    // }
     prod {
       // The actual minSdkVersion for the application.
-      minSdkVersion 19
+      minSdkVersion 23
+      targetSdkVersion 26
     }
   }
   buildTypes {
