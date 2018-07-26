@@ -27,6 +27,7 @@ import {
   returnHome
 } from "../actions/TimeActions";
 
+//structure
 const Wrapper = styled.View`
   display: flex;
   align-items: center;
@@ -53,6 +54,14 @@ const Section = styled.View`
   align-items: center;
   justify-content: center;
 `;
+const Container = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin: 20px;
+`;
+//buttons
 const Button = styled.View`
   background-color: #000000;
   flex-direction: row;
@@ -74,13 +83,41 @@ const ButtonContainer = styled.View`
   border: 3px solid #d32b4f;
   padding: 10px;
 `;
-const Container = styled.View`
+//weather
+const WeatherContainer = styled.View`
   flex: 1;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: flex-start;
   margin: 20px;
 `;
+const WeatherDataWrapper = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 10px;
+`;
+const WeatherData = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 5px;
+`;
+const WeatherText = styled.Text`
+  color: white;
+  opacity: 0.8;
+  font-size: 16px;
+`;
+const WeatherNumber = styled.Text`
+  color: white;
+  font-size: 40px;
+  margin-right: 10px;
+`;
+//power
 const PowerContainer = styled.View`
   flex: 1;
   display: flex;
@@ -96,6 +133,7 @@ const PowerTextContainer = styled.View`
   justify-content: flex-start;
   margin-bottom: 15px;
 `;
+//alarm
 const AlarmContainer = styled.View`
   flex: 1;
   display: flex;
@@ -107,6 +145,15 @@ const AlarmContainer = styled.View`
   width: 250px;
   margin-bottom: 25px;
   margin-right: 25px;
+`;
+const AlarmButton = styled.View`
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 50px;
+  width: 200px;
 `;
 const Slider = styled.View`
   background-color: rgba(17, 134, 117, 0.5);
@@ -174,9 +221,16 @@ class Landing extends React.Component {
   renderLeft() {
     return (
       <LeftSection>
-        <Container>
-          <ButtonText>weather</ButtonText>
-        </Container>
+        <WeatherContainer>
+          <Moment element={WeatherText} format="dddd MMMM D, YYYY" />
+          <WeatherDataWrapper>
+            <WeatherNumber>67°</WeatherNumber>
+            <WeatherData>
+              <WeatherText>Partly cloudy</WeatherText>
+              <WeatherText>59°/72°</WeatherText>
+            </WeatherData>
+          </WeatherDataWrapper>
+        </WeatherContainer>
         <PowerContainer>
           <ButtonContainer>
             <Image
@@ -233,21 +287,12 @@ class Landing extends React.Component {
             style={{ flex: 1, flexDirection: "row" }}
             onPress={() => this.setState({ alarmText: !this.state.alarmText })}
           >
-            <View
-              style={{
-                flex: 1,
-                justifyContent: "flex-start",
-                alignItems: "center",
-                flexDirection: "column",
-                height: 50,
-                width: 200
-              }}
-            >
+            <AlarmButton>
               <ButtonText>
                 {this.state.alarmText ? "ALARM ON" : "ALARM OFF"}
               </ButtonText>
               <ButtonText>10:00</ButtonText>
-            </View>
+            </AlarmButton>
             <Slider>
               <SliderThumb alarm={this.state.alarmText} />
             </Slider>

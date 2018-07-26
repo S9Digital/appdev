@@ -184,6 +184,7 @@ class ClockAdjust extends React.Component {
             <Text>Show DatePicker</Text>
           </TouchableOpacity>
           <DateTimePicker
+            confirmTextStyle="set"
             isVisible={this.state.isDateTimePickerVisible}
             onConfirm={this._handleDatePicked}
             onCancel={this._hideDateTimePicker}
