@@ -158,10 +158,16 @@ class Clock extends React.Component {
           </TouchableOpacity>
         </LightBar>
         <TextBarBottom>
-          <Moment element={AlarmText} format="h:mm A">
-            {this.props.wakeTime ? this.props.wakeTime : null}
-          </Moment>
-          <AlarmText>10:00PM</AlarmText>
+          <Moment
+            element={AlarmText}
+            format="h:mm A"
+            date={this.props.wakeTime}
+          />
+          <Moment
+            element={AlarmText}
+            format="h:mm A"
+            date={this.props.sleepTime}
+          />
         </TextBarBottom>
         <Text
           style={{
@@ -171,7 +177,7 @@ class Clock extends React.Component {
             marginTop: 30
           }}
         >
-          HI Set my sleep schedule
+          Set my sleep schedule
         </Text>
       </BarContainer>
     );
@@ -193,7 +199,8 @@ const mapStateToProps = state => ({
   sleepTime: state.sleepTime,
   wakeTime: state.wakeTime,
   alarmTime: state.alarmTime,
-  modal: state.modal
+  modal: state.modal,
+  userActions: state.userActions
 });
 const mapDispatchToProps = dispatch => ({
   modalOpen: component => {

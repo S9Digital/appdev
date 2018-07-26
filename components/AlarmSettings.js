@@ -113,6 +113,7 @@ class AlarmSettings extends React.Component {
       value: this.props.alarmDuration
     };
   }
+
   render() {
     return (
       <Container>

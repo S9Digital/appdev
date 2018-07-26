@@ -11,6 +11,7 @@ import {
   SET_LIGHT_PRESET
 } from "./actions/LightActions";
 import Moment from "react-moment";
+import moment from "moment";
 
 const DEFAULT_STATE = {
   wakeTime: null,
@@ -36,135 +37,183 @@ const DEFAULT_STATE = {
   userActions: []
 };
 
-newDate() {
-  const time = new Date();
-  return time;
-}
 //will need to handle errors from light API
 export default function reducer(state = DEFAULT_STATE, action) {
   //navigation
   if (action.type === "MODAL_OPEN") {
-    const component = action.component
-    return { 
-      ...state, 
-      modal: component, 
-      userActions: [ 
+    const component = action.component;
+    return {
+      ...state,
+      modal: component,
+      userActions: [
         {
-        action: component, 
-        time: this.newDate()
-      },
-         ...state.userActions
-      ] 
-    }
+          action: component,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   if (action.type === "RETURN_HOME") {
-    return { ...state, modal: null,       userActions: [ {
-      action: action.type, time: this.newDate()}, ...state.userActions
-    ]  };
+    return {
+      ...state,
+      modal: null,
+      userActions: [
+        {
+          action: action.type,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   //time
   if (action.type === "SET_TIME") {
-    const hour = action.hour;
-    const minutes = action.minutes;
+    const hour = moment(action.hour).get("h");
+    if (action.timeOfDay === "PM") {
+      const hour = hour + 12;
+    }
+    const minutes = moment(action.minutes).get("m");
+    const timeOfDay = action.timeOfDay;
     const modal = action.modal;
-    const str = hour.concat(":").concat(minutes);
-    const momentArray = [];
-    momentArray.push(hour);
-    momentArray.push(minutes);
-    //Moment(str, "HH:mm")
+    const momentTime = moment()
+      .set({ h: hour, m: minutes })
+      .format("h:mm A");
+    console.log(momentTime);
     if (modal === "wakeTime") {
-      console.log(momentArray);
-      return { ...state, wakeTime: momentArray,       userActions: [ 
-        {
-        action: action.type, 
-        time: this.newDate()
-      },
-         ...state.userActions
-      ] };
+      // console.log(momentArray);
+      return {
+        ...state,
+        wakeTime: momentTime,
+        userActions: [
+          {
+            action: action.type,
+            time: new Date()
+          },
+          ...state.userActions
+        ]
+      };
     }
     if (modal === "sleepTime") {
-      return { ...state, sleepTime: str,       userActions: [ 
-        {
-        action: action.type, 
-        time: this.newDate()
-      },
-         ...state.userActions
-      ] };
+      return {
+        ...state,
+        sleepTime: momentTime,
+        userActions: [
+          {
+            action: action.type,
+            time: new Date()
+          },
+          ...state.userActions
+        ]
+      };
     }
     if (modal === "alarmTime") {
-      return { ...state, alarmTime: str, alarm: true,       userActions: [ 
-        {
-        action: action.type, 
-        time: this.newDate()
-      },
-         ...state.userActions
-      ] };
+      return {
+        ...state,
+        alarmTime: momentTime,
+        alarm: true,
+        userActions: [
+          {
+            action: action.type,
+            time: new Date()
+          },
+          ...state.userActions
+        ]
+      };
     }
   }
   //light
   if (action.type === "SET_LIGHT_TONE") {
-    return { ...state, lightTone: action.tone,       userActions: [ 
-      {
-      action: action.type, 
-      time: this.newDate()
-    },
-       ...state.userActions
-    ] };
+    return {
+      ...state,
+      lightTone: action.tone,
+      userActions: [
+        {
+          action: action.type,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   if (action.type === "SET_LIGHT_BRIGHTNESS") {
-    return { ...state, lightBrightness: action.brightness, userActions: [ 
-      {
-      action: action.type, 
-      time: this.newDate()
-    },
-       ...state.userActions
-    ] };
+    return {
+      ...state,
+      lightBrightness: action.brightness,
+      userActions: [
+        {
+          action: action.type,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   if (action.type === "SET_LIGHT_PRESET") {
-    return { ...state, scene: action.preset, userActions: [ 
-      {
-      action: action.type, 
-      time: this.newDate()
-    },
-       ...state.userActions
-    ] };
+    return {
+      ...state,
+      scene: action.preset,
+      userActions: [
+        {
+          action: action.type,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   //sound
   if (action.type == "SET_ALARM_DURATION") {
-    return { ...state, alarmDuration: action.duration, userActions: [ 
-      {
-      action: action.type, 
-      time: this.newDate()
-    },
-       ...state.userActions
-    ] };
+    return {
+      ...state,
+      alarmDuration: action.duration,
+      userActions: [
+        {
+          action: action.type,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   if (action.type === "SET_SLEEP_SOUND") {
-    return { ...state, alarmSoundId: action.sound, userActions: [ 
-      {
-      action: action.type, 
-      time: this.newDate()
-    },
-       ...state.userActions
-    ] };
+    return {
+      ...state,
+      alarmSoundId: action.sound,
+      userActions: [
+        {
+          action: action.type,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   if (action.type == "SET_SOUND_VOLUME") {
-    return { ...state, sleepSoundVolume: action.volume, userActions: [ 
-      {
-      action: action.type, 
-      time: this.newDate()
-    },
-       ...state.userActions
-    ] };
+    return {
+      ...state,
+      sleepSoundVolume: action.volume,
+      userActions: [
+        {
+          action: action.type,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   if (action.type == "SET_SOUND_DURATION") {
-    return { ...state, sleepSoundDuration: action.duration, userActions: [ 
-      {
-      action: action.type, 
-      time: this.newDate()
-    },
-       ...state.userActions
-    ] };
+    return {
+      ...state,
+      sleepSoundDuration: action.duration,
+      userActions: [
+        {
+          action: action.type,
+          time: new Date()
+        },
+        ...state.userActions
+      ]
+    };
   }
   return state;
 }

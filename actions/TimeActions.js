@@ -1,6 +1,12 @@
 export const SET_TIME = "SET_TIME";
-export const setTime = (hour, mins, modal) => dispatch => {
-  dispatch({ type: SET_TIME, hour: hour, minutes: mins, modal: modal });
+export const setTime = (hour, mins, timeOfDay, modal) => dispatch => {
+  dispatch({
+    type: SET_TIME,
+    hour: hour,
+    minutes: mins,
+    modal: modal,
+    timeOfDay: timeOfDay
+  });
 };
 
 export const MODAL_OPEN = "MODAL_OPEN";

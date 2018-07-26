@@ -7,6 +7,7 @@ import { napHours, hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import DateTimePicker from "react-native-modal-datetime-picker";
 
 const Container = styled.View`
   flex: 1;
@@ -88,9 +89,19 @@ class ClockAdjust extends React.Component {
     super(props);
     this.state = {
       selectedHour: "2",
-      selectedMinute: "01"
+      selectedMinute: "01",
+      isDateTimePickerVisible: false
     };
   }
+
+  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+
+  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+  _handleDatePicked = date => {
+    console.log("A date has been picked: ", date);
+    this._hideDateTimePicker();
+  };
   renderScroller() {
     return (
       <ScrollContainer>
@@ -123,6 +134,7 @@ class ClockAdjust extends React.Component {
             this.props.setClockData(
               this.state.selectedHour,
               this.state.selectedMinute,
+              "AM",
               this.props.modal
             );
             this.props.modalClose();
@@ -168,7 +180,15 @@ class ClockAdjust extends React.Component {
           >
             <InfoText>Set nap duration</InfoText>
           </View>
-          {this.renderScroller()}
+          <TouchableOpacity onPress={this._showDateTimePicker}>
+            <Text>Show DatePicker</Text>
+          </TouchableOpacity>
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this._handleDatePicked}
+            onCancel={this._hideDateTimePicker}
+          />
+          {/* {this.renderScroller()} */}
 
           {this.renderAlarm()}
           {this.renderButtons()}
@@ -184,8 +204,8 @@ const mapStateToProps = state => ({
   modal: state.modal
 });
 const mapDispatchToProps = dispatch => ({
-  setClockData: (hour, mins, modal) => {
-    return dispatch(setTime(hour, mins, modal));
+  setClockData: (hour, mins, timeOfDay, modal) => {
+    return dispatch(setTime(hour, mins, timeOfDay, modal));
   },
   modalOpen: component => {
     return dispatch(modalOpen(component));
