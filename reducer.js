@@ -69,17 +69,14 @@ export default function reducer(state = DEFAULT_STATE, action) {
   }
   //time
   if (action.type === "SET_TIME") {
-    const hour = moment(action.hour).get("h");
-    if (action.timeOfDay === "PM") {
-      const hour = hour + 12;
-    }
-    const minutes = moment(action.minutes).get("m");
+    const hour = action.hour;
+    const minutes = action.minutes;
     const timeOfDay = action.timeOfDay;
     const modal = action.modal;
-    const momentTime = moment()
-      .set({ h: hour, m: minutes })
-      .format("h:mm A");
-    console.log(momentTime);
+    // const momentTime = new Date('T'+ action.hour + '' +)
+    //   .set({ h: hour, m: minutes })
+    //   .format("h:mm A");
+    // console.log(momentTime)
     if (modal === "wakeTime") {
       // console.log(momentArray);
       return {

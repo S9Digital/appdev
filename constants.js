@@ -1,3 +1,51 @@
+export const tempWeather = [
+  {
+    key: "1",
+    date: "July 26",
+    weather: "partly cloudy",
+    icon: "parlyCloudy.png",
+    chanceRain: "0%",
+    high: "63",
+    low: "46"
+  },
+  {
+    key: "2",
+    date: "July 27",
+    weather: "sunny",
+    icon: "sunny.png",
+    chanceRain: "70%",
+    high: "70",
+    low: "40"
+  },
+  {
+    key: "3",
+    date: "July 28",
+    weather: "cloudy",
+    icon: "cloudy.png",
+    chanceRain: "60%",
+    high: "80",
+    low: "60"
+  },
+  {
+    key: "4",
+    date: "July 29",
+    weather: "sunny",
+    icon: "sunny.png",
+    chanceRain: "50%",
+    high: "101",
+    low: "90"
+  },
+  {
+    key: "5",
+    date: "July 30",
+    weather: "partly cloudy",
+    icon: "parlyCloudy.png",
+    chanceRain: "10%",
+    high: "50",
+    low: "32"
+  }
+];
+
 export const hours = [
   { key: "1" },
   { key: "2" },

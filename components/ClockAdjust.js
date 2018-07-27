@@ -180,16 +180,16 @@ class ClockAdjust extends React.Component {
           >
             <InfoText>Set nap duration</InfoText>
           </View>
-          <TouchableOpacity onPress={this._showDateTimePicker}>
+          {/* <TouchableOpacity onPress={this._showDateTimePicker}>
             <Text>Show DatePicker</Text>
           </TouchableOpacity>
           <DateTimePicker
-            confirmTextStyle="set"
+            confirmTextStyle={"set"}
             isVisible={this.state.isDateTimePickerVisible}
             onConfirm={this._handleDatePicked}
             onCancel={this._hideDateTimePicker}
-          />
-          {/* {this.renderScroller()} */}
+          /> */}
+          {this.renderScroller()}
 
           {this.renderAlarm()}
           {this.renderButtons()}

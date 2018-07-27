@@ -42,48 +42,44 @@ class ClockScroller extends React.Component {
     };
   }
 
-  scrollUp() {
-    const dataLength = this.props.data.length - 1;
-    const { itemsPerPage, page } = this.state;
-    let start = page + 1;
-    let end = page + 1 + itemsPerPage;
-    let newData = this.props.data.slice(start, end);
-    this.setState({ page: page + 1 });
-    if (end > dataLength + 1) {
-      newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
-      this.setState({ page: -2 });
-    }
-    if (start < 0) {
-      newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
-      this.setState({ page: -1 });
-    }
-    this.setState({ time: [...newData] });
-    this.props.onPick(this.state.time[2].key);
-  }
-
-  scrollDown() {
-    const dataLength = this.props.data.length - 1;
-    const { itemsPerPage, page } = this.state;
-    let start = page - 1;
-    let end = page + itemsPerPage - 1;
-    let newData = this.props.data.slice(start, end);
-    this.setState({ page: page - 1 });
-    if (start === dataLength - 1) {
-      newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
-      this.setState({ page: dataLength - 1 });
-    }
-    if (start === -1) {
-      newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
-      this.setState({ page: dataLength });
-    }
-    this.setState({ time: [...newData] });
-    this.props.onPick(this.state.time[0].key);
-  }
-  //   onEndReach() {
-  //     setState({ time: this.props.data.concat(this.props.data) });
+  // scrollUp() {
+  //   const dataLength = this.props.data.length - 1;
+  //   const { itemsPerPage, page } = this.state;
+  //   let start = page + 1;
+  //   let end = page + 1 + itemsPerPage;
+  //   let newData = this.props.data.slice(start, end);
+  //   this.setState({ page: page + 1 });
+  //   if (end > dataLength + 1) {
+  //     newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
+  //     this.setState({ page: -2 });
   //   }
-  //   onSwipeUp() {}
-  //   onSwipeDown() {}
+  //   if (start < 0) {
+  //     newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
+  //     this.setState({ page: -1 });
+  //   }
+  //   this.setState({ time: [...newData] });
+  //   this.props.onPick(this.state.time[2].key);
+  // }
+
+  // scrollDown() {
+  //   const dataLength = this.props.data.length - 1;
+  //   const { itemsPerPage, page } = this.state;
+  //   let start = page - 1;
+  //   let end = page + itemsPerPage - 1;
+  //   let newData = this.props.data.slice(start, end);
+  //   this.setState({ page: page - 1 });
+  //   if (start === dataLength - 1) {
+  //     newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
+  //     this.setState({ page: dataLength - 1 });
+  //   }
+  //   if (start === -1) {
+  //     newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
+  //     this.setState({ page: dataLength });
+  //   }
+  //   this.setState({ time: [...newData] });
+  //   this.props.onPick(this.state.time[0].key);
+  // }
+
   render() {
     return (
       <WheelContainer>

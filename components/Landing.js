@@ -15,17 +15,12 @@ import { bindActionCreators } from "redux";
 import ClockScroller from "./ClockScroller";
 import ClockAdjust from "./ClockAdjust";
 import LightsAdjust from "./LightsAdjust";
+import Weather from "./Weather";
 import SleepSounds from "./SleepSounds";
 import AlarmSettings from "./AlarmSettings";
 import Clock from "./Clock";
 import { hours, minutes, timeOfDay } from "../constants";
-import {
-  setAlarmTime,
-  setSleepTime,
-  setWakeTime,
-  modalOpen,
-  returnHome
-} from "../actions/TimeActions";
+import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
 
 //structure
 const Wrapper = styled.View`
@@ -91,7 +86,7 @@ const WeatherContainer = styled.View`
   justify-content: flex-start;
   margin: 20px;
 `;
-const WeatherDataWrapper = styled.View`
+const WeatherDataWrapper = styled.TouchableOpacity`
   flex: 1;
   display: flex;
   flex-direction: row;
@@ -196,6 +191,8 @@ class Landing extends React.Component {
         modal = <AlarmSettings />;
       } else if (this.props.modal === "lights") {
         modal = <LightsAdjust />;
+      } else if (this.props.modal === "weather") {
+        modal = <Weather />;
       } else if (
         this.props.modal === "sleepTime" ||
         this.props.modal === "wakeTime"
@@ -223,7 +220,7 @@ class Landing extends React.Component {
       <LeftSection>
         <WeatherContainer>
           <Moment element={WeatherText} format="dddd MMMM D, YYYY" />
-          <WeatherDataWrapper>
+          <WeatherDataWrapper onPress={() => this.props.modalOpen("weather")}>
             <WeatherNumber>67°</WeatherNumber>
             <WeatherData>
               <WeatherText>Partly cloudy</WeatherText>
