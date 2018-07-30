@@ -18,7 +18,7 @@ import LightsAdjust from "./LightsAdjust";
 import Weather from "./Weather";
 import SleepSounds from "./SleepSounds";
 import AlarmSettings from "./AlarmSettings";
-import Clock from "./Clock";
+import Clock from "./clock";
 import { hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
 
