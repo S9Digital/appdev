@@ -25,15 +25,15 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/shell_launch_background_image.png",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/drawable-xxxhdpi-v4/shell_launch_background_image.png"
-    },
-    {
-        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
-        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/drawable-xxxhdpi-v4/shell_launch_background_image.png"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
         "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
@@ -105,7 +105,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/ic_fullscreen_exit_32dp.png",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/drawable-xxxhdpi-v4/ic_fullscreen_exit_32dp.png"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/drawable-xxxhdpi-v4/ic_fullscreen_exit_32dp.png"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
@@ -113,7 +113,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/ic_fullscreen_32dp.png",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/drawable-xxxhdpi-v4/ic_fullscreen_32dp.png"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/drawable-xxxhdpi-v4/ic_fullscreen_32dp.png"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.png",

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="android" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
@@ -9,7 +9,6 @@
     <facet type="android" name="Android">
       <configuration>
         <option name="SELECTED_BUILD_VARIANT" value="devDebug" />
-        <option name="SELECTED_TEST_ARTIFACT" value="_android_test_" />
         <option name="ASSEMBLE_TASK_NAME" value="assembleDevDebug" />
         <option name="COMPILE_JAVA_TASK_NAME" value="compileDevDebugSources" />
         <afterSyncTasks>
@@ -23,7 +22,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
     <output url="file://$MODULE_DIR$/build/intermediates/classes/dev/debug" />
     <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/dev/debug" />
     <exclude-output />
@@ -42,17 +41,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/devDebug/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/devDebug/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/devDebug/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/devDebug/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/devDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/devDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/dev/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/dev/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/dev/debug" isTestSource="true" generated="true" />
@@ -60,12 +50,18 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/dev/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/dev/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/dev/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDevDebug/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/dev/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/dev/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/dev/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/dev/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/dev/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/dev/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/dev/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/dev/shaders" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDev/res" type="java-test-resource" />
@@ -73,7 +69,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDev/assets" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDev/aidl" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDev/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDev/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDev/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDev/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDev/res" type="java-test-resource" />
@@ -81,7 +76,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testDev/assets" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDev/aidl" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDev/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDev/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDev/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDev/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
@@ -89,7 +83,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/debug/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/shaders" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/res" type="java-test-resource" />
@@ -97,7 +90,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/assets" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/aidl" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/res" type="java-resource" />
@@ -105,173 +97,189 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/aidl" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-runtime-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-verifier" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-resources" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-support" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/reload-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/restart-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/split-apk" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="play-services-base-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="ShortcutBadger-1.1.4" level="project" />
-    <orderEntry type="library" exported="" name="support-media-compat-26.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-library-1.3" level="project" />
-    <orderEntry type="library" exported="" name="support-vector-drawable-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="support-core-utils-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="commons-io-1.3.2" level="project" />
-    <orderEntry type="library" exported="" name="commons-cli-1.2" level="project" />
-    <orderEntry type="library" exported="" name="facebook-places-4.28.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-wallet-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="DBFlow-2.2.1" level="project" />
-    <orderEntry type="library" exported="" name="stripe-android-2.1.0" level="project" />
-    <orderEntry type="library" exported="" name="library-2.6.1" level="project" />
-    <orderEntry type="library" exported="" name="reactandroid-abi21-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="firebase-messaging-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="audience-network-sdk-4.26.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="android-sdk-2.9.2" level="project" />
-    <orderEntry type="library" exported="" name="animated-vector-drawable-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gass-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="appauth-0.4.1" level="project" />
-    <orderEntry type="library" exported="" name="android-scalablevideoview-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tasks-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="CreditCardEntry-1.4.8.4" level="project" />
-    <orderEntry type="library" exported="" name="react-native-27.0.0" level="project" />
-    <orderEntry type="library" exported="" name="appcompat-v7-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-auth-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="core-1.53.0.0" level="project" />
-    <orderEntry type="library" exported="" name="commons-codec-1.10" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="conditionwatcher-0.2" level="project" />
-    <orderEntry type="library" exported="" name="animated-webp-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-analytics-impl-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="lottie-2.2.0" level="project" />
-    <orderEntry type="library" exported="" name="facebook-messenger-4.28.0" level="project" />
-    <orderEntry type="library" exported="" name="expoview-27.0.0" level="project" />
-    <orderEntry type="library" exported="" name="imagepipeline-base-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
-    <orderEntry type="library" exported="" name="textlayoutbuilder-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="facebook-common-4.28.0" level="project" />
-    <orderEntry type="library" exported="" name="firebase-analytics-impl-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-fitness-9.8.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-integration-1.3" level="project" />
-    <orderEntry type="library" exported="" name="DBFlow-Core-2.2.1" level="project" />
-    <orderEntry type="library" exported="" name="bolts-tasks-1.4.0" level="project" />
-    <orderEntry type="library" exported="" name="reactandroid-abi24_0_0-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-urlconnection-3.6.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-identity-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="staticlayout-proxy-1.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-maps-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="fresco-1.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="runner-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="facebook-core-4.28.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="uiautomator-v18-2.1.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-iid-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="android-image-cropper-2.4.7" level="project" />
-    <orderEntry type="library" exported="" name="support-compat-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="crashlytics-2.5.5" level="project" />
-    <orderEntry type="library" exported="" name="okio-1.13.0" level="project" />
-    <orderEntry type="library" exported="" name="reactandroid-abi27_0_0-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-auth-base-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="crashlytics-core-2.3.8" level="project" />
-    <orderEntry type="library" exported="" name="imagepipeline-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="jackson-core-2.2.3" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-26.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="kxml2-2.3.0" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-3.6.0" level="project" />
-    <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
-    <orderEntry type="library" exported="" name="firebase-analytics-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="javax.annotation-3.1.1" level="project" />
-    <orderEntry type="library" exported="" name="expolib_v1-imagepipeline-okhttp3-1.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="rules-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="butterknife-7.0.1" level="project" />
-    <orderEntry type="library" exported="" name="stetho-okhttp3-1.3.1" level="project" />
-    <orderEntry type="library" exported="" name="cardview-v7-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="webpsupport-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="support-core-ui-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="exoplayer-r2.0.3" level="project" />
-    <orderEntry type="library" exported="" name="facebook-android-sdk-4.28.0" level="project" />
-    <orderEntry type="library" exported="" name="recyclerview-v7-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-location-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="library-3.2.11" level="project" />
-    <orderEntry type="library" exported="" name="core-3.3.0" level="project" />
-    <orderEntry type="library" exported="" name="drawee-1.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="espresso-idling-resource-3.0.1" level="project" />
-    <orderEntry type="library" exported="" name="firebase-common-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="reactandroid-abi26_0_0-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-vision-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="firebase-iid-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="android-maps-utils-0.5" level="project" />
-    <orderEntry type="library" exported="" name="bolts-android-1.4.0" level="project" />
-    <orderEntry type="library" exported="" name="prov-1.53.0.0" level="project" />
-    <orderEntry type="library" exported="" name="facebook-login-4.28.0" level="project" />
-    <orderEntry type="library" exported="" name="leakcanary-android-no-op-1.4-beta1" level="project" />
-    <orderEntry type="library" exported="" name="facebook-applinks-4.28.0" level="project" />
-    <orderEntry type="library" exported="" name="animated-base-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="beta-1.1.4" level="project" />
-    <orderEntry type="library" exported="" name="answers-shim-0.0.6" level="project" />
-    <orderEntry type="library" exported="" name="universal-image-loader-1.9.5" level="project" />
-    <orderEntry type="library" exported="" name="animated-gif-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="reactandroid-abi25_0_0-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="yearclass-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-lite-9.8.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javawriter-2.1.1" level="project" />
-    <orderEntry type="library" exported="" name="bolts-applinks-1.4.0" level="project" />
-    <orderEntry type="library" exported="" name="answers-1.3.6" level="project" />
-    <orderEntry type="library" exported="" name="cameraview-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gcm-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="okio-1.9.0" level="project" />
-    <orderEntry type="library" exported="" name="analytics-4.3.0" level="project" />
-    <orderEntry type="library" exported="" name="reactandroid-abi22-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="stetho-1.3.1" level="project" />
-    <orderEntry type="library" exported="" name="jsr305-3.0.0" level="project" />
-    <orderEntry type="library" exported="" name="exifinterface-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="fbcore-1.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="espresso-core-3.0.1" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-urlconnection-3.4.1" level="project" />
-    <orderEntry type="library" exported="" name="android-jsc-r174650" level="project" />
-    <orderEntry type="library" exported="" name="firebase-core-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="imagepipeline-okhttp3-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="facebook-share-4.28.0" level="project" />
-    <orderEntry type="library" exported="" name="fabric-1.3.10" level="project" />
-    <orderEntry type="library" exported="" name="customtabs-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="eventbus-2.4.0" level="project" />
-    <orderEntry type="library" exported="" name="reactandroid-abi23-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="soloader-0.1.0" level="project" />
-    <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="support-fragment-26.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-analytics-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-basement-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-ws-3.4.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-clearcut-9.8.0" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-3.4.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="junit-4.12" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: io.branch.sdk.android:library-2.6.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.exoplayer:exoplayer-r2.0.3" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: commons-codec:commons-codec:1.10@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.stetho:stetho:1.3.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: commons-cli:commons-cli:1.2@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.segment.analytics.android:analytics:4.3.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.zxing:core:3.3.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-iid-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.stripe:stripe-android-2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:appcompat-v7-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-identity-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:audience-network-sdk-4.26.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-vision-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-analytics-impl-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: host.exp:reactandroid-abi24_0_0-1.0.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.android.support.test:rules-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: javax.inject:javax.inject:1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:imagepipeline-base-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-iid-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-messaging-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: io.nlopez.smartlocation:library-3.2.11" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-basement-license-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-annotations:26.0.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-ads-lite-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-gcm-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:answers-1.3.6" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-analytics-impl-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp3:okhttp:3.4.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-location-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-common-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.react:react-native-27.0.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: net.sf.kxml:kxml2:2.3.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:imagepipeline-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:animated-base-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:exifinterface-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-core-4.28.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: host.exp:reactandroid-abi23-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-core-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: net.openid:appauth-0.4.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.android.support.test.uiautomator:uiautomator-v18-2.1.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:crashlytics-2.5.5" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:crashlytics-core-2.3.8" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.parse.bolts:bolts-applinks:1.4.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.github.thefuntasty:CreditCardEntry-1.4.8.4" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-share-4.28.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-applinks-4.28.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-analytics-impl-license-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-iid-license-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-basement-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: host.exp:reactandroid-abi25_0_0-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.stetho:stetho-okhttp3:1.3.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:recyclerview-v7-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.glassfish:javax.annotation:3.1.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.theartofdev.edmodo:android-image-cropper-2.4.7" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fbui.textlayoutbuilder:staticlayout-proxy:1.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-clearcut-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-auth-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: host.exp:reactandroid-abi22-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-analytics-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:customtabs-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.raizlabs.android:DBFlow-2.2.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-gass-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-login-4.28.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:fbcore-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:animated-vector-drawable-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: expolib_v1.com.squareup.okhttp3:okhttp:3.6.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: io.fabric.sdk.android:fabric-1.3.10" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.jakewharton:butterknife:7.0.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: host.exp:reactandroid-abi27_0_0-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-base-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-ads-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-tasks-license-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:multidex-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:fresco-1.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-wallet-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.webkit:android-jsc-r174650" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-compat-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: expolib_v1.com.facebook.fresco:expolib_v1-imagepipeline-okhttp3-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: expolib_v1.com.squareup.okhttp3:okhttp-urlconnection:3.6.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:animated-gif-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.yqritc:android-scalablevideoview-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.soloader:soloader-0.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fbui.textlayoutbuilder:textlayoutbuilder-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-maps-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp3:okhttp-ws:3.4.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:webpsupport-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-android-sdk-4.28.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: host.exp.exponent:expoview-27.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-common-4.28.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: me.leolin:ShortcutBadger-1.1.4" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-common-license-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.maps.android:android-maps-utils-0.5" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: de.greenrobot:eventbus:2.4.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:answers-shim-0.0.6" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: host.exp:reactandroid-abi21-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.raizlabs.android:DBFlow-Core:2.2.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.okio:okio:1.9.0@jar" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.android.support.test:runner-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:drawee-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android:cameraview-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.amplitude:android-sdk:2.9.2@jar" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.azimolabs.conditionwatcher:conditionwatcher-0.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.parse.bolts:bolts-android:1.4.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.parse.bolts:bolts-tasks:1.4.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.madgag.spongycastle:core:1.53.0.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-places-4.28.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-analytics-license-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.fresco:animated-webp-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-fitness-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-messenger-4.28.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-media-compat-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.code.findbugs:jsr305:3.0.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.2.3@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.facebook.device.yearclass:yearclass:1.0.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.madgag.spongycastle:prov:1.53.0.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-v4-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.nostra13.universalimageloader:universal-image-loader:1.9.5@jar" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-core-3.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.leakcanary:leakcanary-android-no-op-1.4-beta1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: commons-io:commons-io:1.3.2@jar" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-ui-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-vector-drawable-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:beta-1.1.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-idling-resource-3.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-auth-base-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-utils-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.airbnb.android:lottie-2.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.picasso:picasso:2.5.2@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: expolib_v1.com.squareup.okio:okio:1.13.0@jar" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: org.hamcrest:hamcrest-library:1.3@jar" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: org.hamcrest:hamcrest-integration:1.3@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp3:okhttp-urlconnection:3.4.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:cardview-v7-26.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-analytics-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: host.exp:reactandroid-abi26_0_0-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-tasks-11.4.2" level="project" />
     <orderEntry type="module" module-name="react-native-android-wakelock" exported="" />
     <orderEntry type="module" module-name="react-native-linear-gradient" exported="" />
     <orderEntry type="module" module-name="react-native-android-accelerometer" exported="" />

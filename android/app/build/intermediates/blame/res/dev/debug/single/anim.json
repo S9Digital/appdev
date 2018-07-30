@@ -1,15 +1,15 @@
 [
     {
-        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/catalyst_fade_out.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/anim/catalyst_fade_out.xml"
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/slide_up.xml",
+        "source": "/Users/acatmore/.android/build-cache/d2dcee96dc4a8e54256c007031dd2e9b77721b0e/output/res/anim/slide_up.xml"
     },
     {
-        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/slide_up.xml",
-        "source": "/Users/acatmore/.android/build-cache/09b8cc273a07d51051a9977b4125f6a60239376b/output/res/anim/slide_up.xml"
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/catalyst_fade_out.xml",
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/anim/catalyst_fade_out.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/catalyst_slide_down.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/anim/catalyst_slide_down.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/anim/catalyst_slide_down.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/tooltip_enter.xml",
@@ -21,7 +21,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/catalyst_push_up_out.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/anim/catalyst_push_up_out.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/anim/catalyst_push_up_out.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/abc_slide_in_top.xml",
@@ -41,7 +41,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/catalyst_fade_in.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/anim/catalyst_fade_in.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/anim/catalyst_fade_in.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/cycle.xml",
@@ -69,15 +69,15 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/catalyst_slide_up.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/anim/catalyst_slide_up.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/anim/catalyst_slide_up.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/slide_down.xml",
-        "source": "/Users/acatmore/.android/build-cache/09b8cc273a07d51051a9977b4125f6a60239376b/output/res/anim/slide_down.xml"
+        "source": "/Users/acatmore/.android/build-cache/d2dcee96dc4a8e54256c007031dd2e9b77721b0e/output/res/anim/slide_down.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/fade_in.xml",
-        "source": "/Users/acatmore/.android/build-cache/09b8cc273a07d51051a9977b4125f6a60239376b/output/res/anim/fade_in.xml"
+        "source": "/Users/acatmore/.android/build-cache/d2dcee96dc4a8e54256c007031dd2e9b77721b0e/output/res/anim/fade_in.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/abc_grow_fade_in_from_bottom.xml",
@@ -85,7 +85,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/fade_out.xml",
-        "source": "/Users/acatmore/.android/build-cache/09b8cc273a07d51051a9977b4125f6a60239376b/output/res/anim/fade_out.xml"
+        "source": "/Users/acatmore/.android/build-cache/d2dcee96dc4a8e54256c007031dd2e9b77721b0e/output/res/anim/fade_out.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/abc_popup_exit.xml",
@@ -93,6 +93,6 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/anim/catalyst_push_up_in.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/anim/catalyst_push_up_in.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/anim/catalyst_push_up_in.xml"
     }
 ]

@@ -17,7 +17,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/fps_view.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/layout/fps_view.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/layout/fps_view.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/abc_list_menu_item_icon.xml",
@@ -37,7 +37,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/oauth_webview_activity.xml",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/layout/oauth_webview_activity.xml"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/layout/oauth_webview_activity.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/abc_action_bar_view_list_nav_layout.xml",
@@ -77,7 +77,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/loading_view.xml",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/layout/loading_view.xml"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/layout/loading_view.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/exponent_check_box.xml",
@@ -117,7 +117,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/surface_view.xml",
-        "source": "/Users/acatmore/.android/build-cache/b9fd9fa309b907c6c0197e43db835d1470595130/output/res/layout/surface_view.xml"
+        "source": "/Users/acatmore/.android/build-cache/27bbc5e748f4515c4070a1e762f0168c82d4d507/output/res/layout/surface_view.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/notification_media_cancel_action.xml",
@@ -201,11 +201,11 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/payment_form_fragment_two.xml",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/layout/payment_form_fragment_two.xml"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/layout/payment_form_fragment_two.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/redbox_item_frame.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/layout/redbox_item_frame.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/layout/redbox_item_frame.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/amu_info_window.xml",
@@ -233,7 +233,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/expo_media_controller.xml",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/layout/expo_media_controller.xml"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/layout/expo_media_controller.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/crop_image_activity.xml",
@@ -245,7 +245,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/dev_loading_view.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/layout/dev_loading_view.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/layout/dev_loading_view.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/notification_template_big_media_narrow_custom.xml",
@@ -257,7 +257,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/payment_form_fragment.xml",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/layout/payment_form_fragment.xml"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/layout/payment_form_fragment.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/abc_search_view.xml",
@@ -265,7 +265,7 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/redbox_item_title.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/layout/redbox_item_title.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/layout/redbox_item_title.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/abc_screen_content_include.xml",
@@ -309,6 +309,6 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/layout/redbox_view.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/layout/redbox_view.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/layout/redbox_view.xml"
     }
 ]

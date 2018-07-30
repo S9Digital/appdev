@@ -1,15 +1,15 @@
 [
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/xml/preferences.xml",
-        "source": "/Users/acatmore/.android/build-cache/81fae296dce81fbfdb30d04a8ec68a1d073ca3dc/output/res/xml/preferences.xml"
+        "source": "/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/res/xml/preferences.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/xml/provider_paths.xml",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/xml/provider_paths.xml"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/xml/provider_paths.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/xml/stub_classic.xml",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/xml/stub_classic.xml"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/xml/stub_classic.xml"
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/xml/global_tracker.xml",
@@ -17,6 +17,6 @@
     },
     {
         "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/xml/stub_material.xml",
-        "source": "/Users/acatmore/.android/build-cache/7b9d9f7e6faa3ca90bd2fc31297b7d077665d976/output/res/xml/stub_material.xml"
+        "source": "/Users/acatmore/.android/build-cache/81b69423b3828b96f94d9eec6c1a1e8aa7f4d77f/output/res/xml/stub_material.xml"
     }
 ]

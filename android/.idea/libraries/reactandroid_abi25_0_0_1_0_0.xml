@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="reactandroid-abi25_0_0-1.0.0">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.android/build-cache/b6d63f6652f4f7f54b65fc198cc196fdb4ab8e71/output/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/b378f84b77738bc2615d18ddc6d4810e6b87d460/output/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/b6d63f6652f4f7f54b65fc198cc196fdb4ab8e71/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/b6d63f6652f4f7f54b65fc198cc196fdb4ab8e71/output/jars/libs/infer-annotations-4.0.jar!/" />
-      <root url="jar://$USER_HOME$/.android/build-cache/b6d63f6652f4f7f54b65fc198cc196fdb4ab8e71/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/b378f84b77738bc2615d18ddc6d4810e6b87d460/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/b378f84b77738bc2615d18ddc6d4810e6b87d460/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/b378f84b77738bc2615d18ddc6d4810e6b87d460/output/jars/libs/infer-annotations-4.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
