@@ -1,17 +1,17 @@
 {
   "expo": {
-    "name": "Ario Light",
+    "name": "ario-light",
     "icon": "./assets/lightbulb.png",
     "version": "1.0.0",
     "slug": "Ario-Light",
     "sdkVersion": "27.0.0",
     "ios": {
-      "bundleIdentifier": "com.yourcompany.ArioLight",
+      "bundleIdentifier": "com.arioliving.ariolight",
       "publishBundlePath": "ios/ario-light/Supporting/shell-app.bundle",
       "publishManifestPath": "ios/ario-light/Supporting/shell-app-manifest.json"
     },
     "android": {
-      "package": "com.ArioHospitality.ArioLight",
+      "package": "com.arioliving.ariolight",
       "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
       "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
     },

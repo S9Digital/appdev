@@ -13,13 +13,12 @@ import { compose } from "redux";
 import thunk from "redux-thunk";
 import store from "./store";
 import Landing from "./components/Landing";
-import { System } from "../System";
+// import { System } from "../System";
 
 export default class App extends React.Component {
-
-  await System.getInstance().getWaitLock();
-  await System.getInstance().releaseWakeLock();
-  System.getInstance().getWaitLock();
+  // await System.getInstance().getWaitLock();
+  // await System.getInstance().releaseWakeLock();
+  // System.getInstance().getWaitLock();
 
   render() {
     return (
@@ -33,7 +32,7 @@ export default class App extends React.Component {
           }}
           source={require("./assets/mountain_background.jpg")}
         >
-          <StatusBar hidden={true} />
+          {/* <StatusBar hidden={true} /> */}
 
           <Landing />
         </ImageBackground>
