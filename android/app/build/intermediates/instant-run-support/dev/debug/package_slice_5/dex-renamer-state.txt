@@ -1,4 +1,0 @@
-#Sat Jul 28 19:09:34 PDT 2018
-base.0=/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/5/slice_5
-renamed.0=classes.dex
-file.0=/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/5/slice_5/classes.dex

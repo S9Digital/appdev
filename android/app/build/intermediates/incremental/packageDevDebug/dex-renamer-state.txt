@@ -1,7 +1,0 @@
-#Sun Jul 29 17:30:39 PDT 2018
-base.0=/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10000/instant-run-bootstrap_ce0d4c350a36559a7a42e1a3366e9272861c3977
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10000/instant-run_ff8811fa2b9d69794fc1afc02801b7656dd73f97/classes.dex
-base.1=/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10000/instant-run_ff8811fa2b9d69794fc1afc02801b7656dd73f97
-file.0=/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10000/instant-run-bootstrap_ce0d4c350a36559a7a42e1a3366e9272861c3977/classes.dex
