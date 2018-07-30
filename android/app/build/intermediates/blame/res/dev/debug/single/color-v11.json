@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/acatmore/.android/build-cache/f94f00604cbad38bc65f7cd574337f184300c7f6/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]

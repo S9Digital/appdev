@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/acatmore/.android/build-cache/067a95d68aa90ebf2a04e03724bb3f87da6cbf0c/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/acatmore/.android/build-cache/067a95d68aa90ebf2a04e03724bb3f87da6cbf0c/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/acatmore/.android/build-cache/067a95d68aa90ebf2a04e03724bb3f87da6cbf0c/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/res/merged/dev/release/layout-v21/notification_action.xml",
+        "source": "/Users/acatmore/.android/build-cache/067a95d68aa90ebf2a04e03724bb3f87da6cbf0c/output/res/layout-v21/notification_action.xml"
+    }
+]

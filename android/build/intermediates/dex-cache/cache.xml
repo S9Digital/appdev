@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/bundles/debug/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="103616f775c1893e1cdb8a5eca30ef5a49e98e1b">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_66e431e8d11b78eee4213df6c3028ca8a48c3af4.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/acatmore/.android/build-cache/9c63e9a52ca1eca6d4a16642c639be135047f255/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/classes_dec8577e17814f565276f7142565602a9fbaf7b3/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/8c7aa80836bda3bba6bf81301497e9a70ed2864d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="050f688115ea65a0292d8483a6ffe6bcdab1e2ef">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_7631e090561684274a7029fa1d2609a5a877e393.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/acatmore/.android/build-cache/4bfeb7525bbd252a0921380af27dd0bcdde6c21c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/classes_198d18fe193160239cbf5a3cc1f4b1fdb5eae89a/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.0.1/b34c1f2d993044656e87f88970b6818e99e886ba/okhttp-3.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/okhttp-3.0.1_41d42339906bc90963580ed71d09a1bcabff0602.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/acatmore/.android/build-cache/0e727704989f5f7d3fdb7e7dfd09cc26fb36b86b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9ff04cc3470178a44512624036751a803418c2ca">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/classes_4a5d6f1468e46b624dcb77bdbfd379820879cc7a/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/staticlayout-proxy-1.0_3ea77544e8abbc669649da185e75b5561fbb6a2e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-linear-gradient/android/build/intermediates/bundles/debug/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="0461fe92ceae14c6921765a7a1fd14ccb6cb0205">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-linear-gradient/android/build/intermediates/pre-dexed/androidTest/debug/classes_3445c7955bc1b218218cea644ab323a7753350a8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/d4a8d56e62f78dae64231879f37542ed290a2336/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="ba9b39366b723ccff6359d1117332968e98a4aca">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_758a6b515a0725ad3b1b98304dbcfafd0d1d3b17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/1d8c74a5a0ffda470fdf42c6cacad4ee822a09e0/output/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/internal_impl-23.0.1_2a4f608eea3cfc653c09a6f545a3e7e907bcdfec.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/incremental-runtime-classes/dev/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10000/instant-run_ff8811fa2b9d69794fc1afc02801b7656dd73f97/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/d3525b5e70f6247a3495a85d4fa92e3f331d26b5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_2d9669168d2444c1e5ed827de10b44f1e2254e5e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/javax.inject-1_2a5ba5a01288c3321d91d07ec74f65ada7eda805.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/repos/Ario/ario-light/android/maven/expolib_v1/com/squareup/okhttp3/okhttp-urlconnection/3.6.0/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="ae77d4921dcf287b3776baabfbca09b55616ab13">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/okhttp-urlconnection-3.6.0_207986bc40b69d3f530e8a9c29511bd47f6dadac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/repos/Ario/ario-light/android/maven/expolib_v1/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="89890cffce351fec7caf3fdfd4351c7f4b4769b4">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/okio-1.13.0_8dfb9ed3ea41a6750665853073ff5706e561750f.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/acatmore/.android/build-cache/a5fea6b838761355f4f2fb0369b0b9fcf7a92eb6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/classes_bf214319f5e29c1a853c7055a8ddd1eb9401ed57/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/incremental-classes/dev/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="e4c624dcbfd6f0da8f21eb8da979a30b76119ca4">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10000/instant-run-bootstrap_ce0d4c350a36559a7a42e1a3366e9272861c3977/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/bolts-tasks-1.4.0_bc70f618eef63e836cf69ec7689a0c1e812d6f11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/infer-annotations-4.0_8707c748a59115918ff7becf8a35b47179bcc6f7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/54c90d735a9b2a8d689f3589c986d76bbae7768c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="a34a28ae586a32e1a33eeb63378732b473cad2be">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_41773ced28e5acd56b42c15a51545e17881d93e7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/support-annotations-23.0.1_8a40c86dc5f8d1851211c0eb356ee7142d9c4449.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/1d8c74a5a0ffda470fdf42c6cacad4ee822a09e0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_385edefbc0b37ff5a800cc874d9f7502861556bc.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/acatmore/.android/build-cache/1ac30b6dc1b9fa71f52ad80f6a479ca9f2c53c2f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/classes_294c7985126744c785626f9446c815464bb63bc8/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/repos/Ario/ario-light/android/maven/expolib_v1/com/squareup/okhttp3/okhttp/3.6.0/okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="565de69ddf97fffe074cba6cb0512520cdce4394">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/okhttp-3.6.0_a19d2b6d58cc33c1435fd22f6b665781560d827b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/d0bfa2cf7596fd9faa326f0d13c150ecae327f5e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2668e49e4e31c7d451b76a36009b902bf44e0d70">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_20528609d37810cdb36e07d7d293875bad95f8d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/jsr305-3.0.0_d8d225e7764fdc299eafe3f6d3e2e91d414f6bc2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/okio-1.6.0_a0888173e20dd431613409784be4752062770cd5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/3f1efeee2b68640e96ac11de856187475733780b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="00bffcece869fcc14f8c3fe523a11c6c53356b44">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_b16ce9c3be282f824191ba582648bc4d710e6c2c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/acatmore/.android/build-cache/5d54f74f299b99da22aee06b0c1231bc841024a3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="190a642ba16d1421296a4d794606279b80039c59">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/android/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/classes_da7db0c5253709fa42cf9dbd1cb93589eb61b43c/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/4effc9fc2e59fe290b7bd33bfdebd5e035ec0788/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_3bd0a8e11569e0df3512883532ede86ea698d5d3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-accelerometer/android/build/intermediates/bundles/debug/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="25ca0c8659a9b23a5d740aff5fcde7c9bc9a53ca">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-accelerometer/android/build/intermediates/pre-dexed/androidTest/debug/classes_ded315515190eb69aa480b00949e3517bf122034.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/08b67206d68f4164482a72ba21ed3db9f9f8e025/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d9c4402c3057225d80cbbbec52154e7a25b0ebdf">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_0a90f3e908843e9d2436477b53d33314170536de.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/9ab8625f79029ede6c4ddca67bcae99d4d6d6c3d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="5a61f17cd72e20aa4323cbf5f909b7c609619275">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_654065a58bbc4f62055422ad0271b4c67660e544.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/1df99dd3d2a256679d2e7656bd1196d9f0c0090f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_091d2786df875d80bbd2ef8088c304dea8b8476e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/acatmore/.android/build-cache/f05fd881937ec46885153bc889d9c62abd31d9ae/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="cf836a435a496eb22ff2aa69aa1e619462549f81">
+        <dex dex="/Users/acatmore/repos/Ario/ario-light/node_modules/react-native-android-wakelock/android/build/intermediates/pre-dexed/androidTest/debug/classes_3bd72a5476f0dcecdd37bb9fb50a85241cb52a08.jar" />
+    </item>
+
+</items>
