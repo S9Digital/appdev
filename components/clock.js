@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-//import LinearGreadient from "react-native-linear-gradient"; needs to be linked for android
+import LinearGradient from "react-native-linear-gradient";
 import styled from "styled-components";
 import Moment from "react-moment";
 import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
@@ -136,7 +136,20 @@ class Clock extends React.Component {
           <AlarmTitle>Wake</AlarmTitle>
           <AlarmTitle>Bedtime</AlarmTitle>
         </TextBarTop>
-        <LightBar>
+        <LinearGradient
+          colors={["#cdfdfe", "#eeeeee", "#fed487"]}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 1 }}
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "nowrap",
+            width: 400,
+            height: 30,
+            borderRadius: 25
+          }}
+        >
           <TouchableOpacity onPress={() => this.props.modalOpen("wakeTime")}>
             <IconBorder>
               <Image
@@ -156,7 +169,7 @@ class Clock extends React.Component {
               />
             </IconBorder>
           </TouchableOpacity>
-        </LightBar>
+        </LinearGradient>
         <TextBarBottom>
           <Moment
             element={AlarmText}
@@ -177,7 +190,7 @@ class Clock extends React.Component {
             marginTop: 30
           }}
         >
-          HI
+          Set sleep schedule
         </Text>
       </BarContainer>
     );

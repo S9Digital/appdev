@@ -1,45 +1,47 @@
+import Images from "./assets/Images";
+
 export const tempWeather = [
   {
     key: "1",
-    date: "July 26",
+    date: "Monday 7/30",
     weather: "partly cloudy",
-    icon: "parlyCloudy.png",
+    icon: Images.partlyCloudy,
     chanceRain: "0%",
     high: "63",
     low: "46"
   },
   {
     key: "2",
-    date: "July 27",
-    weather: "sunny",
-    icon: "sunny.png",
+    date: "Tuesday 7/31",
+    weather: "Rainy",
+    icon: Images.rainy,
     chanceRain: "70%",
     high: "70",
     low: "40"
   },
   {
     key: "3",
-    date: "July 28",
+    date: "Wednesday 8/1",
     weather: "cloudy",
-    icon: "cloudy.png",
+    icon: Images.cloudy,
     chanceRain: "60%",
     high: "80",
     low: "60"
   },
   {
     key: "4",
-    date: "July 29",
-    weather: "sunny",
-    icon: "sunny.png",
+    date: "Thursday 8/2",
+    weather: "Sunny",
+    icon: Images.sunny,
     chanceRain: "50%",
     high: "101",
     low: "90"
   },
   {
     key: "5",
-    date: "July 30",
-    weather: "partly cloudy",
-    icon: "parlyCloudy.png",
+    date: "Thursday 8/3",
+    weather: "Partly Cloudy",
+    icon: Images.partlyCloudy,
     chanceRain: "10%",
     high: "50",
     low: "32"

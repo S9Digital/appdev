@@ -18,7 +18,8 @@ import LightsAdjust from "./LightsAdjust";
 import Weather from "./Weather";
 import SleepSounds from "./SleepSounds";
 import AlarmSettings from "./AlarmSettings";
-import Clock from "./clock";
+import Clock from "./Clock";
+import CurrentWeather from "./CurrentWeather";
 import { hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
 
@@ -78,14 +79,6 @@ const ButtonContainer = styled.View`
   border: 3px solid #d32b4f;
   padding: 10px;
 `;
-//weather
-const WeatherContainer = styled.View`
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin: 20px;
-`;
 const WeatherDataWrapper = styled.TouchableOpacity`
   flex: 1;
   display: flex;
@@ -93,24 +86,6 @@ const WeatherDataWrapper = styled.TouchableOpacity`
   align-items: flex-start;
   justify-content: flex-start;
   margin-top: 10px;
-`;
-const WeatherData = styled.View`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-top: 5px;
-`;
-const WeatherText = styled.Text`
-  color: white;
-  opacity: 0.8;
-  font-size: 16px;
-`;
-const WeatherNumber = styled.Text`
-  color: white;
-  font-size: 40px;
-  margin-right: 10px;
 `;
 //power
 const PowerContainer = styled.View`
@@ -218,16 +193,9 @@ class Landing extends React.Component {
   renderLeft() {
     return (
       <LeftSection>
-        <WeatherContainer>
-          <Moment element={WeatherText} format="dddd MMMM D, YYYY" />
-          <WeatherDataWrapper onPress={() => this.props.modalOpen("weather")}>
-            <WeatherNumber>67°</WeatherNumber>
-            <WeatherData>
-              <WeatherText>Partly cloudy</WeatherText>
-              <WeatherText>59°/72°</WeatherText>
-            </WeatherData>
-          </WeatherDataWrapper>
-        </WeatherContainer>
+        <WeatherDataWrapper onPress={() => this.props.modalOpen("weather")}>
+          <CurrentWeather />
+        </WeatherDataWrapper>
         <PowerContainer>
           <ButtonContainer>
             <Image

@@ -4,7 +4,7 @@ import { Store } from 'redux';
 import * as NativeWakeLock from 'react-native-android-wakelock';
 import * as NativeAccelerometer from 'react-native-android-accelerometer';
 
-class System {
+class ModuleSystem {
     private static _instance: System = new System();
     private _haveWakelock: boolean;
     private _screenOn: boolean;
@@ -62,4 +62,4 @@ class System {
     }
 }
 
-export { System };
+export default { ModuleSystem };

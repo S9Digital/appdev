@@ -4,12 +4,15 @@ import {
   Text,
   View,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  Image
 } from "react-native";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/TimeActions";
 import { tempWeather } from "../constants";
+import CurrentWeather from "./CurrentWeather";
+import Images from "../assets/Images";
 
 const Container = styled.View`
   flex: 1;
@@ -17,6 +20,8 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   background-color: rgba(43, 45, 48, 0.98);
+  width: 100%;
+  height: 100%;
 `;
 const WeatherContainer = styled.View`
   flex: 1;
@@ -25,15 +30,25 @@ const WeatherContainer = styled.View`
   justify-content: center;
   flex-direction: row;
 `;
+const CurrentWrapper = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 10px;
+  height: 200px;
+`;
 const WeatherTile = styled.View`
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px;
-  height: 300px;
-  width: 100px;
+  margin: 5px;
+  margin-top: 15px;
+  height: 200px;
+  width: 120px;
   border: 1px solid white;
   flex-wrap: nowrap;
 `;
@@ -42,6 +57,8 @@ const Content = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
 `;
 
 const TimeButton = styled.View`
@@ -78,12 +95,14 @@ class Weather extends React.Component {
   }
   _renderItem = ({ item }) => (
     <WeatherTile>
-      {console.log(item.high)}
-      <Text style={{ color: "white" }}>{item.date}</Text>
-      <Text style={{ color: "white" }}>{item.weather}</Text>
-      <Text style={{ color: "white" }}>{item.rainChance}</Text>
-      <Text style={{ color: "white" }}>{item.high}</Text>
-      <Text style={{ color: "white" }}>{item.low}</Text>
+      <Text style={{ color: "white", flexWrap: "nowrap" }}>{item.date}</Text>
+      <Text style={{ color: "white", flexWrap: "nowrap" }}>{item.weather}</Text>
+      <Image style={{ height: 46, width: 46 }} source={item.icon} />
+      <Text style={{ color: "white", flexWrap: "nowrap" }}>
+        rain {item.chanceRain}
+      </Text>
+      <Text style={{ color: "white", flexWrap: "nowrap" }}>H {item.high}</Text>
+      <Text style={{ color: "white", flexWrap: "nowrap" }}>L {item.low}</Text>
     </WeatherTile>
   );
   render() {
@@ -91,6 +110,9 @@ class Weather extends React.Component {
       <Container>
         <Content>
           {/* <WeatherContainer> */}
+          <CurrentWrapper>
+            <CurrentWeather />
+          </CurrentWrapper>
           <FlatList
             data={tempWeather}
             scrollEnabled={false}
