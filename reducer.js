@@ -12,6 +12,12 @@ import {
 } from "./actions/LightActions";
 import Moment from "react-moment";
 import moment from "moment";
+import {
+  WAKE_LOCK_ON,
+  WAKE_LOCK_OFF,
+  SCREEN_ON,
+  SCREEN_OFF
+} from "./actions/SystemActions";
 
 const DEFAULT_STATE = {
   wakeTime: null,

@@ -13,7 +13,7 @@ import { compose } from "redux";
 import thunk from "redux-thunk";
 import store from "./store";
 import Landing from "./components/Landing";
-import { ModuleSystem } from "./System";
+import { ModuleSystem } from "./components/System";
 
 export default class App extends React.Component {
   // await System.getInstance().getWaitLock();

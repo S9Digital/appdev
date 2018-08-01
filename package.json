@@ -22,7 +22,6 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@types/node": "^10.5.4",
     "expo": "^27.0.1",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
@@ -35,13 +34,10 @@
     "react-native-linear-gradient": "^2.4.0",
     "react-native-modal-datetime-picker": "^6.0.0",
     "react-native-slider": "^0.11.0",
-    "react-native-typescript-transformer": "^1.2.10",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^3.3.3",
-    "tslint": "^5.11.0",
-    "typescript": "^2.9.2",
     "underscore": "^1.9.1"
   }
 }
