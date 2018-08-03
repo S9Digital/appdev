@@ -25,7 +25,7 @@ export default class System {
     // }
     try {
       await NativeWakeLock.acquireWakeLock(screenOn);
-      console.log("acquire wakelock");
+      console.log(screenOn + " wakelock");
     } catch (ex) {
       throw new Error("Unable to get wakelock " + ex.message);
     }
@@ -34,14 +34,15 @@ export default class System {
   };
 
   releaseWakeLock = async () => {
-    // if (!this._haveWakelock) {
-    //   console.log("wakelock false");
-    //   return;
-    // }
+    if (!this._haveWakelock) {
+      console.log("wakelock false");
+      return;
+    }
     try {
       await NativeWakeLock.releaseWakeLock();
       console.log("release-wakelock");
     } catch (ex) {
+      console.log(ex);
       throw new Error("Unable to release wakelock " + ex.message);
     }
     // this._haveWakelock = false;
@@ -49,13 +50,13 @@ export default class System {
   };
 
   accelerometerListener = () => {
-    NativeAccelerometer.setThreshold(2.5);
+    NativeAccelerometer.setThreshold(2);
     DeviceEventEmitter.addListener("accelerometerUpdate", async e => {
-      //   if (!this._screenOn) {
-      await this.getWakeLock(true);
-      await this.getWakeLock(false);
-      console.log("accelerometer triggered");
-      //   }
+      if (!this._screenOn) {
+        await this.getWakeLock(true);
+        await this.getWakeLock(false);
+        console.log("accelerometer triggered");
+      }
     });
   };
 }
