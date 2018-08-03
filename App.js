@@ -13,12 +13,12 @@ import { compose } from "redux";
 import thunk from "redux-thunk";
 import store from "./store";
 import Landing from "./components/Landing";
-import { ModuleSystem } from "./components/System";
+import System from "./components/System";
+System.getInstance().getWakeLock(false);
 
 export default class App extends React.Component {
   // await System.getInstance().getWaitLock();
   // await System.getInstance().releaseWakeLock();
-  // System.getInstance().getWaitLock();
 
   render() {
     return (

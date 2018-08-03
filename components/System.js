@@ -1,75 +1,62 @@
-import React from "react";
 import { DeviceEventEmitter } from "react-native";
-import { connect } from "react-redux";
 import * as NativeWakeLock from "react-native-android-wakelock";
 import * as NativeAccelerometer from "react-native-android-accelerometer";
 
-class System extends React.Component {
-  _instance: System = new System();
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  //   if (System._instance) {
-  //     throw new Error(
-  //       "Instantiation failed: Use System.getInstance() instead of new."
-  //     );
-  //   }
-  //   System._instance = this.bind();
-  //   this.accelerometerListener();
-
-  static getInstance = (): System => {
-    if (!System._instance) {
-      new System();
+export default class System {
+  constructor() {
+    if (System._instance) {
+      throw new Error(
+        "Instantiation failed: Use System.getInstance() instead of new."
+      );
     }
+    // this._screenOn = false;
+    // this._haveWakeLock = false;
+    System._instance = this;
+    this.accelerometerListener();
+  }
+  static getInstance = () => {
     return System._instance;
   };
 
   getWakeLock = async screenOn => {
-    if (this._haveWakelock) {
-      return;
-    }
+    // if (this._haveWakelock) {
+    //   console.log("wakelock true");
+    //   return;
+    // }
     try {
       await NativeWakeLock.acquireWakeLock(screenOn);
+      console.log("acquire wakelock");
     } catch (ex) {
       throw new Error("Unable to get wakelock " + ex.message);
     }
-    this._haveWakelock = true;
-    this._screenOn = screenOn;
+    // this._haveWakelock = true;
+    // this._screenOn = screenOn;
   };
 
   releaseWakeLock = async () => {
-    if (!this._haveWakelock) {
-      return;
-    }
+    // if (!this._haveWakelock) {
+    //   console.log("wakelock false");
+    //   return;
+    // }
     try {
       await NativeWakeLock.releaseWakeLock();
+      console.log("release-wakelock");
     } catch (ex) {
       throw new Error("Unable to release wakelock " + ex.message);
     }
-    this._haveWakelock = false;
-    this._screenOn = false;
+    // this._haveWakelock = false;
+    // this._screenOn = false;
   };
 
   accelerometerListener = () => {
-    NativeAccelerometer.setThreshold(1.5);
-    DeviceEventEmitter.addListener("accelerometerUpdate", e => {
-      if (!this._screenOn) {
-        this.getWakeLock(true);
-        this.releaseWakeLock();
-      }
+    NativeAccelerometer.setThreshold(2.5);
+    DeviceEventEmitter.addListener("accelerometerUpdate", async e => {
+      //   if (!this._screenOn) {
+      await this.getWakeLock(true);
+      await this.getWakeLock(false);
+      console.log("accelerometer triggered");
+      //   }
     });
   };
 }
-const mapStateToProps = (state, props) => ({
-  _instance: state.instance,
-  _haveWakeLock: state.haveWakeLock,
-  _screenOn: state.screenOn
-});
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(System);
+new System();

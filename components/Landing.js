@@ -22,6 +22,7 @@ import Clock from "./Clock";
 import CurrentWeather from "./CurrentWeather";
 import { hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
+import System from "./System";
 
 //structure
 const Wrapper = styled.View`
@@ -88,7 +89,7 @@ const WeatherDataWrapper = styled.TouchableOpacity`
   margin-top: 10px;
 `;
 //power
-const PowerContainer = styled.View`
+const PowerContainer = styled.TouchableOpacity`
   flex: 1;
   display: flex;
   flex-direction: row;
@@ -196,7 +197,7 @@ class Landing extends React.Component {
         <WeatherDataWrapper onPress={() => this.props.modalOpen("weather")}>
           <CurrentWeather />
         </WeatherDataWrapper>
-        <PowerContainer>
+        <PowerContainer onPress={() => System.getInstance().getWakeLock(false)}>
           <ButtonContainer>
             <Image
               style={{ width: 20, height: 20 }}
