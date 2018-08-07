@@ -17,3 +17,13 @@ export const SCREEN_OFF = "SCREEN_OFF";
 export const screenOff = component => dispatch => {
   dispatch({ type: SCREEN_OFF, component: component });
 };
+
+export const MODAL_OPEN = "MODAL_OPEN";
+export const modalOpen = component => dispatch => {
+  dispatch({ type: MODAL_OPEN, component: component });
+};
+
+export const RETURN_HOME = "RETURN_HOME";
+export const returnHome = () => dispatch => {
+  dispatch({ type: RETURN_HOME });
+};

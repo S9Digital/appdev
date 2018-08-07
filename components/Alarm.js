@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { modalOpen, returnHome } from "../actions/TimeActions";
+import { modalOpen, returnHome } from "../actions/SystemActions";
 import { alarmDuration } from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";

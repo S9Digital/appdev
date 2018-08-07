@@ -21,7 +21,7 @@ import AlarmSettings from "./AlarmSettings";
 import Clock from "./Clock";
 import CurrentWeather from "./CurrentWeather";
 import { hours, minutes, timeOfDay } from "../constants";
-import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
+import { setTime, modalOpen, returnHome } from "../actions/SystemActions";
 import System from "./System";
 
 //structure

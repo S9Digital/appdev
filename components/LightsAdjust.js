@@ -3,11 +3,12 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { modalOpen, returnHome } from "../actions/TimeActions";
+import { modalOpen, returnHome } from "../actions/SystemActions";
 import {
   lightTone,
   lightBrightness,
-  lightPreset
+  lightPreset,
+  getLightState
 } from "../actions/LightActions";
 import _ from "underscore";
 
@@ -105,7 +106,9 @@ class LightsAdjust extends React.Component {
       scene: this.props.scene
     };
   }
-
+  componentDidMount() {
+    //getLightState to gather device configuration
+  }
   render() {
     return (
       <Container>

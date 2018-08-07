@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import styled from "styled-components";
 import Moment from "react-moment";
-import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
+import { setTime } from "../actions/TimeActions";
+import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 

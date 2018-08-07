@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { modalOpen, returnHome } from "../actions/TimeActions";
+import { modalOpen, returnHome } from "../actions/SystemActions";
 import { tempWeather } from "../constants";
 import CurrentWeather from "./CurrentWeather";
 import Images from "../assets/Images";

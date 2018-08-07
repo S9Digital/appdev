@@ -10,7 +10,7 @@ import {
 import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { modalOpen, returnHome } from "../actions/TimeActions";
+import { modalOpen, returnHome } from "../actions/SystemActions";
 import { alarmDuration } from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";

@@ -4,7 +4,8 @@ import styled from "styled-components";
 import Moment from "react-moment";
 import ClockScroller from "./ClockScroller";
 import { napHours, hours, minutes, timeOfDay } from "../constants";
-import { setTime, modalOpen, returnHome } from "../actions/TimeActions";
+import { setTime } from "../actions/TimeActions";
+import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import DateTimePicker from "react-native-modal-datetime-picker";
@@ -23,20 +24,14 @@ const Content = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 const ScrollContainer = styled.View`
   flex: 1;
   display: flex;
   flex-direction: row;
-  width: 400px
-  height: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: rgba(24, 24, 24, 0.8);
-  border-radius: 35px;
   align-items: center;
   justify-content: center;
   z-index: 3;
@@ -94,14 +89,6 @@ class ClockAdjust extends React.Component {
     };
   }
 
-  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
-
-  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
-
-  _handleDatePicked = date => {
-    console.log("A date has been picked: ", date);
-    this._hideDateTimePicker();
-  };
   renderScroller() {
     return (
       <ScrollContainer>
@@ -168,30 +155,20 @@ class ClockAdjust extends React.Component {
     return (
       <Container>
         <Content>
-          <View
+          {/* <View
             style={{
               flex: 1,
               width: 400,
-              height: 100,
+              height: 40,
               flexWrap: "nowrap",
               justifyContent: "flex-start",
               alignItems: "flex-start"
             }}
           >
             <InfoText>Set nap duration</InfoText>
-          </View>
-          <TouchableOpacity onPress={this._showDateTimePicker}>
-            <Text>Show DatePicker</Text>
-          </TouchableOpacity>
-          <DateTimePicker
-            confirmTextStyle={"set"}
-            isVisible={this.state.isDateTimePickerVisible}
-            onConfirm={this._handleDatePicked}
-            onCancel={this._hideDateTimePicker}
-          />
-          {/* {this.renderScroller()} */}
-
-          {this.renderAlarm()}
+          </View> */}
+          {this.renderScroller()}
+          {/* {this.renderAlarm()} */}
           {this.renderButtons()}
         </Content>
       </Container>
