@@ -20,16 +20,15 @@ const Wrapper = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 500px;
-  height: 500px;
+  height: 220px;
+  margin: 10px;
 `;
 const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  border-radius: 25px;
   background-color: rgba(24, 24, 24, 0.8);
 `;
 const Button = styled.View`
@@ -79,7 +78,7 @@ class ClockScroller extends React.Component {
       this.setState({ page: -1 });
     }
     this.setState({ time: [...newData] });
-    this.props.onPick(this.state.time[2].key);
+    this.props.onPick(this.state.time[0].key);
   }
 
   scrollDown() {
@@ -98,21 +97,21 @@ class ClockScroller extends React.Component {
       this.setState({ page: dataLength });
     }
     this.setState({ time: [...newData] });
-    this.props.onPick(this.state.time[2].key);
+    this.props.onPick(this.state.time[0].key);
   }
 
   render() {
     return (
       <Wrapper>
         <TouchableOpacity onPress={() => this.scrollUp()}>
-          <Button>
-            <ButtonContainer>
-              <Image
-                style={{ height: 30, width: 30 }}
-                source={require("../assets/arrow-up.png")}
-              />
-            </ButtonContainer>
-          </Button>
+          {/* <Button>
+            <ButtonContainer> */}
+          <Image
+            style={{ height: 30, width: 30 }}
+            source={require("../assets/arrow-up.png")}
+          />
+          {/* </ButtonContainer>
+          </Button> */}
         </TouchableOpacity>
         <WheelContainer>
           <Container>
@@ -121,20 +120,17 @@ class ClockScroller extends React.Component {
               showsVerticalScrollIndicator={false}
               scrollEnabled={false}
               pagingEnabled
-              // onScrollDragEnd={console.log("stopped here")}
-              // snapToInterval={1}
-              // snapToAlignment="center"
-              // decelerationRate="fast"
               renderItem={({ item }) => (
                 <View
                   style={{
                     flex: 1,
+                    margin: 5,
                     flexDirection: "row",
                     justifyContent: "center",
                     alignItems: "center"
                   }}
                 >
-                  <Text style={{ fontSize: 36, color: "white" }}>
+                  <Text style={{ fontSize: 26, color: "white" }}>
                     {item.key}
                   </Text>
                 </View>
@@ -143,14 +139,14 @@ class ClockScroller extends React.Component {
           </Container>
         </WheelContainer>
         <TouchableOpacity onPress={() => this.scrollDown()}>
-          <Button>
-            <ButtonContainer>
-              <Image
-                style={{ height: 30, width: 30 }}
-                source={require("../assets/arrow-down.png")}
-              />
-            </ButtonContainer>
-          </Button>
+          {/* <Button>
+            <ButtonContainer> */}
+          <Image
+            style={{ height: 30, width: 30 }}
+            source={require("../assets/arrow-down.png")}
+          />
+          {/* </ButtonContainer>
+          </Button> */}
         </TouchableOpacity>
       </Wrapper>
     );

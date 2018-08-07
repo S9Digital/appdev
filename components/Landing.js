@@ -197,9 +197,10 @@ class Landing extends React.Component {
         <WeatherDataWrapper onPress={() => this.props.modalOpen("weather")}>
           <CurrentWeather />
         </WeatherDataWrapper>
-        <PowerContainer onPress={() => System.getInstance().getWakeLock(false)}>
+        <PowerContainer>
           <ButtonContainer>
             <Image
+              onPress={() => System.getInstance().getWakeLock(false)}
               style={{ width: 20, height: 20 }}
               source={require("../assets/power.png")}
             />
@@ -225,15 +226,15 @@ class Landing extends React.Component {
               <ButtonText>Adjust Lights</ButtonText>
             </Button>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.modalOpen("alarm")}>
-            <Button>
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require("../assets/stopwatch.png")}
-              />
-              <ButtonText style={{ marginRight: 10 }}>Take A Nap</ButtonText>
-            </Button>
-          </TouchableOpacity>
+          {/* <TouchableOpacity onPress={() => this.props.modalOpen("alarm")}> */}
+          <Button>
+            <Image
+              style={{ width: 20, height: 20 }}
+              source={require("../assets/stopwatch.png")}
+            />
+            <ButtonText style={{ marginRight: 10 }}>Take A Nap</ButtonText>
+          </Button>
+          {/* </TouchableOpacity> */}
           <TouchableOpacity onPress={() => this.props.modalOpen("sounds")}>
             <Button>
               <Image
@@ -251,7 +252,10 @@ class Landing extends React.Component {
           />
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}
-            onPress={() => this.setState({ alarmText: !this.state.alarmText })}
+            onPress={() => {
+              this.setState({ alarmText: !this.state.alarmText });
+              this.props.modalOpen("alarm");
+            }}
           >
             <AlarmButton>
               <ButtonText>

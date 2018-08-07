@@ -111,7 +111,6 @@ const IconBorder = styled.View`
   background-color: rgb(14, 14, 14);
   border-radius: 30px;
   margin: 1px;
-  padding: 5px;
   height: 30px;
   width: 30px;
   flex: 1;
@@ -172,16 +171,22 @@ class Clock extends React.Component {
           </TouchableOpacity>
         </LinearGradient>
         <TextBarBottom>
-          <Moment
+          {/* <Moment
             element={AlarmText}
             format="h:mm A"
             date={this.props.wakeTime}
-          />
-          <Moment
+          /> */}
+          <AlarmText>
+            {this.props.wakeTime ? this.props.wakeTime : "6:00 am"}
+          </AlarmText>
+          {/* <Moment
             element={AlarmText}
             format="h:mm A"
             date={this.props.sleepTime}
-          />
+          /> */}
+          <AlarmText>
+            {this.props.sleepTime ? this.props.sleepTime : "10:00 pm"}
+          </AlarmText>
         </TextBarBottom>
         <Text
           style={{

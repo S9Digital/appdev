@@ -79,10 +79,11 @@ export default function reducer(state = DEFAULT_STATE, action) {
     const minutes = action.minutes;
     const timeOfDay = action.timeOfDay;
     const modal = action.modal;
-    // const momentTime = new Date('T'+ action.hour + '' +)
-    //   .set({ h: hour, m: minutes })
-    //   .format("h:mm A");
-    // console.log(momentTime)
+    const momentTime = hour + ":" + minutes;
+    //).format(
+    //   "h:mm"
+    // );
+    console.log(momentTime);
     if (modal === "wakeTime") {
       // console.log(momentArray);
       return {

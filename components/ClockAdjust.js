@@ -22,10 +22,11 @@ const Container = styled.View`
 const Content = styled.View`
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  flex-wrap: nowrap;
 `;
 
 const ScrollContainer = styled.View`
@@ -34,18 +35,19 @@ const ScrollContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  margin: 20px;
+  height: 300px;
+  width: 500px;
 `;
 const AlarmContainer = styled.View`
   flex: 1;
   display: flex;
   width: 400px;
-  height: 100px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 50px;
+  margin: 5px;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-end;
+  justify-content: flex-end;
 `;
 
 const TimeButton = styled.View`
@@ -57,7 +59,7 @@ const TimeButton = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin-right: 30px;
 `;
 const ButtonContainer = styled.View`
   flex: 1;
@@ -78,6 +80,7 @@ const InfoText = styled.Text`
   font-size: 14px;
   color: white;
   margin-right: 50px;
+  margin-bottom: 5px;
 `;
 class ClockAdjust extends React.Component {
   constructor(props) {
@@ -155,7 +158,7 @@ class ClockAdjust extends React.Component {
     return (
       <Container>
         <Content>
-          {/* <View
+          <View
             style={{
               flex: 1,
               width: 400,
@@ -166,9 +169,9 @@ class ClockAdjust extends React.Component {
             }}
           >
             <InfoText>Set nap duration</InfoText>
-          </View> */}
+          </View>
           {this.renderScroller()}
-          {/* {this.renderAlarm()} */}
+          {this.renderAlarm()}
           {this.renderButtons()}
         </Content>
       </Container>
