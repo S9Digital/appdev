@@ -22,7 +22,7 @@ import Clock from "./Clock";
 import CurrentWeather from "./CurrentWeather";
 import { hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/SystemActions";
-import System from "./System";
+// import System from "./System";
 
 //structure
 const Wrapper = styled.View`
@@ -200,7 +200,7 @@ class Landing extends React.Component {
         <PowerContainer>
           <ButtonContainer>
             <Image
-              onPress={() => System.getInstance().getWakeLock(false)}
+              // onPress={() => System.getInstance().getWakeLock(false)}
               style={{ width: 20, height: 20 }}
               source={require("../assets/power.png")}
             />

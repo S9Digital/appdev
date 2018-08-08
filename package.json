@@ -30,6 +30,8 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-native-android-accelerometer": "git+https://github.com/Ario-Inc/react-native-android-accelerometer.git",
     "react-native-android-wakelock": "git+https://github.com/Ario-Inc/react-native-android-wakelock.git",
+    "react-native-ario-ble": "file:../react-native-ario-ble/",
+    "react-native-android-aes-ccm": "git+https://github.com/wdimmit/react-native-android-aes-ccm.git",
     "react-native-debugger": "^1.1.0",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-modal-datetime-picker": "^6.0.0",
