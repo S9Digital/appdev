@@ -108,6 +108,7 @@ class LightsAdjust extends React.Component {
   }
   componentDidMount() {
     //getLightState to gather device configuration
+    //this.props.lightGetter();
   }
   render() {
     return (
@@ -210,6 +211,9 @@ const mapStateToProps = state => ({
   scene: state.scene
 });
 const mapDispatchToProps = dispatch => ({
+  lightGetter: () => {
+    return dispatch(getLightState());
+  },
   setLightTone: _.throttle(tone => {
     return dispatch(lightTone(tone));
   }, 1500),

@@ -8232,8 +8232,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="11" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="10" />
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="778" />
@@ -8669,7 +8669,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="22" width="1280" height="778" extended-state="6" />
+    <frame x="10" y="22" width="1280" height="778" extended-state="1" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.49676898" order="6" side_tool="false" content_ui="tabs" />
