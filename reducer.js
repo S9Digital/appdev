@@ -6,9 +6,18 @@ import {
   SET_SOUND_DURATION
 } from "./actions/SoundActions";
 import {
-  SET_LIGHT_TONE,
-  SET_LIGHT_BRIGHTNESS,
-  SET_LIGHT_PRESET
+  SET_LIGHT_TONE_ATTEMPT,
+  SET_LIGHT_TONE_SUCCESS,
+  SET_LIGHT_TONE_ERROR,
+  SET_LIGHT_BRIGHTNESS_ATTEMPT,
+  SET_LIGHT_BRIGHTNESS_SUCCESS,
+  SET_LIGHT_BRIGHTNESS_ERROR,
+  SET_LIGHT_PRESET_ATTEMPT,
+  SET_LIGHT_PRESET,
+  SET_LIGHT_PRESET_ERROR,
+  GET_LIGHT_STATE_ATTEMPT,
+  GET_LIGHT_STATE_SUCCESS,
+  GET_LIGHT_STATE_ERROR
 } from "./actions/LightActions";
 import Moment from "react-moment";
 import moment from "moment";
@@ -32,16 +41,19 @@ const DEFAULT_STATE = {
   lightsNumber: 0,
   sleepSoundVolume: 50,
   sleepSoundDuration: 50,
-  lightBrightness: 20,
-  lightTone: 70,
-  lightsPower: false,
+  level: 20,
+  cct: 70,
+  preset: null,
+  lightPower: false,
+  lightSchedule: null,
   napEnd: 0,
   napSound: false,
   timerEnd: 0,
   timerLights: false,
   timerSound: false,
   modal: null,
-  userActions: []
+  userActions: [],
+  latestError: null
 };
 
 //will need to handle errors from light API, Ario is still getting us the event
@@ -82,6 +94,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
     const modal = action.modal;
     const momentTime = hour + ":" + minutes;
     if (modal === "wakeTime") {
+      console.log(momentTime);
       return {
         ...state,
         wakeTime: momentTime,
@@ -122,11 +135,14 @@ export default function reducer(state = DEFAULT_STATE, action) {
       };
     }
   }
-  //light
-  if (action.type === "SET_LIGHT_TONE") {
+  //LIGHT SECTION
+
+  //if loading animation is needed for slow data calls
+  //if (action.type === "SET_LIGHT_TONE_ATTEMPT") {}
+  if (action.type === "SET_LIGHT_TONE_SUCCESS") {
     return {
       ...state,
-      lightTone: action.tone,
+      cct: action.cct,
       userActions: [
         {
           action: action.type,
@@ -136,10 +152,16 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
+  //error handling for UI changes
+  //if (action.type === "SET_LIGHT_TONE_FAILURE") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "SET_LIGHT_BRIGHTNESS_ATTEMPT") {}
   if (action.type === "SET_LIGHT_BRIGHTNESS") {
     return {
       ...state,
-      lightBrightness: action.brightness,
+      level: action.level,
       userActions: [
         {
           action: action.type,
@@ -149,6 +171,12 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
+
+  //if (action.type === "SET_LIGHT_BRIGHTNESS_FAILURE") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "SET_LIGHT_PRESET_ATTEMPT") {}
   if (action.type === "SET_LIGHT_PRESET") {
     return {
       ...state,
@@ -162,7 +190,24 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  //sound
+  //if (action.type === "SET_LIGHT_PRESET_FAILURE") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "GET_LIGHT_STATE_ATTEMPT") {}
+  if (action.type === "GET_LIGHT_STATE_SUCCESS") {
+    return {
+      lightPower: action.power,
+      level: action.level,
+      cct: action.cct,
+      lightSchedule: action.schedule
+    };
+  }
+  //if (action.type === "GET_LIGHT_STATE_FAILURE") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //SOUND SECTION
   if (action.type == "SET_ALARM_DURATION") {
     return {
       ...state,

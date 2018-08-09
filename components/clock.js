@@ -136,10 +136,10 @@ class Clock extends React.Component {
         </LinearGradient>
         <TextBarBottom>
           <AlarmText>
-            {this.props.wakeTime ? this.props.wakeTime : "6:00 am"}
+            {this.props.wakeTime ? this.props.wakeTime : "OFF"}
           </AlarmText>
           <AlarmText>
-            {this.props.sleepTime ? this.props.sleepTime : "10:00 pm"}
+            {this.props.sleepTime ? this.props.sleepTime : "OFF"}
           </AlarmText>
         </TextBarBottom>
         <Text
