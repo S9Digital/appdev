@@ -1,16 +1,6 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  FlatList,
-  ScrollView,
-  Dimensions
-} from "react-native";
+import { Text, View, Image, TouchableOpacity, FlatList } from "react-native";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import styled from "styled-components";
 import Moment from "react-moment";
 import { hours, minutes, timeOfDay } from "../constants";
@@ -31,18 +21,18 @@ const Container = styled.View`
   border-radius: 25px;
   background-color: rgba(24, 24, 24, 0.8);
 `;
-const Button = styled.View`
-  width: 50px;
-  height: 50px;
-  background-color: rgb(14, 14, 14);
-  border-radius: 25px;
-`;
-const ButtonContainer = styled.View`
-  width: 50px;
-  height: 50px;
-  align-items: center;
-  justify-content: center;
-`;
+// const Button = styled.View`
+//   width: 50px;
+//   height: 50px;
+//   background-color: rgb(14, 14, 14);
+//   border-radius: 25px;
+// `;
+// const ButtonContainer = styled.View`
+//   width: 50px;
+//   height: 50px;
+//   align-items: center;
+//   justify-content: center;
+// `;
 
 const WheelContainer = styled.View`
   flex: 1;

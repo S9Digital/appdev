@@ -1,12 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import styled from "styled-components";
 import Moment from "react-moment";
-import { setTime } from "../actions/TimeActions";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 
 const ClockContainer = styled.View`
   flex: 1;
@@ -15,7 +13,6 @@ const ClockContainer = styled.View`
   justify-content: center;
   flex-wrap: nowrap;
 `;
-
 const BarContainer = styled.View`
   display: flex;
   flex: 1;
@@ -42,7 +39,6 @@ const TextBarBottom = styled.View`
   align-items: flex-start;
   justify-content: space-between;
 `;
-
 const Container = styled.View`
   flex: 1;
   display: flex;
@@ -53,7 +49,6 @@ const Container = styled.View`
   margin-top: 200px;
   margin-bottom: 35px;
 `;
-
 const TimeText = styled.Text`
   font-size: 92px;
   color: white;
@@ -65,20 +60,17 @@ const AmPmText = styled.Text`
   margin-bottom: 20px;
   margin-right: 15px;
 `;
-
 const AlarmTitle = styled.Text`
   font-size: 16px;
   color: white;
   font-weight: bold;
   margin: 5px;
 `;
-
 const AlarmText = styled.Text`
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   margin: 5px;
 `;
-
 const IconBorder = styled.View`
   background-color: rgb(14, 14, 14);
   border-radius: 15px;
@@ -143,19 +135,9 @@ class Clock extends React.Component {
           </TouchableOpacity>
         </LinearGradient>
         <TextBarBottom>
-          {/* <Moment
-            element={AlarmText}
-            format="h:mm A"
-            date={this.props.wakeTime}
-          /> */}
           <AlarmText>
             {this.props.wakeTime ? this.props.wakeTime : "6:00 am"}
           </AlarmText>
-          {/* <Moment
-            element={AlarmText}
-            format="h:mm A"
-            date={this.props.sleepTime}
-          /> */}
           <AlarmText>
             {this.props.sleepTime ? this.props.sleepTime : "10:00 pm"}
           </AlarmText>
@@ -177,6 +159,7 @@ class Clock extends React.Component {
     return (
       <ClockContainer>
         <Container>
+          {/* interval could be lower, only updates every minute now */}
           <Moment interval={1000} element={TimeText} format="h:mm" />
           <Moment interval={1000} element={AmPmText} format=" A" />
         </Container>

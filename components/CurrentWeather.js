@@ -62,7 +62,7 @@ class CurrentWeather extends React.Component {
     super(props);
     this.state = {};
   }
-
+  //all hard coded data here will be replaced with props data
   render() {
     return (
       <WeatherContainer>

@@ -157,10 +157,10 @@ class LightsAdjust extends React.Component {
       scene: this.props.scene
     };
   }
-  componentDidMount() {
-    //getLightState to gather device configuration
-    //this.props.lightGetter();
-  }
+  // componentDidMount() {
+  //   //getLightState to gather device configuration from Ario backend
+  //   this.props.lightGetter();
+  // }
   render() {
     return (
       <Wrapper>

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Moment from "react-moment";
 import ClockScroller from "./ClockScroller";
@@ -7,8 +7,6 @@ import { napHours, hours, minutes, timeOfDay } from "../constants";
 import { setTime } from "../actions/TimeActions";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import DateTimePicker from "react-native-modal-datetime-picker";
 
 const Container = styled.View`
   flex: 1;
@@ -28,7 +26,6 @@ const Content = styled.View`
   margin-bottom: 10px;
   flex-wrap: nowrap;
 `;
-
 const ScrollContainer = styled.View`
   flex: 1;
   display: flex;
@@ -49,7 +46,6 @@ const AlarmContainer = styled.View`
   align-items: flex-end;
   justify-content: flex-end;
 `;
-
 const TimeButton = styled.View`
   height: 30px;
   width: 100px;
@@ -70,11 +66,6 @@ const ButtonContainer = styled.View`
   flex-wrap: nowrap;
   width: 300px;
   height: 30px;
-`;
-
-const TimeText = styled.Text`
-  font-size: 36px;
-  color: white;
 `;
 const InfoText = styled.Text`
   font-size: 14px;
@@ -119,6 +110,7 @@ class ClockAdjust extends React.Component {
             <Text>Cancel</Text>
           </TimeButton>
         </TouchableOpacity>
+        {/* time of day not set up yet */}
         <TouchableOpacity
           onPress={() => {
             this.props.setClockData(
@@ -137,7 +129,6 @@ class ClockAdjust extends React.Component {
       </ButtonContainer>
     );
   }
-
   renderAlarm() {
     return (
       <AlarmContainer>

@@ -11,8 +11,6 @@ import {
 import styled from "styled-components";
 import Moment from "react-moment";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import ClockScroller from "./ClockScroller";
 import ClockAdjust from "./ClockAdjust";
 import LightsAdjust from "./LightsAdjust";
 import Weather from "./Weather";
@@ -164,6 +162,7 @@ class Landing extends React.Component {
   }
 
   renderModalView() {
+    //all sub components "routing" handled through here. prop string determines current modal
     if (this.props.modal !== null) {
       let modal;
       if (this.props.modal === "sounds") {

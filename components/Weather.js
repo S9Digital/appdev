@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  FlatList,
-  Image
-} from "react-native";
+import { Text, View, TouchableOpacity, FlatList, Image } from "react-native";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/SystemActions";
@@ -21,13 +14,6 @@ const Container = styled.View`
   background-color: rgba(43, 45, 48, 0.98);
   width: 100%;
   height: 100%;
-`;
-const WeatherContainer = styled.View`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
 `;
 const CurrentWrapper = styled.View`
   flex: 1;
@@ -86,7 +72,7 @@ const WeatherText = styled.Text`
   font-size: 20px;
   color: white;
 `;
-
+//all data from constants file to be replaced with props once weather API provided
 class Weather extends React.Component {
   constructor(props) {
     super(props);
@@ -108,7 +94,6 @@ class Weather extends React.Component {
     return (
       <Container>
         <Content>
-          {/* <WeatherContainer> */}
           <CurrentWrapper>
             <CurrentWeather />
           </CurrentWrapper>
@@ -116,10 +101,8 @@ class Weather extends React.Component {
             data={tempWeather}
             scrollEnabled={false}
             horizontal={true}
-            //   keyExtractor={item => item.key}
             renderItem={this._renderItem}
           />
-          {/* </WeatherContainer> */}
           <ButtonContainer>
             <TouchableOpacity onPress={() => this.props.modalClose()}>
               <TimeButton>

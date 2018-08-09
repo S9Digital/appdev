@@ -2,6 +2,11 @@
 // import * as NativeWakeLock from "react-native-android-wakelock";
 // import * as NativeAccelerometer from "react-native-android-accelerometer";
 
+// //Ario will send updates to this for powering off screen
+// //note: screen will not wake back to app when the android screen saver kicks in
+// //and wakelock is interrupted by debugging when not in release mode in android studio
+// //must also be in publish mode to test (exp publish rather than exp start)
+
 // export default class System {
 //   constructor() {
 //     if (System._instance) {

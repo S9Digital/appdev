@@ -1,25 +1,8 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  FlatList,
-  ScrollView,
-  Dimensions
-} from "react-native";
+import { Text, View, Image, TouchableOpacity, FlatList } from "react-native";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import styled from "styled-components";
 import { sleepSounds } from "../constants";
-
-const Wrapper = styled.View`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 const Container = styled.View`
   flex: 1;
@@ -61,8 +44,6 @@ const SoundText = styled.Text`
   font-size: 36px;
   color: white;
 `;
-const screenHeight = Dimensions.get("window").height;
-const screenWidth = Dimensions.get("window").width;
 
 class SoundScroller extends React.Component {
   constructor(props) {
@@ -72,11 +53,6 @@ class SoundScroller extends React.Component {
       sound: this.props.data.slice(0, 1)
     };
   }
-  // componentDidMount() {
-  //   if (this.props.alarmSoundId !== this.state.sound) {
-  //     this.setState({ sound: this.props.alarmSoundId });
-  //   }
-  // }
   scrollRight() {
     const dataLength = this.props.data.length - 1;
     const { page } = this.state;

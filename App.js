@@ -31,6 +31,7 @@ export default class App extends React.Component {
             flex: 1,
             flexDirection: "row"
           }}
+          //Ario to provide new background image, should be scaled to screen dimensions
           source={require("./assets/mountain_background.jpg")}
         >
           <Landing />

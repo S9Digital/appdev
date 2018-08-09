@@ -19,6 +19,7 @@ import {
   SCREEN_OFF
 } from "./actions/SystemActions";
 
+//
 const DEFAULT_STATE = {
   wakeTime: null,
   sleepTime: null,
@@ -43,7 +44,7 @@ const DEFAULT_STATE = {
   userActions: []
 };
 
-//will need to handle errors from light API
+//will need to handle errors from light API, Ario is still getting us the event
 export default function reducer(state = DEFAULT_STATE, action) {
   //navigation
   if (action.type === "MODAL_OPEN") {
@@ -80,12 +81,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
     const timeOfDay = action.timeOfDay;
     const modal = action.modal;
     const momentTime = hour + ":" + minutes;
-    //).format(
-    //   "h:mm"
-    // );
-    console.log(momentTime);
     if (modal === "wakeTime") {
-      // console.log(momentArray);
       return {
         ...state,
         wakeTime: momentTime,

@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  FlatList
-} from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
@@ -24,14 +17,6 @@ const Container = styled.View`
   width: 100%;
   height: 100%;
 `;
-
-const ContentContainer = styled.View`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
-
 const PresetsContainer = styled.View`
   display: flex;
   flex: 1;
@@ -42,7 +27,6 @@ const PresetsContainer = styled.View`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-
 const Presets = styled.View`
   display: flex;
   flex: 1;
@@ -50,7 +34,6 @@ const Presets = styled.View`
   justify-content: center;
   align-items: center;
 `;
-
 const Info = styled.View`
   display: flex;
   flex: 1;
@@ -64,12 +47,6 @@ const Duration = styled.View`
   justify-content: center;
   align-items: flex-start;
   height: 100px;
-`;
-const DurationBar = styled.View`
-  width: 500px;
-  height: 25px;
-  border-radius: 30px;
-  background-color: white;
 `;
 const ButtonContainer = styled.View`
   display: flex;
@@ -98,7 +75,6 @@ const Button2 = styled.View`
   background-color: rgb(83, 86, 91);
   margin: 10px;
 `;
-
 const Title = styled.Text`
   font-size: 12;
   color: white;
@@ -144,6 +120,7 @@ class AlarmSettings extends React.Component {
           <Text style={{ color: "white" }}>{this.state.value}s</Text>
         </Duration>
         <Info>
+          {/* placeholder to be replaced when Ario gets us text copy */}
           <Title>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -152,6 +129,7 @@ class AlarmSettings extends React.Component {
           </Title>
         </Info>
         <ButtonContainer>
+          {/* preview functionality not finished, waiting on API connections and audio files*/}
           <Button2>
             <TouchableOpacity onPress={() => this.props.modalClose()}>
               <Text style={{ padding: 10, color: "white", fontSize: 10 }}>
