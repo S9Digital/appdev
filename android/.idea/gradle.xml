@@ -11,18 +11,11 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-android-accelerometer/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-android-wakelock/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-fs/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-linear-gradient/android" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/../node_modules/react-native-android-accelerometer/android" />
-            <option value="$PROJECT_DIR$/../node_modules/react-native-android-wakelock/android" />
-            <option value="$PROJECT_DIR$/../node_modules/react-native-linear-gradient/android" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

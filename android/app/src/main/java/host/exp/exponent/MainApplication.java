@@ -13,6 +13,7 @@ import expolib_v1.okhttp3.OkHttpClient;
 import com.arioliving.wakelock.AndroidWakeLockPackage;
 import com.arioliving.accelerometer.AndroidAccelerometerPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
+import com.rnfs.RNFSPackage;
 
 public class MainApplication extends ExpoApplication {
 
@@ -31,7 +32,8 @@ public class MainApplication extends ExpoApplication {
         // new MainReactPackage(),
             new AndroidWakeLockPackage(),
             new AndroidAccelerometerPackage(),
-            new LinearGradientPackage()
+            new LinearGradientPackage(),
+            new RNFSPackage()
     );
   }
 

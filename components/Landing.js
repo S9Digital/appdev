@@ -29,21 +29,26 @@ const Wrapper = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
-const LeftSection = styled.View`
+const TopContainer = styled.View`
   flex: 1;
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  height: 80px;
 `;
-const RightSection = styled.View`
+const BottomContainer = styled.View`
   flex: 1;
   display: flex;
+  flex-direction: row;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  height: 100px;
 `;
 const Section = styled.View`
   flex: 1;
@@ -54,9 +59,7 @@ const Section = styled.View`
 const Container = styled.View`
   flex: 1;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  margin: 20px;
+  flex-direction: row;
 `;
 //buttons
 const Button = styled.View`
@@ -87,6 +90,7 @@ const WeatherDataWrapper = styled.TouchableOpacity`
   align-items: flex-start;
   justify-content: flex-start;
   margin-top: 10px;
+  width: 120px;
 `;
 //power
 const PowerContainer = styled.TouchableOpacity`
@@ -105,26 +109,25 @@ const PowerTextContainer = styled.View`
   margin-bottom: 15px;
 `;
 //alarm
-const AlarmContainer = styled.View`
+const AlarmContainer = styled.TouchableOpacity`
   flex: 1;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
   flex-wrap: nowrap;
-  height: 100px;
-  width: 250px;
-  margin-bottom: 25px;
-  margin-right: 25px;
+  width: 40px;
+  margin-right: 15px;
+  margin-top: 20px;
+  margin-left: 300px;
 `;
 const AlarmButton = styled.View`
   flex: 1;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-end;
   flex-direction: column;
   height: 50px;
-  width: 200px;
 `;
 const Slider = styled.View`
   background-color: rgba(17, 134, 117, 0.5);
@@ -191,12 +194,39 @@ class Landing extends React.Component {
     }
   }
 
-  renderLeft() {
+  renderTop() {
     return (
-      <LeftSection>
+      <TopContainer>
         <WeatherDataWrapper onPress={() => this.props.modalOpen("weather")}>
           <CurrentWeather />
         </WeatherDataWrapper>
+        <AlarmContainer
+          onPress={() => {
+            this.setState({ alarmText: !this.state.alarmText });
+            this.props.modalOpen("alarm");
+          }}
+        >
+          <Image
+            style={{ width: 40, height: 40 }}
+            source={require("../assets/bell.png")}
+          />
+          <AlarmButton>
+            <ButtonText>
+              {this.state.alarmText ? "ALARM ON" : "ALARM OFF"}
+            </ButtonText>
+            <ButtonText>10:00</ButtonText>
+          </AlarmButton>
+          <Slider>
+            <SliderThumb alarm={this.state.alarmText} />
+          </Slider>
+        </AlarmContainer>
+      </TopContainer>
+    );
+  }
+
+  renderBottom() {
+    return (
+      <BottomContainer>
         <PowerContainer>
           <ButtonContainer>
             <Image
@@ -209,13 +239,6 @@ class Landing extends React.Component {
             <ButtonText>Screen Off</ButtonText>
           </PowerTextContainer>
         </PowerContainer>
-      </LeftSection>
-    );
-  }
-
-  renderRight() {
-    return (
-      <RightSection>
         <Container>
           <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
             <Button>
@@ -245,30 +268,19 @@ class Landing extends React.Component {
             </Button>
           </TouchableOpacity>
         </Container>
-        <AlarmContainer>
-          <Image
-            style={{ width: 40, height: 40 }}
-            source={require("../assets/bell.png")}
-          />
-          <TouchableOpacity
-            style={{ flex: 1, flexDirection: "row" }}
-            onPress={() => {
-              this.setState({ alarmText: !this.state.alarmText });
-              this.props.modalOpen("alarm");
-            }}
-          >
-            <AlarmButton>
-              <ButtonText>
-                {this.state.alarmText ? "ALARM ON" : "ALARM OFF"}
-              </ButtonText>
-              <ButtonText>10:00</ButtonText>
-            </AlarmButton>
-            <Slider>
-              <SliderThumb alarm={this.state.alarmText} />
-            </Slider>
-          </TouchableOpacity>
-        </AlarmContainer>
-      </RightSection>
+        <PowerContainer>
+          <ButtonContainer>
+            <Image
+              // onPress={() => System.getInstance().getWakeLock(false)}
+              style={{ width: 20, height: 20 }}
+              source={require("../assets/power.png")}
+            />
+          </ButtonContainer>
+          <PowerTextContainer>
+            <ButtonText>Screen Off</ButtonText>
+          </PowerTextContainer>
+        </PowerContainer>
+      </BottomContainer>
     );
   }
 
@@ -276,11 +288,11 @@ class Landing extends React.Component {
     return (
       <Wrapper>
         {this.renderModalView()}
-        {this.renderLeft()}
+        {this.renderTop()}
         <Section>
           <Clock />
         </Section>
-        {this.renderRight()}
+        {this.renderBottom()}
       </Wrapper>
     );
   }

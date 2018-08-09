@@ -14,11 +14,13 @@ import thunk from "redux-thunk";
 import store from "./store";
 import Landing from "./components/Landing";
 import System from "./components/System";
-// import { ArioBle } from "react-native-ario-ble";
+
 // System.getInstance().getWakeLock(true);
 
 export default class App extends React.Component {
-  // _ario = new ArioBle();
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Provider store={store}>
@@ -31,8 +33,6 @@ export default class App extends React.Component {
           }}
           source={require("./assets/mountain_background.jpg")}
         >
-          {/* <StatusBar hidden={true} /> */}
-
           <Landing />
         </ImageBackground>
       </Provider>
