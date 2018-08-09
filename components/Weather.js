@@ -12,7 +12,6 @@ import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { tempWeather } from "../constants";
 import CurrentWeather from "./CurrentWeather";
-import Images from "../assets/Images";
 
 const Container = styled.View`
   flex: 1;

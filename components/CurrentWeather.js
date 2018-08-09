@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   TouchableOpacity,
   FlatList
 } from "react-native";
@@ -10,6 +11,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import Moment from "react-moment";
+import Images from "../assets/Images";
 
 //weather
 const WeatherContainer = styled.View`
@@ -17,9 +19,10 @@ const WeatherContainer = styled.View`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 10px;
+  flex-wrap: nowrap;
+  margin-left: 20px;
   margin-top: 20px;
-  width: 200px;
+  width: 250px;
   height: 100px;
 `;
 
@@ -32,14 +35,20 @@ const WeatherData = styled.View`
   justify-content: flex-start;
   margin-top: 5px;
 `;
-const WeatherText = styled.Text`
+const WeatherHeader = styled.Text`
   color: white;
   opacity: 0.8;
   font-size: 16px;
+  flex-wrap: nowrap;
+`;
+const WeatherText = styled.Text`
+  color: white;
+  opacity: 0.8;
+  font-size: 14px;
 `;
 const WeatherNumber = styled.Text`
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   margin-right: 10px;
 `;
 const WeatherRow = styled.View`
@@ -57,12 +66,15 @@ class CurrentWeather extends React.Component {
   render() {
     return (
       <WeatherContainer>
-        <Moment element={WeatherText} format="dddd MMMM D, YYYY" />
+        <Moment element={WeatherHeader} format="dddd MMMM D, YYYY" />
         <WeatherRow>
+          <Image
+            source={Images.sunny}
+            style={{ height: 30, width: 30, marginTop: 5, marginRight: 15 }}
+          />
           <WeatherNumber>67°</WeatherNumber>
           <WeatherData>
-            <WeatherText>Partly cloudy</WeatherText>
-            <WeatherText>L 59°/H 72°</WeatherText>
+            <WeatherText> 59°F / 72°F</WeatherText>
           </WeatherData>
         </WeatherRow>
       </WeatherContainer>

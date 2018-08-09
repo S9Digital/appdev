@@ -90,7 +90,7 @@ const WeatherDataWrapper = styled.TouchableOpacity`
   align-items: flex-start;
   justify-content: flex-start;
   margin-top: 10px;
-  width: 120px;
+  width: 220px;
 `;
 //power
 const PowerContainer = styled.TouchableOpacity`
@@ -119,7 +119,7 @@ const AlarmContainer = styled.TouchableOpacity`
   width: 40px;
   margin-right: 15px;
   margin-top: 20px;
-  margin-left: 300px;
+  margin-left: 280px;
 `;
 const AlarmButton = styled.View`
   flex: 1;
