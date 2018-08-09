@@ -20,7 +20,7 @@ const BarContainer = styled.View`
   display: flex;
   flex: 1;
   height: 200px;
-  padding-bottom: 200px;
+  margin-bottom: 200px;
   align-items: center;
   justify-content: flex-start;
 `;
@@ -42,36 +42,6 @@ const TextBarBottom = styled.View`
   align-items: flex-start;
   justify-content: space-between;
 `;
-const ScrollContainer = styled.View`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
-const LightBar = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  width: 400px;
-  height: 30px;
-  border-radius: 25px;
-  background-color: #80e5ff;
-`;
-
-const TimeButton = styled.View`
-  padding-left: 25px;
-`;
-const ButtonContainer = styled.View`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-`;
 
 const Container = styled.View`
   flex: 1;
@@ -80,18 +50,20 @@ const Container = styled.View`
   justify-content: center;
   align-items: flex-end;
   width: 400px;
-  padding-top: 200px;
+  margin-top: 200px;
+  margin-bottom: 35px;
 `;
 
 const TimeText = styled.Text`
-  font-size: 100px;
+  font-size: 92px;
   color: white;
-  padding-top: 80px;
+  letter-spacing: 3px;
 `;
 const AmPmText = styled.Text`
   font-size: 20px;
   color: white;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  margin-right: 15px;
 `;
 
 const AlarmTitle = styled.Text`
@@ -109,10 +81,10 @@ const AlarmText = styled.Text`
 
 const IconBorder = styled.View`
   background-color: rgb(14, 14, 14);
-  border-radius: 30px;
-  margin: 1px;
+  border-radius: 15px;
   height: 30px;
   width: 30px;
+  margin: 1.5px;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -146,7 +118,7 @@ class Clock extends React.Component {
             justifyContent: "space-between",
             flexWrap: "nowrap",
             width: 400,
-            height: 30,
+            height: 34,
             borderRadius: 25
           }}
         >
@@ -191,8 +163,7 @@ class Clock extends React.Component {
         <Text
           style={{
             color: "white",
-            fontWeight: "bold",
-            fontSize: 20,
+            fontSize: 18,
             marginTop: 30
           }}
         >

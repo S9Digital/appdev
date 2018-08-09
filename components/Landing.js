@@ -47,8 +47,10 @@ const BottomContainer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: space-evenly;
-  height: 100px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
 `;
 const Section = styled.View`
   flex: 1;
@@ -60,28 +62,34 @@ const Container = styled.View`
   flex: 1;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  width: 500px;
+  height: 70px;
 `;
 //buttons
 const Button = styled.View`
-  background-color: #000000;
+  background-color: rgba(43, 45, 48, 0.7);
   flex-direction: row;
   flex-wrap: nowrap;
   border-radius: 35px;
   align-items: center;
   justify-content: center;
   width: 160px;
-  height: 45px;
-  margin-bottom: 10px;
+  height: 55px;
+  margin: 7px;
+  margin-bottom: 20px;
+`;
+
+const ButtonContainer = styled.View`
+  border-radius: 25px;
+  border: 3px solid #d32b4f;
+  padding: 10px;
 `;
 const ButtonText = styled.Text`
   color: white;
   font-size: 14px;
   margin-left: 10px;
-`;
-const ButtonContainer = styled.View`
-  border-radius: 25px;
-  border: 3px solid #d32b4f;
-  padding: 10px;
 `;
 const WeatherDataWrapper = styled.TouchableOpacity`
   flex: 1;
@@ -96,18 +104,12 @@ const WeatherDataWrapper = styled.TouchableOpacity`
 const PowerContainer = styled.TouchableOpacity`
   flex: 1;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  width: 60px;
   margin: 20px;
+  margin-bottom: 10px;
 `;
-const PowerTextContainer = styled.View`
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: 15px;
-`;
+
 //alarm
 const AlarmContainer = styled.TouchableOpacity`
   flex: 1;
@@ -119,7 +121,7 @@ const AlarmContainer = styled.TouchableOpacity`
   width: 40px;
   margin-right: 15px;
   margin-top: 20px;
-  margin-left: 280px;
+  margin-left: 290px;
 `;
 const AlarmButton = styled.View`
   flex: 1;
@@ -227,17 +229,29 @@ class Landing extends React.Component {
   renderBottom() {
     return (
       <BottomContainer>
-        <PowerContainer>
-          <ButtonContainer>
+        <PowerContainer
+          style={{ justifyContent: "center", alignItems: "flex-start" }}
+        >
+          <ButtonContainer
+            style={{ marginLeft: 5, marginBottom: 2 }}
+            // onPress={() => System.getInstance().getWakeLock(false)}
+          >
             <Image
-              // onPress={() => System.getInstance().getWakeLock(false)}
               style={{ width: 20, height: 20 }}
               source={require("../assets/power.png")}
             />
           </ButtonContainer>
-          <PowerTextContainer>
-            <ButtonText>Screen Off</ButtonText>
-          </PowerTextContainer>
+          {/* <PowerTextContainer> */}
+          <Text
+            style={{
+              color: "white",
+              fontSize: 14,
+              marginRight: 10
+            }}
+          >
+            Screen OFF
+          </Text>
+          {/* </PowerTextContainer> */}
         </PowerContainer>
         <Container>
           <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
@@ -268,17 +282,32 @@ class Landing extends React.Component {
             </Button>
           </TouchableOpacity>
         </Container>
-        <PowerContainer>
-          <ButtonContainer>
-            <Image
-              // onPress={() => System.getInstance().getWakeLock(false)}
-              style={{ width: 20, height: 20 }}
-              source={require("../assets/power.png")}
-            />
-          </ButtonContainer>
-          <PowerTextContainer>
-            <ButtonText>Screen Off</ButtonText>
-          </PowerTextContainer>
+        <PowerContainer
+          style={{ justifyContent: "center", alignItems: "flex-end" }}
+        >
+          <ButtonContainer
+            style={{
+              width: 43,
+              height: 43,
+              borderRadius: 25,
+              borderWidth: 3,
+              borderStyle: "solid",
+              borderColor: "white",
+              padding: 10,
+              marginRight: 10,
+              marginBottom: 5
+            }}
+            // onPress={() => System.getInstance().getWakeLock(false)}
+          />
+          <Text
+            style={{
+              color: "white",
+              fontSize: 14,
+              marginRight: 12
+            }}
+          >
+            Demo
+          </Text>
         </PowerContainer>
       </BottomContainer>
     );
