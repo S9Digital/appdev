@@ -1,3 +1,19 @@
+//use to cancel or snooze alarm when triggered?
+export const SET_ALARM_ATTEMPT = "SET_ALARM_ATTEMPT";
+export const SET_ALARM_SUCCESS = "SET_ALARM_SUCCESS";
+export const SET_ALARM_ERROR = "SET_ALARM_ERROR";
+export const setALARM = value => dispatch => {
+  dispatch({ type: SET_ALARM_ATTEMPT });
+  //insert native library query here
+  dispatch({
+    type: SET_ALARM_SUCCESS,
+    value: value
+  });
+  //.catch(error => {
+  //dispatch({type: SET_ALARM_ERROR, error, error})
+  //})
+};
+
 export const SET_TIME_ATTEMPT = "SET_TIME_ATTEMPT";
 export const SET_TIME_SUCCESS = "SET_TIME_SUCCESS";
 export const SET_TIME_ERROR = "SET_TIME_ERROR";
@@ -5,7 +21,7 @@ export const setTime = (hour, mins, timeOfDay, modal) => dispatch => {
   dispatch({ type: SET_TIME_ATTEMPT });
   //insert native library query here
   dispatch({
-    type: SET_TIME,
+    type: SET_TIME_SUCCESS,
     hour: hour,
     minutes: mins,
     modal: modal,

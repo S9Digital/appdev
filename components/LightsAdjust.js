@@ -27,7 +27,7 @@ const Wrapper = styled.View`
   flex: 1;
   justify-content: space-around;
   align-items: center;
-  background-color: color.modalGrey;
+  background-color: ${color.modalGrey};
   width: 100%;
   height: 100%;
 `;
@@ -63,7 +63,7 @@ const Box = styled.ImageBackground`
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: color.fadedBlack;
+  background-color: ${color.fadedBlack};
   width: 125px;
   height: 80px;
   margin-left: 4px;
@@ -109,7 +109,7 @@ const ButtonContainer = styled.View`
 `;
 const Button = styled.View`
   border-radius: 25px;
-  background-color: color.universalWhite;
+  background-color: ${color.universalWhite};
   width: 180px;
   height: 40px;
   margin-left: 10px;

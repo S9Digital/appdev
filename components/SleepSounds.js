@@ -25,7 +25,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: color.modalGrey;
+  background-color: ${color.modalGrey};
   width: 100%;
   height: 100%;
 `;
@@ -66,7 +66,7 @@ const VolumeBar = styled.View`
   width: 500px;
   height: 25px;
   border-radius: 30px;
-  background-color: color.universalWhite;
+  background-color: ${color.universalWhite};
 `;
 const Duration = styled.View`
   display: flex;
@@ -78,7 +78,7 @@ const DurationBar = styled.View`
   width: 500px;
   height: 25px;
   border-radius: 30px;
-  background-color: color.universalWhite;
+  background-color: ${color.universalWhite};
 `;
 const ButtonContainer = styled.View`
   display: flex;
@@ -90,7 +90,7 @@ const ButtonContainer = styled.View`
 `;
 const Button = styled.View`
   border-radius: 30px;
-  background-color: color.universalWhite;
+  background-color: ${color.universalWhite};
   display: flex;
   flex: 1;
   justify-content: center;
@@ -99,7 +99,7 @@ const Button = styled.View`
 
 const Title = styled.Text`
   font-size: 12;
-  color: color.universalWhite;
+  color: ${color.universalWhite};
   margin-bottom: 5px;
 `;
 class SleepSounds extends React.Component {

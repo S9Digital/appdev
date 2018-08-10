@@ -30,7 +30,7 @@ const ButtonContainer = styled.View`
 const Button = styled.View`
   width: 50px;
   height: 50px;
-  background-color: color.fadedBlack;
+  background-color: ${color.fadedBlack};
   border-radius: 25px;
 `;
 
@@ -43,7 +43,7 @@ const SoundContainer = styled.View`
 `;
 const SoundText = styled.Text`
   font-size: 36px;
-  color: color.universalWhite;
+  color: ${color.universalWhite};
 `;
 
 class SoundScroller extends React.Component {

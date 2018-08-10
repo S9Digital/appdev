@@ -63,13 +63,13 @@ const AmPmText = styled.Text`
 `;
 const AlarmTitle = styled.Text`
   font-size: 16px;
-  color: color.universalWhite;
+  color: ${color.universalWhite};
   font-weight: bold;
   margin: 5px;
 `;
 const AlarmText = styled.Text`
   font-size: 16px;
-  color: color.fadedWhite;
+  color: ${color.fadedWhite};
   margin: 5px;
 `;
 const IconBorder = styled.View`
@@ -81,6 +81,7 @@ const IconBorder = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 `;
 
 class Clock extends React.Component {

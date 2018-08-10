@@ -12,7 +12,7 @@ const Container = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: color.modalGrey;
+  background-color: ${color.modalGrey};
   width: 100%;
   height: 100%;
 `;
@@ -35,12 +35,13 @@ const WeatherTile = styled.View`
   margin-top: 15px;
   height: 200px;
   width: 120px;
-  border: 1px solid color.universalWhite;
+  border: 1px solid ${color.universalWhite};
   flex-wrap: nowrap;
 `;
 const WeatherText = styled.Text`
-  color: color.universalWhite;
+  color: ${color.universalWhite};
   flex-wrap: nowrap;
+  font-size: 20px;
 `;
 const Content = styled.View`
   flex: 1;
@@ -55,7 +56,7 @@ const TimeButton = styled.View`
   height: 30px;
   width: 100px;
   border-radius: 30px;
-  background-color: color.universalWhite;
+  background-color: ${color.universalWhite};
   display: flex;
   flex: 1;
   justify-content: center;
@@ -73,10 +74,6 @@ const ButtonContainer = styled.View`
   height: 30px;
 `;
 
-const WeatherText = styled.Text`
-  font-size: 20px;
-  color: white;
-`;
 //all data from constants file to be replaced with props once weather API provided
 class Weather extends React.Component {
   constructor(props) {

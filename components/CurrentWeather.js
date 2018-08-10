@@ -37,18 +37,18 @@ const WeatherData = styled.View`
   margin-top: 5px;
 `;
 const WeatherHeader = styled.Text`
-  color: color.universalWhite;
+  color: ${color.universalWhite};
   opacity: 0.8;
   font-size: 16px;
   flex-wrap: nowrap;
 `;
 const WeatherText = styled.Text`
-  color: color.universalWhite;
+  color: ${color.universalWhite};
   opacity: 0.8;
   font-size: 14px;
 `;
 const WeatherNumber = styled.Text`
-  color: color.universalWhite;
+  color: white;
   font-size: 30px;
   margin-right: 10px;
 `;

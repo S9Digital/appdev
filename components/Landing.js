@@ -17,6 +17,7 @@ import Weather from "./Weather";
 import SleepSounds from "./SleepSounds";
 import AlarmSettings from "./AlarmSettings";
 import Clock from "./Clock";
+import Alarm from "./Alarm";
 import CurrentWeather from "./CurrentWeather";
 import { hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/SystemActions";
@@ -31,7 +32,7 @@ const Wrapper = styled.View`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: color.fadeOverlay;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 const TopContainer = styled.View`
   flex: 1;
@@ -47,7 +48,7 @@ const BottomContainer = styled.View`
   flex-direction: row;
   align-items: flex-end;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 100%;
   height: 80px;
 `;
@@ -68,7 +69,7 @@ const Container = styled.View`
 `;
 //buttons
 const Button = styled.View`
-  background-color: color.fadedGrey;
+  background-color: ${color.fadedGrey};
   flex-direction: row;
   flex-wrap: nowrap;
   border-radius: 35px;
@@ -99,13 +100,13 @@ const PowerContainer = styled.View`
   flex: 1;
   display: flex;
   flex-direction: column;
-  width: 60px;
+  width: 30px;
   margin: 20px;
   margin-bottom: 10px;
 `;
 const PowerButtonContainer = styled.View`
   border-radius: 25px;
-  border: 3px solid color.powerRed;
+  border: 3px solid ${color.powerRed};
   padding: 10px;
 `;
 
@@ -133,7 +134,7 @@ const AlarmButton = styled.View`
   z-index: 4;
 `;
 const Slider = styled.View`
-  background-color: color.alarmFadedGreen;
+  background-color: ${color.alarmFadedGreen};
   height: 30px;
   width: 60px;
   border-radius: 14px;
@@ -143,7 +144,7 @@ const SliderThumb = styled.View`
   height: 30;
   width: 30;
   border-radius: 30;
-  background-color: color.alarmGreen;
+  background-color: ${color.alarmGreen};
   margin-left: ${props => (props.alarm === true ? 30 : 0)};
 `;
 const ModalContainer = styled.Modal`
@@ -163,7 +164,7 @@ class Landing extends React.Component {
       alarmText: false
     };
   }
-
+  componentDidMount() {}
   renderModalView() {
     //all sub components "routing" handled through here. prop string determines current modal
     if (this.props.modal !== null) {
@@ -176,9 +177,12 @@ class Landing extends React.Component {
         modal = <LightsAdjust />;
       } else if (this.props.modal === "weather") {
         modal = <Weather />;
+      } else if (this.props.modal === "snooze") {
+        modal = <Alarm />;
       } else if (
         this.props.modal === "sleepTime" ||
-        this.props.modal === "wakeTime"
+        this.props.modal === "wakeTime" ||
+        this.props.modal === "nap"
       ) {
         modal = <ClockAdjust type={this.props.modal} />;
       }
@@ -286,7 +290,11 @@ class Landing extends React.Component {
           </TouchableOpacity>
         </Container>
         <PowerContainer
-          style={{ justifyContent: "center", alignItems: "flex-end" }}
+          style={{
+            justifyContent: "center",
+            alignItems: "flex-end",
+            width: 30
+          }}
         >
           <View
             style={{
@@ -295,7 +303,7 @@ class Landing extends React.Component {
               borderRadius: 25,
               borderWidth: 3,
               borderStyle: "solid",
-              borderColor: "color.universalWhite",
+              borderColor: color.universalWhite,
               padding: 10,
               marginRight: 10,
               marginBottom: 5

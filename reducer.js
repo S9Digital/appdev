@@ -2,6 +2,9 @@ import {
   SET_TIME_ATTEMPT,
   SET_TIME_SUCCESS,
   SET_TIME_ERROR,
+  SET_ALARM_ATTEMPT,
+  SET_ALARM_SUCCESS,
+  SET_ALARM_ERROR,
   GET_ALARM_STATE_ATTEMPT,
   GET_ALARM_STATE_SUCCESS,
   GET_ALARM_STATE_ERROR,
@@ -61,7 +64,8 @@ import {
 const DEFAULT_STATE = {
   wakeTime: null,
   sleepTime: null,
-  alarm: false,
+  alarmSet: false,
+  alarmTriggered: false,
   alarmTime: null,
   alarmDuration: 9,
   alarmSoundId: "default",
@@ -158,7 +162,19 @@ export default function reducer(state = DEFAULT_STATE, action) {
       return {
         ...state,
         alarmTime: momentTime,
-        alarm: true,
+        alarmSet: true,
+        userActions: [
+          {
+            action: action.type,
+            time: new Date()
+          },
+          ...state.userActions
+        ]
+      };
+    }
+    if (modal === "snooze") {
+      return {
+        ...state,
         userActions: [
           {
             action: action.type,

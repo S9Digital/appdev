@@ -14,7 +14,7 @@ const Container = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: color.modalGrey;
+  background-color: ${color.modalGrey};
   width: 100%;
   height: 100%;
 `;
@@ -51,7 +51,7 @@ const TimeButton = styled.View`
   height: 30px;
   width: 100px;
   border-radius: 30px;
-  background-color: color.universalWhite;
+  background-color: ${color.universalWhite};
   display: flex;
   flex: 1;
   justify-content: center;
@@ -70,7 +70,7 @@ const ButtonContainer = styled.View`
 `;
 const InfoText = styled.Text`
   font-size: 14px;
-  color: white;
+  color: ${color.universalWhite};
   margin-right: 50px;
   margin-bottom: 5px;
 `;

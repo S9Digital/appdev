@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import Moment from "react-moment";
 import { hours, minutes, timeOfDay } from "../constants";
+import { color } from "../StyleVariables";
 
 const Wrapper = styled.View`
   flex: 1;
@@ -19,7 +20,7 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  background-color: color.fadedBlack;
+  background-color: ${color.fadedBlack};
 `;
 
 const WheelContainer = styled.View`
