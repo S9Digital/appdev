@@ -114,7 +114,7 @@ class SoundScroller extends React.Component {
                   justifyContent: "center"
                 }}
               >
-                <Text style={{ fontSize: 36, color: "color.universalWhite" }}>
+                <Text style={{ fontSize: 36, color: color.universalWhite }}>
                   {item.key}
                 </Text>
               </View>

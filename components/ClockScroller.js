@@ -109,7 +109,7 @@ class ClockScroller extends React.Component {
                     alignItems: "center"
                   }}
                 >
-                  <Text style={{ fontSize: 26, color: "color.universalWhite" }}>
+                  <Text style={{ fontSize: 26, color: color.universalWhite }}>
                     {item.key}
                   </Text>
                 </View>

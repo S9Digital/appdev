@@ -13,8 +13,8 @@ import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import {
   setSleepSound,
-  soundVolume,
-  soundDuration
+  setSoundVolume,
+  setSoundDuration
 } from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";
@@ -143,7 +143,7 @@ class SleepSounds extends React.Component {
           <Slider
             minimumTrackTintColor="rgb(202,207,218)"
             maximumTrackTintColor="rgba(24,24,24,1)"
-            thumbTintColor="color.universalWhite"
+            thumbTintColor="white"
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}
@@ -157,9 +157,9 @@ class SleepSounds extends React.Component {
           <Button>
             <TouchableOpacity
               onPress={() => {
-                this.props.setSoundData(this.state.selectedSound);
-                this.props.setSoundVolume(this.state.volumeValue);
-                this.props.setSoundDuration(this.state.durationValue);
+                this.props.soundData(this.state.selectedSound);
+                this.props.soundVolume(this.state.volumeValue);
+                this.props.soundDuration(this.state.durationValue);
                 this.props.modalClose();
               }}
             >
@@ -178,14 +178,14 @@ const mapStateToProps = state => ({
   sleepSoundVolume: state.sleepSoundVolume
 });
 const mapDispatchToProps = dispatch => ({
-  setSoundData: sound => {
+  soundData: sound => {
     return dispatch(setSleepSound(sound));
   },
-  setSoundVolume: volume => {
-    return dispatch(soundVolume(volume));
+  soundVolume: volume => {
+    return dispatch(setSoundVolume(volume));
   },
-  setSoundDuration: duration => {
-    return dispatch(soundDuration(duration));
+  soundDuration: duration => {
+    return dispatch(setSoundDuration(duration));
   },
   modalOpen: component => {
     return dispatch(modalOpen(component));

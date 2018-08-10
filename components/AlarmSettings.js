@@ -4,7 +4,7 @@ import Slider from "react-native-slider";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/SystemActions";
-import { alarmDuration } from "../actions/SoundActions";
+import { setAlarmDuration } from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";
 import { color } from "../StyleVariables";
@@ -14,7 +14,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: color.modalGrey;
+  background-color: ${color.modalGrey};
   width: 100%;
   height: 100%;
 `;
@@ -59,7 +59,7 @@ const ButtonContainer = styled.View`
 `;
 const Button = styled.View`
   border-radius: 30px;
-  background-color: color.universalWhite;
+  background-color: ${color.universalWhite};
   display: flex;
   flex: 1;
   justify-content: center;
@@ -68,7 +68,7 @@ const Button = styled.View`
 `;
 const Button2 = styled.View`
   border-radius: 30px;
-  background-color: color.universalWhite;
+  background-color: ${color.universalWhite};
   display: flex;
   flex: 1;
   justify-content: center;
@@ -108,8 +108,8 @@ class AlarmSettings extends React.Component {
 
           <Slider
             minimumTrackTintColor="rgb(202,207,218)"
-            maximumTrackTintColor="color.fadedBlack"
-            thumbTintColor="color.universalWhite"
+            maximumTrackTintColor="#181818CC"
+            thumbTintColor={color.universalWhite}
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}
@@ -118,9 +118,7 @@ class AlarmSettings extends React.Component {
             onValueChange={value => this.setState({ value })}
             maximumValue={120}
           />
-          <Text style={{ color: "color.universalWhite" }}>
-            {this.state.value}s
-          </Text>
+          <Text style={{ color: "white" }}>{this.state.value}s</Text>
         </Duration>
         <Info>
           {/* placeholder to be replaced when Ario gets us text copy */}
@@ -138,7 +136,7 @@ class AlarmSettings extends React.Component {
               <Text
                 style={{
                   padding: 10,
-                  color: "color.universalWhite",
+                  color: color.universalWhite,
                   fontSize: 10
                 }}
               >
@@ -149,7 +147,7 @@ class AlarmSettings extends React.Component {
           <Button>
             <TouchableOpacity
               onPress={() => {
-                this.props.setAlarmDuration(this.state.value);
+                this.props.AlarmDuration(this.state.value);
                 this.props.modalClose();
               }}
             >
@@ -166,8 +164,8 @@ const mapStateToProps = state => ({
   alarmDuration: state.alarmDuration
 });
 const mapDispatchToProps = dispatch => ({
-  setAlarmDuration: duration => {
-    return dispatch(alarmDuration(duration));
+  AlarmDuration: duration => {
+    return dispatch(setAlarmDuration(duration));
   },
   modalOpen: component => {
     return dispatch(modalOpen(component));

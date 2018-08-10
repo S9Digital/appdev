@@ -226,7 +226,7 @@ class LightsAdjust extends React.Component {
           <SliderContent>
             <Tone>
               <Title>Color</Title>
-              <LinearGradient
+              {/* <LinearGradient
                 colors={[
                   color.sliderBlue,
                   color.universalWhite,
@@ -244,46 +244,44 @@ class LightsAdjust extends React.Component {
                   borderRadius: 25,
                   zIndex: 1
                 }}
+              /> */}
+              <Slider
+                minimumTrackTintColor="rgb(202,207,218)"
+                maximumTrackTintColor="rgba(24,24,24,1)"
+                thumbTintColor="white"
+                thumbStyle={{
+                  height: 30,
+                  width: 30,
+                  borderRadius: 15
+                }}
+                trackStyle={{
+                  height: 25,
+                  borderRadius: 20
+                }}
+                style={{ width: 500, height: 50 }}
+                step={1}
+                value={this.state.toneValue}
+                onValueChange={toneValue => this.setState({ toneValue })}
+                maximumValue={100}
               />
-              {/* <Slider
-            thumbTintColor="blue"
-            thumbStyle={{
-              height: 30,
-              width: 30,
-              borderRadius: 15,
-              zIndex: 5
-            }}
-            trackStyle={{
-              height: 1,
-              borderRadius: 20,
-              zIndex: 3,
-              backgroundColor: "rgba(0,0,0,0)",
-              opacity: 0
-            }}
-            style={{ width: 500, height: 50 }}
-            step={1}
-            value={this.state.toneValue}
-            onValueChange={toneValue => this.setState({ toneValue })}
-            maximumValue={100}
-          /> */}
             </Tone>
             <Brightness>
               <Title>Brightness</Title>
-              {/* <Slider
-            minimumTrackTintColor="rgb(202,207,218)"
-            maximumTrackTintColor="rgba(24,24,24,1)"
-            thumbTintColor="white"
-            thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
-            trackStyle={{ height: 25, borderRadius: 20 }}
-            style={{ width: 500, height: 50 }}
-            step={1}
-            value={this.state.brightnessValue}
-            onValueChange={brightnessValue =>
-              this.setState({ brightnessValue })
-            }
-            maximumValue={100}
-          /> */}
-              <LinearGradient
+              <Slider
+                minimumTrackTintColor="rgb(202,207,218)"
+                maximumTrackTintColor="rgba(24,24,24,1)"
+                thumbTintColor="white"
+                thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
+                trackStyle={{ height: 25, borderRadius: 20 }}
+                style={{ width: 500, height: 50 }}
+                step={1}
+                value={this.state.brightnessValue}
+                onValueChange={brightnessValue =>
+                  this.setState({ brightnessValue })
+                }
+                maximumValue={100}
+              />
+              {/* <LinearGradient
                 colors={["#000000", "#6e6e64", color.universalWhite]}
                 start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 1 }}
@@ -296,7 +294,7 @@ class LightsAdjust extends React.Component {
                   height: 30,
                   borderRadius: 25
                 }}
-              />
+              /> */}
             </Brightness>
           </SliderContent>
           <ButtonContainer>
@@ -312,7 +310,7 @@ class LightsAdjust extends React.Component {
                     width: 20,
                     height: 20,
                     borderRadius: 10,
-                    backgroundColor: "color.alarmGreen"
+                    backgroundColor: color.alarmGreen
                   }}
                 />
                 <ButtonText>Turn ON All Lights</ButtonText>
@@ -354,8 +352,8 @@ class LightsAdjust extends React.Component {
 }
 const mapStateToProps = state => ({
   modal: state.modal,
-  lightTone: state.lightTone,
-  lightBrightness: state.lightBrightness,
+  lightTone: state.cct,
+  lightBrightness: state.level,
   scenes: state.scene,
   scene: state.scene
 });

@@ -3,7 +3,7 @@ export const color = {
   sliderYellow: "#fed487",
   universalWhite: "#eeeeee",
   fadedWhite: "#FFFFFFCC",
-  alarmGreen: "#11867500",
+  alarmGreen: "#118675FF",
   alarmFadedGreen: "#11867580",
   powerRed: "#d32b4f",
   fadedGrey: "#2B2D30B3",
