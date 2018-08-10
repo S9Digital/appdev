@@ -1,6 +1,9 @@
+export const SET_TIME_ATTEMPT = "SET_TIME_ATTEMPT";
+export const SET_TIME_SUCCESS = "SET_TIME_SUCCESS";
 export const SET_TIME_ERROR = "SET_TIME_ERROR";
-export const SET_TIME = "SET_TIME_SUCCESS";
 export const setTime = (hour, mins, timeOfDay, modal) => dispatch => {
+  dispatch({ type: SET_TIME_ATTEMPT });
+  //insert native library query here
   dispatch({
     type: SET_TIME,
     hour: hour,
@@ -8,11 +11,16 @@ export const setTime = (hour, mins, timeOfDay, modal) => dispatch => {
     modal: modal,
     timeOfDay: timeOfDay
   });
+  //.catch(error => {
+  //dispatch({type: SET_TIME_ERROR, error, error})
+  //})
 };
-
+export const GET_ALARM_STATE_ATTEMPT = "GET_ALARM_STATE_ATTEMPT";
 export const GET_ALARM_STATE_SUCCESS = "GET_ALARM_STATE_SUCCESS";
 export const GET_ALARM_STATE_ERROR = "GET_ALARM_STATE_ERROR";
 export const getAlarmState = (roomId, propertyId) => dispatch => {
+  dispatch({ type: GET_ALARM_STATE_ATTEMPT });
+  //need true url from ARIO
   fetch(
     `https://backend.ario.light/property/${propertyId}/room/${roomId}/alarm/`
   )
@@ -20,18 +28,20 @@ export const getAlarmState = (roomId, propertyId) => dispatch => {
     .then(data => {
       dispatch({
         type: GET_ALARM_STATE_SUCCESS,
-        Alarmtime: data.time,
-        AlarmEnabled: data.enabled
+        alarmtime: data.time,
+        alarmEnabled: data.enabled
       });
     })
     .catch(err => {
       dispatch({ type: GET_ALARM_STATE_ERROR, err });
     });
 };
-
+export const GET_NAP_STATE_ATTEMPT = "GET_NAP_STATE_ATTEMPT";
 export const GET_NAP_STATE_SUCCESS = "GET_NAP_STATE_SUCCESS";
 export const GET_NAP_STATE_ERROR = "GET_NAP_STATE_ERROR";
 export const getNapState = (roomId, propertyId) => dispatch => {
+  dispatch({ type: GET_NAP_STATE_ATTEMPT });
+  //need true url from ARIO
   fetch(`https://backend.ario.light/property/${propertyId}/room/${roomId}/nap/`)
     .then(res => res.json())
     .then(data => {
@@ -46,9 +56,12 @@ export const getNapState = (roomId, propertyId) => dispatch => {
     });
 };
 
+export const GET_TIMER_STATE_ATTEMPT = "GET_TIMER_STATE_ATTEMPT";
 export const GET_TIMER_STATE_SUCCESS = "GET_TIMER_STATE_SUCCESS";
 export const GET_TIMER_STATE_ERROR = "GET_TIMER_STATE_ERROR";
 export const getTimerState = (roomId, propertyId) => dispatch => {
+  dispatch({ type: GET_TIMER_STATE_ATTEMPT });
+  //need true url from ARIO
   fetch(
     `https://backend.ario.light/property/${propertyId}/room/${roomId}/timer/`
   )
@@ -66,9 +79,12 @@ export const getTimerState = (roomId, propertyId) => dispatch => {
     });
 };
 
+export const GET_SCHEDULE_STATE_ATTEMPT = "GET_SCHEDULE_STATE_ATTEMPT";
 export const GET_SCHEDULE_STATE_SUCCESS = "GET_SCHEDULE_STATE_SUCCESS";
 export const GET_SCHEDULE_STATE_ERROR = "GET_SCHEDULE_STATE_ERROR";
 export const getScheduleState = (roomId, propertyId) => dispatch => {
+  dispatch({ type: GET_SCHEDULE_STATE_ATTEMPT });
+  //need true url from ARIO
   fetch(
     `https://backend.ario.light/property/${propertyId}/room/${roomId}/timer/`
   )
@@ -82,27 +98,5 @@ export const getScheduleState = (roomId, propertyId) => dispatch => {
     })
     .catch(err => {
       dispatch({ type: GET_SCHEDULE_STATE_ERROR, err });
-    });
-};
-
-export const GET_ALARM_ATTEMPT = "GET_ALARM_ATTEMPT";
-export const GET_ALARM_SUCCESS = "GET_ALARM_SUCCESS";
-export const GET_ALARM_ERROR = "GET_ALARM_ERROR";
-export const getAlarm = (roomId, propertyId) => dispatch => {
-  dispatch({ type: GET_ALARM_ATTEMPT });
-  //need actual url from ARIO
-  fetch(
-    `https://backend.ario.light/property/${propertyId}/room/${roomId}/alarm/`
-  )
-    .then(res => res.json())
-    .then(data => {
-      dispatch({
-        type: GET_ALARM_SUCCESS,
-        time: data.time,
-        enabled: data.enabled
-      });
-    })
-    .catch(error => {
-      dispatch({ type: GET_ALARM_ERROR, error: error });
     });
 };

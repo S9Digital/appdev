@@ -1,4 +1,23 @@
-import { SET_TIME, MODAL_OPEN, RETURN_HOME } from "./actions/TimeActions";
+import {
+  SET_TIME_ATTEMPT,
+  SET_TIME_SUCCESS,
+  SET_TIME_ERROR,
+  GET_ALARM_STATE_ATTEMPT,
+  GET_ALARM_STATE_SUCCESS,
+  GET_ALARM_STATE_ERROR,
+  GET_NAP_STATE_ATTEMPT,
+  GET_NAP_STATE_SUCCESS,
+  GET_NAP_STATE_ERROR,
+  GET_TIMER_STATE_ATTEMPT,
+  GET_TIMER_STATE_SUCCESS,
+  GET_TIMER_STATE_ERROR,
+  GET_SCHEDULE_STATE_ATTEMPT,
+  GET_SCHEDULE_STATE_SUCCESS,
+  GET_SCHEDULE_STATE_ERROR,
+  GET_ALARM_ATTEMPT,
+  GET_ALARM_SUCCESS,
+  GET_ALARM_ERROR
+} from "./actions/TimeActions";
 import {
   SET_SLEEP_SOUND_ATTEMPT,
   SET_SLEEP_SOUND_SUCCESS,
@@ -33,7 +52,9 @@ import {
   WAKE_LOCK_ON,
   WAKE_LOCK_OFF,
   SCREEN_ON,
-  SCREEN_OFF
+  SCREEN_OFF,
+  MODAL_OPEN,
+  RETURN_HOME
 } from "./actions/SystemActions";
 
 //
@@ -42,7 +63,7 @@ const DEFAULT_STATE = {
   sleepTime: null,
   alarm: false,
   alarmTime: null,
-  alarmDuration: 60,
+  alarmDuration: 9,
   alarmSoundId: "default",
   scenes: ["relax", "bedtime", "energize", "circadian"],
   scene: null,
@@ -54,9 +75,9 @@ const DEFAULT_STATE = {
   preset: null,
   lightPower: false,
   lightSchedule: null,
-  napEnd: 0,
+  napEnd: null,
   napSound: false,
-  timerEnd: 0,
+  timerEnd: null,
   timerLights: false,
   timerSound: false,
   modal: null,
@@ -96,8 +117,11 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  //time
-  if (action.type === "SET_TIME") {
+  //TIME SECTION
+
+  //if loading animation is needed for slow data calls
+  //if (action.type === "SET_TIME_ATTEMPT") {}
+  if (action.type === "SET_TIME_SUCCESS") {
     const hour = action.hour;
     const minutes = action.minutes;
     const timeOfDay = action.timeOfDay;
@@ -145,9 +169,58 @@ export default function reducer(state = DEFAULT_STATE, action) {
       };
     }
   }
+  //error handling for UI changes
+  //if (action.type === "SET_TIME_ERROR") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "GET_ALARM_STATE_ATTEMPT") {}
+  if (action.type === "GET_ALARM_STATE_SUCCESS") {
+    return {
+      alarmTime: action.alarmTime,
+      alarmEnabled: action.alarmEnabled
+    };
+  }
+  //if (action.type === "GET_ALARM_STATE_ERROR") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "GET_NAP_STATE_ATTEMPT") {}
+  if (action.type === "GET_NAP_STATE_SUCCESS") {
+    return {
+      napEndTime: action.napEndTime,
+      napSound: action.napSound
+    };
+  }
+  //if (action.type === "GET_NAP_STATE_ERROR") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "GET_TIMER_STATE_ATTEMPT") {}
+  if (action.type === "GET_TIMER_STATE_SUCCESS") {
+    return {
+      timerEndTime: action.timerEndTime,
+      timerSound: action.timerSound,
+      timerLights: action.timerLights
+    };
+  }
+  //if (action.type === "GET_TIMER_STATE_ERROR") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "GET_SCHEDULE_STATE_ATTEMPT") {}
+  if (action.type === "GET_SCHEDULE_STATE_SUCCESS") {
+    return {
+      wakeTime: action.scheduleStartTime,
+      sleepTime: action.scheduleEndTime
+    };
+  }
+  //if (action.type === "GET_SCHEDULE_STATE_ERROR") {
+  // return {...state, latestError: action.error}
+  //}
+
   //LIGHT SECTION
 
-  //if loading animation is needed for slow data calls
   //if (action.type === "SET_LIGHT_TONE_ATTEMPT") {}
   if (action.type === "SET_LIGHT_TONE_SUCCESS") {
     return {
@@ -162,8 +235,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  //error handling for UI changes
-  //if (action.type === "SET_LIGHT_TONE_FAILURE") {
+  //if (action.type === "SET_LIGHT_TONE_ERROR") {
   // return {...state, latestError: action.error}
   //}
 
@@ -182,7 +254,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
     };
   }
 
-  //if (action.type === "SET_LIGHT_BRIGHTNESS_FAILURE") {
+  //if (action.type === "SET_LIGHT_BRIGHTNESS_ERROR") {
   // return {...state, latestError: action.error}
   //}
 
@@ -200,7 +272,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  //if (action.type === "SET_LIGHT_PRESET_FAILURE") {
+  //if (action.type === "SET_LIGHT_PRESET_ERROR") {
   // return {...state, latestError: action.error}
   //}
 
@@ -213,7 +285,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
       lightSchedule: action.schedule
     };
   }
-  //if (action.type === "GET_LIGHT_STATE_FAILURE") {
+  //if (action.type === "GET_LIGHT_STATE_ERROR") {
   // return {...state, latestError: action.error}
   //}
 
@@ -232,7 +304,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  //if (action.type === "SET_ALARM_DURATION_FAILURE") {
+  //if (action.type === "SET_ALARM_DURATION_ERROR") {
   // return {...state, latestError: action.error}
   //}
 
@@ -250,7 +322,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  //if (action.type === "SET_SLEEP_SOUND_FAILURE") {
+  //if (action.type === "SET_SLEEP_SOUND_ERROR") {
   // return {...state, latestError: action.error}
   //}
 
@@ -268,7 +340,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  //if (action.type === "SET_SOUND_VOLUME_FAILURE") {
+  //if (action.type === "SET_SOUND_VOLUME_ERROR") {
   // return {...state, latestError: action.error}
   //}
 
@@ -286,7 +358,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  //if (action.type === "SET_SOUND_DURATION_FAILURE") {
+  //if (action.type === "SET_SOUND_DURATION_ERROR") {
   // return {...state, latestError: action.error}
   //}
   return state;
