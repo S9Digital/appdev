@@ -7,13 +7,14 @@ import { napHours, hours, minutes, timeOfDay } from "../constants";
 import { setTime } from "../actions/TimeActions";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
+import { color } from "../StyleVariables";
 
 const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(43, 45, 48, 0.98);
+  background-color: color.modalGrey;
   width: 100%;
   height: 100%;
 `;
@@ -50,7 +51,7 @@ const TimeButton = styled.View`
   height: 30px;
   width: 100px;
   border-radius: 30px;
-  background-color: white;
+  background-color: color.universalWhite;
   display: flex;
   flex: 1;
   justify-content: center;

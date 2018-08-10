@@ -3,6 +3,7 @@ import { Text, View, Image, TouchableOpacity, FlatList } from "react-native";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { sleepSounds } from "../constants";
+import { color } from "../StyleVariables";
 
 const Container = styled.View`
   flex: 1;
@@ -29,7 +30,7 @@ const ButtonContainer = styled.View`
 const Button = styled.View`
   width: 50px;
   height: 50px;
-  background-color: rgb(14, 14, 14);
+  background-color: color.fadedBlack;
   border-radius: 25px;
 `;
 
@@ -42,7 +43,7 @@ const SoundContainer = styled.View`
 `;
 const SoundText = styled.Text`
   font-size: 36px;
-  color: white;
+  color: color.universalWhite;
 `;
 
 class SoundScroller extends React.Component {
@@ -113,7 +114,9 @@ class SoundScroller extends React.Component {
                   justifyContent: "center"
                 }}
               >
-                <Text style={{ fontSize: 36, color: "white" }}>{item.key}</Text>
+                <Text style={{ fontSize: 36, color: "color.universalWhite" }}>
+                  {item.key}
+                </Text>
               </View>
             )}
           />

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Moment from "react-moment";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
+import { color } from "../StyleVariables";
 
 const ClockContainer = styled.View`
   flex: 1;
@@ -62,17 +63,16 @@ const AmPmText = styled.Text`
 `;
 const AlarmTitle = styled.Text`
   font-size: 16px;
-  color: white;
+  color: color.universalWhite;
   font-weight: bold;
   margin: 5px;
 `;
 const AlarmText = styled.Text`
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.8);
+  color: color.fadedWhite;
   margin: 5px;
 `;
 const IconBorder = styled.View`
-  background-color: rgb(14, 14, 14);
   border-radius: 15px;
   height: 30px;
   width: 30px;
@@ -101,7 +101,7 @@ class Clock extends React.Component {
           <AlarmTitle>Bedtime</AlarmTitle>
         </TextBarTop>
         <LinearGradient
-          colors={["#cdfdfe", "#eeeeee", "#fed487"]}
+          colors={[color.sliderBlue, color.universalWhite, color.sliderYellow]}
           start={{ x: 0, y: 1 }}
           end={{ x: 1, y: 1 }}
           style={{
@@ -144,7 +144,7 @@ class Clock extends React.Component {
         </TextBarBottom>
         <Text
           style={{
-            color: "white",
+            color: color.universalWhite,
             fontSize: 18,
             marginTop: 30
           }}

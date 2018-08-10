@@ -7,13 +7,14 @@ import { modalOpen, returnHome } from "../actions/SystemActions";
 import { alarmDuration } from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";
+import { color } from "../StyleVariables";
 
 const Container = styled.View`
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.98);
+  background-color: color.modalGrey;
   width: 100%;
   height: 100%;
 `;
@@ -58,7 +59,7 @@ const ButtonContainer = styled.View`
 `;
 const Button = styled.View`
   border-radius: 30px;
-  background-color: white;
+  background-color: color.universalWhite;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -67,7 +68,7 @@ const Button = styled.View`
 `;
 const Button2 = styled.View`
   border-radius: 30px;
-  background-color: white;
+  background-color: color.universalWhite;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -107,8 +108,8 @@ class AlarmSettings extends React.Component {
 
           <Slider
             minimumTrackTintColor="rgb(202,207,218)"
-            maximumTrackTintColor="rgba(24,24,24,1)"
-            thumbTintColor="white"
+            maximumTrackTintColor="color.fadedBlack"
+            thumbTintColor="color.universalWhite"
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}
@@ -117,7 +118,9 @@ class AlarmSettings extends React.Component {
             onValueChange={value => this.setState({ value })}
             maximumValue={120}
           />
-          <Text style={{ color: "white" }}>{this.state.value}s</Text>
+          <Text style={{ color: "color.universalWhite" }}>
+            {this.state.value}s
+          </Text>
         </Duration>
         <Info>
           {/* placeholder to be replaced when Ario gets us text copy */}
@@ -132,7 +135,13 @@ class AlarmSettings extends React.Component {
           {/* preview functionality not finished, waiting on API connections and audio files*/}
           <Button2>
             <TouchableOpacity onPress={() => this.props.modalClose()}>
-              <Text style={{ padding: 10, color: "white", fontSize: 10 }}>
+              <Text
+                style={{
+                  padding: 10,
+                  color: "color.universalWhite",
+                  fontSize: 10
+                }}
+              >
                 PREVIEW
               </Text>
             </TouchableOpacity>

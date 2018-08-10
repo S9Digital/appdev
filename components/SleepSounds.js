@@ -18,13 +18,14 @@ import {
 } from "../actions/SoundActions";
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";
+import { color } from "../StyleVariables";
 
 const Container = styled.View`
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.98);
+  background-color: color.modalGrey;
   width: 100%;
   height: 100%;
 `;
@@ -65,7 +66,7 @@ const VolumeBar = styled.View`
   width: 500px;
   height: 25px;
   border-radius: 30px;
-  background-color: white;
+  background-color: color.universalWhite;
 `;
 const Duration = styled.View`
   display: flex;
@@ -77,7 +78,7 @@ const DurationBar = styled.View`
   width: 500px;
   height: 25px;
   border-radius: 30px;
-  background-color: white;
+  background-color: color.universalWhite;
 `;
 const ButtonContainer = styled.View`
   display: flex;
@@ -89,7 +90,7 @@ const ButtonContainer = styled.View`
 `;
 const Button = styled.View`
   border-radius: 30px;
-  background-color: white;
+  background-color: color.universalWhite;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -98,7 +99,7 @@ const Button = styled.View`
 
 const Title = styled.Text`
   font-size: 12;
-  color: white;
+  color: color.universalWhite;
   margin-bottom: 5px;
 `;
 class SleepSounds extends React.Component {
@@ -142,7 +143,7 @@ class SleepSounds extends React.Component {
           <Slider
             minimumTrackTintColor="rgb(202,207,218)"
             maximumTrackTintColor="rgba(24,24,24,1)"
-            thumbTintColor="white"
+            thumbTintColor="color.universalWhite"
             thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
             trackStyle={{ height: 25, borderRadius: 20 }}
             style={{ width: 500, height: 50 }}

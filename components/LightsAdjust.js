@@ -20,13 +20,14 @@ import {
 import _ from "underscore";
 import Images from "../assets/Images";
 import LinearGradient from "react-native-linear-gradient";
+import { color } from "../StyleVariables";
 
 const Wrapper = styled.View`
   display: flex;
   flex: 1;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(43, 45, 48, 0.98);
+  background-color: color.modalGrey;
   width: 100%;
   height: 100%;
 `;
@@ -62,7 +63,7 @@ const Box = styled.ImageBackground`
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: rgba(23, 23, 24, 0.8);
+  background-color: color.fadedBlack;
   width: 125px;
   height: 80px;
   margin-left: 4px;
@@ -108,7 +109,7 @@ const ButtonContainer = styled.View`
 `;
 const Button = styled.View`
   border-radius: 25px;
-  background-color: white;
+  background-color: color.universalWhite;
   width: 180px;
   height: 40px;
   margin-left: 10px;
@@ -226,7 +227,11 @@ class LightsAdjust extends React.Component {
             <Tone>
               <Title>Color</Title>
               <LinearGradient
-                colors={["#cdfdfe", "#eeeeee", "#fed487"]}
+                colors={[
+                  color.sliderBlue,
+                  color.universalWhite,
+                  color.sliderYellow
+                ]}
                 start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 1 }}
                 style={{
@@ -279,7 +284,7 @@ class LightsAdjust extends React.Component {
             maximumValue={100}
           /> */}
               <LinearGradient
-                colors={["#000000", "#6e6e64", "#eeeeee"]}
+                colors={["#000000", "#6e6e64", color.universalWhite]}
                 start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 1 }}
                 style={{
@@ -307,7 +312,7 @@ class LightsAdjust extends React.Component {
                     width: 20,
                     height: 20,
                     borderRadius: 10,
-                    backgroundColor: "#23be9d"
+                    backgroundColor: "color.alarmGreen"
                   }}
                 />
                 <ButtonText>Turn ON All Lights</ButtonText>

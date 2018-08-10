@@ -20,6 +20,7 @@ import Clock from "./Clock";
 import CurrentWeather from "./CurrentWeather";
 import { hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/SystemActions";
+import { color } from "../StyleVariables";
 // import System from "./System";
 
 //structure
@@ -30,7 +31,7 @@ const Wrapper = styled.View`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: color.fadeOverlay;
 `;
 const TopContainer = styled.View`
   flex: 1;
@@ -67,7 +68,7 @@ const Container = styled.View`
 `;
 //buttons
 const Button = styled.View`
-  background-color: rgba(43, 45, 48, 0.7);
+  background-color: color.fadedGrey;
   flex-direction: row;
   flex-wrap: nowrap;
   border-radius: 35px;
@@ -94,7 +95,7 @@ const WeatherDataWrapper = styled.TouchableOpacity`
   width: 220px;
 `;
 //power
-const PowerContainer = styled.TouchableOpacity`
+const PowerContainer = styled.View`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -104,7 +105,7 @@ const PowerContainer = styled.TouchableOpacity`
 `;
 const PowerButtonContainer = styled.View`
   border-radius: 25px;
-  border: 3px solid #d32b4f;
+  border: 3px solid color.powerRed;
   padding: 10px;
 `;
 
@@ -120,6 +121,7 @@ const AlarmContainer = styled.TouchableOpacity`
   margin-right: 15px;
   margin-top: 20px;
   margin-left: 290px;
+  z-index: 3;
 `;
 const AlarmButton = styled.View`
   flex: 1;
@@ -128,9 +130,10 @@ const AlarmButton = styled.View`
   justify-content: flex-end;
   flex-direction: column;
   height: 50px;
+  z-index: 4;
 `;
 const Slider = styled.View`
-  background-color: rgba(17, 134, 117, 0.5);
+  background-color: color.alarmFadedGreen;
   height: 30px;
   width: 60px;
   border-radius: 14px;
@@ -140,7 +143,7 @@ const SliderThumb = styled.View`
   height: 30;
   width: 30;
   border-radius: 30;
-  background-color: rgb(17, 134, 117);
+  background-color: color.alarmGreen;
   margin-left: ${props => (props.alarm === true ? 30 : 0)};
 `;
 const ModalContainer = styled.Modal`
@@ -244,7 +247,7 @@ class Landing extends React.Component {
           {/* <PowerTextContainer> */}
           <Text
             style={{
-              color: "white",
+              color: color.universalWhite,
               fontSize: 14,
               marginRight: 10
             }}
@@ -285,19 +288,18 @@ class Landing extends React.Component {
         <PowerContainer
           style={{ justifyContent: "center", alignItems: "flex-end" }}
         >
-          <PowerButtonContainer
+          <View
             style={{
               width: 43,
               height: 43,
               borderRadius: 25,
               borderWidth: 3,
               borderStyle: "solid",
-              borderColor: "white",
+              borderColor: "color.universalWhite",
               padding: 10,
               marginRight: 10,
               marginBottom: 5
             }}
-            // onPress={() => System.getInstance().getWakeLock(false)}
           />
           <Text
             style={{

@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import Moment from "react-moment";
 import Images from "../assets/Images";
+import { color } from "../StyleVariables";
 
 //weather
 const WeatherContainer = styled.View`
@@ -36,18 +37,18 @@ const WeatherData = styled.View`
   margin-top: 5px;
 `;
 const WeatherHeader = styled.Text`
-  color: white;
+  color: color.universalWhite;
   opacity: 0.8;
   font-size: 16px;
   flex-wrap: nowrap;
 `;
 const WeatherText = styled.Text`
-  color: white;
+  color: color.universalWhite;
   opacity: 0.8;
   font-size: 14px;
 `;
 const WeatherNumber = styled.Text`
-  color: white;
+  color: color.universalWhite;
   font-size: 30px;
   margin-right: 10px;
 `;

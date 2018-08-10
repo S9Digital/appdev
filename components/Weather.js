@@ -5,13 +5,14 @@ import { connect } from "react-redux";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { tempWeather } from "../constants";
 import CurrentWeather from "./CurrentWeather";
+import { color } from "../StyleVariables";
 
 const Container = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(43, 45, 48, 0.98);
+  background-color: color.modalGrey;
   width: 100%;
   height: 100%;
 `;
@@ -34,7 +35,11 @@ const WeatherTile = styled.View`
   margin-top: 15px;
   height: 200px;
   width: 120px;
-  border: 1px solid white;
+  border: 1px solid color.universalWhite;
+  flex-wrap: nowrap;
+`;
+const WeatherText = styled.Text`
+  color: color.universalWhite;
   flex-wrap: nowrap;
 `;
 const Content = styled.View`
@@ -50,7 +55,7 @@ const TimeButton = styled.View`
   height: 30px;
   width: 100px;
   border-radius: 30px;
-  background-color: white;
+  background-color: color.universalWhite;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -80,14 +85,12 @@ class Weather extends React.Component {
   }
   _renderItem = ({ item }) => (
     <WeatherTile>
-      <Text style={{ color: "white", flexWrap: "nowrap" }}>{item.date}</Text>
-      <Text style={{ color: "white", flexWrap: "nowrap" }}>{item.weather}</Text>
+      <WeatherText>{item.date}</WeatherText>
+      <WeatherText>{item.weather}</WeatherText>
       <Image style={{ height: 46, width: 46 }} source={item.icon} />
-      <Text style={{ color: "white", flexWrap: "nowrap" }}>
-        rain {item.chanceRain}
-      </Text>
-      <Text style={{ color: "white", flexWrap: "nowrap" }}>H {item.high}</Text>
-      <Text style={{ color: "white", flexWrap: "nowrap" }}>L {item.low}</Text>
+      <WeatherText>rain {item.chanceRain}</WeatherText>
+      <WeatherText>H {item.high}</WeatherText>
+      <WeatherText>L {item.low}</WeatherText>
     </WeatherTile>
   );
   render() {

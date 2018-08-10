@@ -19,20 +19,8 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  background-color: rgba(24, 24, 24, 0.8);
+  background-color: color.fadedBlack;
 `;
-// const Button = styled.View`
-//   width: 50px;
-//   height: 50px;
-//   background-color: rgb(14, 14, 14);
-//   border-radius: 25px;
-// `;
-// const ButtonContainer = styled.View`
-//   width: 50px;
-//   height: 50px;
-//   align-items: center;
-//   justify-content: center;
-// `;
 
 const WheelContainer = styled.View`
   flex: 1;
@@ -120,7 +108,7 @@ class ClockScroller extends React.Component {
                     alignItems: "center"
                   }}
                 >
-                  <Text style={{ fontSize: 26, color: "white" }}>
+                  <Text style={{ fontSize: 26, color: "color.universalWhite" }}>
                     {item.key}
                   </Text>
                 </View>
