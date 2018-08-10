@@ -79,11 +79,6 @@ const Button = styled.View`
   margin-bottom: 20px;
 `;
 
-const ButtonContainer = styled.View`
-  border-radius: 25px;
-  border: 3px solid #d32b4f;
-  padding: 10px;
-`;
 const ButtonText = styled.Text`
   color: white;
   font-size: 14px;
@@ -106,6 +101,11 @@ const PowerContainer = styled.TouchableOpacity`
   width: 60px;
   margin: 20px;
   margin-bottom: 10px;
+`;
+const PowerButtonContainer = styled.View`
+  border-radius: 25px;
+  border: 3px solid #d32b4f;
+  padding: 10px;
 `;
 
 //alarm
@@ -215,6 +215,7 @@ class Landing extends React.Component {
             <ButtonText>
               {this.state.alarmText ? "ALARM ON" : "ALARM OFF"}
             </ButtonText>
+            {/* {this.props.alarmText} to replace hard coded data*/}
             <ButtonText>10:00</ButtonText>
           </AlarmButton>
           <Slider>
@@ -231,7 +232,7 @@ class Landing extends React.Component {
         <PowerContainer
           style={{ justifyContent: "center", alignItems: "flex-start" }}
         >
-          <ButtonContainer
+          <PowerButtonContainer
             style={{ marginLeft: 5, marginBottom: 2 }}
             // onPress={() => System.getInstance().getWakeLock(false)}
           >
@@ -239,7 +240,7 @@ class Landing extends React.Component {
               style={{ width: 20, height: 20 }}
               source={require("../assets/power.png")}
             />
-          </ButtonContainer>
+          </PowerButtonContainer>
           {/* <PowerTextContainer> */}
           <Text
             style={{
@@ -284,7 +285,7 @@ class Landing extends React.Component {
         <PowerContainer
           style={{ justifyContent: "center", alignItems: "flex-end" }}
         >
-          <ButtonContainer
+          <PowerButtonContainer
             style={{
               width: 43,
               height: 43,

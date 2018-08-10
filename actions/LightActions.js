@@ -21,12 +21,12 @@ export const lightBrightness = level => dispatch => {
   //})
 };
 export const SET_LIGHT_PRESET_ATTEMPT = "SET_LIGHT_PRESET_ATTEMPT";
-export const SET_LIGHT_PRESET = "SET_LIGHT_PRESET";
+export const SET_LIGHT_PRESET_SUCCESS = "SET_LIGHT_PRESET_SUCCESS";
 export const SET_LIGHT_PRESET_ERROR = "SET_LIGHT_PRESET_ERROR";
 export const lightPreset = preset => dispatch => {
   dispatch({ type: SET_LIGHT_PRESET_ATTEMPT });
   //insert native library query here
-  dispatch({ type: SET_LIGHT_PRESET, preset: preset });
+  dispatch({ type: SET_LIGHT_PRESET_SUCCESS, preset: preset });
   //.catch(error => {
   // dispatch({type: SET_LIGHT_PRESET_ERROR, error: error})
   //})

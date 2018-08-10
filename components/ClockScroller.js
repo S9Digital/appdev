@@ -10,7 +10,7 @@ const Wrapper = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 220px;
+  height: 250px;
   margin: 10px;
 `;
 const Container = styled.View`
@@ -97,7 +97,7 @@ class ClockScroller extends React.Component {
           {/* <Button>
             <ButtonContainer> */}
           <Image
-            style={{ height: 30, width: 30 }}
+            style={{ height: 50, width: 50 }}
             source={require("../assets/arrow-up.png")}
           />
           {/* </ButtonContainer>
@@ -132,7 +132,7 @@ class ClockScroller extends React.Component {
           {/* <Button>
             <ButtonContainer> */}
           <Image
-            style={{ height: 30, width: 30 }}
+            style={{ height: 40, width: 40 }}
             source={require("../assets/arrow-down.png")}
           />
           {/* </ButtonContainer>

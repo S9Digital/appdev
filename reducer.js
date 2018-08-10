@@ -1,9 +1,17 @@
 import { SET_TIME, MODAL_OPEN, RETURN_HOME } from "./actions/TimeActions";
 import {
-  SET_SLEEP_SOUND,
-  SET_ALARM_DURATION,
-  SET_SOUND_VOLUME,
-  SET_SOUND_DURATION
+  SET_SLEEP_SOUND_ATTEMPT,
+  SET_SLEEP_SOUND_SUCCESS,
+  SET_SLEEP_SOUND_ERROR,
+  SET_SOUND_DURATION_ATTEMPT,
+  SET_SOUND_DURATION_SUCCESS,
+  SET_SOUND_DURATION_ERROR,
+  SET_ALARM_DURATION_ATTEMPT,
+  SET_ALARM_DURATION_SUCCESS,
+  SET_ALARM_DURATION_ERROR,
+  SET_SOUND_VOLUME_ATTEMPT,
+  SET_SOUND_VOLUME_SUCCESS,
+  SET_SOUND_VOLUME_ERROR
 } from "./actions/SoundActions";
 import {
   SET_LIGHT_TONE_ATTEMPT,
@@ -13,7 +21,7 @@ import {
   SET_LIGHT_BRIGHTNESS_SUCCESS,
   SET_LIGHT_BRIGHTNESS_ERROR,
   SET_LIGHT_PRESET_ATTEMPT,
-  SET_LIGHT_PRESET,
+  SET_LIGHT_PRESET_SUCCESS,
   SET_LIGHT_PRESET_ERROR,
   GET_LIGHT_STATE_ATTEMPT,
   GET_LIGHT_STATE_SUCCESS,
@@ -52,6 +60,8 @@ const DEFAULT_STATE = {
   timerLights: false,
   timerSound: false,
   modal: null,
+  roomId: null,
+  propertyId: null,
   userActions: [],
   latestError: null
 };
@@ -158,7 +168,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
   //}
 
   //if (action.type === "SET_LIGHT_BRIGHTNESS_ATTEMPT") {}
-  if (action.type === "SET_LIGHT_BRIGHTNESS") {
+  if (action.type === "SET_LIGHT_BRIGHTNESS_SUCCESS") {
     return {
       ...state,
       level: action.level,
@@ -177,7 +187,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
   //}
 
   //if (action.type === "SET_LIGHT_PRESET_ATTEMPT") {}
-  if (action.type === "SET_LIGHT_PRESET") {
+  if (action.type === "SET_LIGHT_PRESET_SUCCESS") {
     return {
       ...state,
       scene: action.preset,
@@ -208,7 +218,8 @@ export default function reducer(state = DEFAULT_STATE, action) {
   //}
 
   //SOUND SECTION
-  if (action.type == "SET_ALARM_DURATION") {
+  //if (action.type === "SET_ALARM_DURATION_ATTEMPT") {}
+  if (action.type == "SET_ALARM_DURATION_SUCCESS") {
     return {
       ...state,
       alarmDuration: action.duration,
@@ -221,7 +232,12 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  if (action.type === "SET_SLEEP_SOUND") {
+  //if (action.type === "SET_ALARM_DURATION_FAILURE") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "SET_SLEEP_SOUND_ATTEMPT") {}
+  if (action.type === "SET_SLEEP_SOUND_SUCCESS") {
     return {
       ...state,
       alarmSoundId: action.sound,
@@ -234,7 +250,12 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  if (action.type == "SET_SOUND_VOLUME") {
+  //if (action.type === "SET_SLEEP_SOUND_FAILURE") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "SET_SOUND_VOLUME_ATTEMPT") {}
+  if (action.type == "SET_SOUND_VOLUME_SUCCESS") {
     return {
       ...state,
       sleepSoundVolume: action.volume,
@@ -247,7 +268,12 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
-  if (action.type == "SET_SOUND_DURATION") {
+  //if (action.type === "SET_SOUND_VOLUME_FAILURE") {
+  // return {...state, latestError: action.error}
+  //}
+
+  //if (action.type === "SET_SOUND_DURATION_ATTEMPT") {}
+  if (action.type == "SET_SOUND_DURATION_SUCCESS") {
     return {
       ...state,
       sleepSoundDuration: action.duration,
@@ -260,5 +286,8 @@ export default function reducer(state = DEFAULT_STATE, action) {
       ]
     };
   }
+  //if (action.type === "SET_SOUND_DURATION_FAILURE") {
+  // return {...state, latestError: action.error}
+  //}
   return state;
 }
