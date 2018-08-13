@@ -1,3 +1,24 @@
-Lighting Control App:
+# Lighting Control App
 
-set up using React Native, redux, and thunk. 
+## Installation
+
+You'll need Node.js, npm, and Android Studio.
+
+```
+# if you need exponent:
+npm install -g exp
+
+# the rest:
+npm install
+exp prepare-deatched-build
+```
+
+## Running in development
+
+First, start the exponent server:
+
+```
+exp start
+```
+
+Then open Android Studio, make sure Gradle is synced, and run the app.
