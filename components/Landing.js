@@ -21,8 +21,8 @@ import Alarm from "./Alarm";
 import CurrentWeather from "./CurrentWeather";
 import { hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/SystemActions";
+import { setAlarm } from "../actions/TimeActions";
 import { color } from "../StyleVariables";
-// import System from "./System";
 
 //structure
 const Wrapper = styled.View`
@@ -145,7 +145,7 @@ const SliderThumb = styled.View`
   width: 30;
   border-radius: 30;
   background-color: ${color.alarmGreen};
-  margin-left: ${props => (props.alarm === true ? 30 : 0)};
+  margin-left: ${props => (props.enabled ? 30 : 0)};
 `;
 const ModalContainer = styled.Modal`
   flex: 1;
@@ -161,7 +161,7 @@ class Landing extends React.Component {
     super(props);
     this.state = {
       modalVisibile: false,
-      alarmText: false
+      alarmEnabled: false
     };
   }
   componentDidMount() {}
@@ -210,8 +210,10 @@ class Landing extends React.Component {
         </WeatherDataWrapper>
         <AlarmContainer
           onPress={() => {
-            this.setState({ alarmText: !this.state.alarmText });
-            this.props.modalOpen("alarm");
+            this.props.setAlarm({ alarmEnabled: !this.props.alarmEnabled });
+            if (!this.props.alarmEnabled) {
+              this.props.modalOpen("alarm");
+            }
           }}
         >
           <Image
@@ -220,13 +222,13 @@ class Landing extends React.Component {
           />
           <AlarmButton>
             <ButtonText>
-              {this.state.alarmText ? "ALARM ON" : "ALARM OFF"}
+              {this.props.alarmEnabled ? "ALARM ON" : "ALARM OFF"}
             </ButtonText>
-            {/* {this.props.alarmText} to replace hard coded data*/}
+            {/* {this.props.alarmEnabled} to replace hard coded data*/}
             <ButtonText>10:00</ButtonText>
           </AlarmButton>
-          <Slider>
-            <SliderThumb alarm={this.state.alarmText} />
+          <Slider enabled={this.props.alarmEnabled}>
+            <SliderThumb enabled={this.props.alarmEnabled} />
           </Slider>
         </AlarmContainer>
       </TopContainer>
@@ -339,12 +341,16 @@ class Landing extends React.Component {
 
 const mapStateToProps = (state, props) => ({
   alarmTime: state.alarmTime,
+  alarmEnabled: state.alarmEnabled,
   modal: state.modal,
   alarm: state.alarm
 });
 const mapDispatchToProps = dispatch => ({
   setTime: (hour, mins) => {
     return dispatch(setAlarmTime(hour, mins));
+  },
+  setAlarm: ({ alarmEnabled }) => {
+    return dispatch(setAlarm({ alarmEnabled }));
   },
   modalOpen: component => {
     return dispatch(modalOpen(component));

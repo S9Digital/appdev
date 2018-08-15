@@ -23,3 +23,9 @@ exp start
 ```
 
 Then open Android Studio, make sure Gradle is synced, and run the app.
+
+## Debugging Redux Actions
+
+- Install and start [React Native Debugger](https://github.com/jhen0409/react-native-debugger).
+- Run `open "rndebugger://set-debugger-loc?host=localhost&port=19001"`
+- Press Command+M in the Android Emulator and pick "Debug JS Remotely"
