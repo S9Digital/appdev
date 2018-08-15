@@ -35,5 +35,3 @@ yarn-error.log*
 /android/versioned-react-native/build
 /android/versioned-react-native/local.properties
 /android/versioned-react-native/ReactAndroid
-caches
-DetachBuildConstants.java
