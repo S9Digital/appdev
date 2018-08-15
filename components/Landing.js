@@ -328,7 +328,7 @@ class Landing extends React.Component {
             style={{
               color: "white",
               fontSize: 14,
-              marginRight: 12
+              marginRight: 14
             }}
           >
             Demo
