@@ -193,7 +193,7 @@ class Landing extends React.Component {
           supportedOrientations={["portrait", "landscape"]}
           visible={true}
           onRequestClose={() => {
-            alert("Modal has been closed.");
+            this.props.modalClose();
           }}
         >
           {modal}
