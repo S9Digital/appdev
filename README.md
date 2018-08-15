@@ -10,7 +10,7 @@ npm install -g exp
 
 # the rest:
 npm install
-exp prepare-deatched-build
+exp prepare-detached-build
 ```
 
 ## Running in development
