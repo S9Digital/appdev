@@ -11,6 +11,7 @@ npm install -g exp
 # the rest:
 npm install
 exp prepare-detached-build
+exp publish
 ```
 
 ## Running in development
