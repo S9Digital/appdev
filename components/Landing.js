@@ -110,6 +110,12 @@ const PowerButtonContainer = styled.View`
   padding: 10px;
 `;
 
+const CenterButton = styled.View`
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
 //alarm
 const AlarmContainer = styled.TouchableOpacity`
   flex: 1;
@@ -241,26 +247,28 @@ class Landing extends React.Component {
         <PowerContainer
           style={{ justifyContent: "center", alignItems: "flex-start" }}
         >
-          <PowerButtonContainer
-            style={{ marginLeft: 5, marginBottom: 2 }}
-            // onPress={() => System.getInstance().getWakeLock(false)}
-          >
-            <Image
-              style={{ width: 20, height: 20 }}
-              source={require("../assets/power.png")}
-            />
-          </PowerButtonContainer>
-          {/* <PowerTextContainer> */}
-          <Text
-            style={{
-              color: color.universalWhite,
-              fontSize: 14,
-              marginRight: 10
-            }}
-          >
-            Screen OFF
-          </Text>
-          {/* </PowerTextContainer> */}
+          <CenterButton>
+            <PowerButtonContainer
+              style={{ marginLeft: -10, marginBottom: 2 }}
+              // onPress={() => System.getInstance().getWakeLock(false)}
+            >
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require("../assets/power.png")}
+              />
+            </PowerButtonContainer>
+            {/* <PowerTextContainer> */}
+            <Text
+              style={{
+                color: color.universalWhite,
+                fontSize: 14,
+                marginRight: 10
+              }}
+            >
+              Screen OFF
+            </Text>
+            {/* </PowerTextContainer> */}
+          </CenterButton>
         </PowerContainer>
         <Container>
           <TouchableOpacity onPress={() => this.props.modalOpen("lights")}>
