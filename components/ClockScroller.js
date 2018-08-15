@@ -7,23 +7,6 @@ import { hours, minutes, timeOfDay } from "../constants";
 import { color } from "../StyleVariables";
 import { WheelPicker } from "react-native-wheel-picker-android";
 
-const Wrapper = styled.View`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 250px;
-  margin: 10px;
-`;
-const Container = styled.View`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 25px;
-  background-color: ${color.fadedBlack};
-`;
-
 const WheelContainer = styled.View`
   flex: 1;
   display: flex;
@@ -36,7 +19,7 @@ const separationDistance = 80;
 
 const Wheel = styled(WheelPicker)`
   flex-grow: 1;
-  margin-left: -${separationDistance}px;
+  ${props => props.label && `margin-left: -${separationDistance}px;`};
 `;
 
 const WheelLabel = styled.Text`
@@ -46,6 +29,8 @@ const WheelLabel = styled.Text`
   position: absolute;
   margin-right: ${separationDistance}px;
 `;
+
+export const scrollerTextSize = 55;
 
 class ClockScroller extends React.Component {
   constructor(props) {
@@ -68,13 +53,15 @@ class ClockScroller extends React.Component {
           isCyclic
           isCurved
           data={this.props.data.map(node => node.key)}
-          itemTextSize={55}
+          itemTextSize={scrollerTextSize}
           visibleItemCount={5}
           isAtmospheric={true}
           itemTextColor={color.universalWhite}
+          label={this.props.label}
           {...this.props.wheelProps}
         />
         {this.props.label && <WheelLabel>{this.props.label}</WheelLabel>}
+        {this.props.children}
       </WheelContainer>
     );
   }

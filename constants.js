@@ -49,6 +49,7 @@ export const tempWeather = [
 ];
 
 export const hours = [
+  { key: "12" },
   { key: "1" },
   { key: "2" },
   { key: "3" },
@@ -59,11 +60,11 @@ export const hours = [
   { key: "8" },
   { key: "9" },
   { key: "10" },
-  { key: "11" },
-  { key: "12" }
+  { key: "11" }
 ];
 
 export const napHours = [
+  { key: "00" },
   { key: "01" },
   { key: "02" },
   { key: "03" },
