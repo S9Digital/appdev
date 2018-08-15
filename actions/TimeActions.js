@@ -1,19 +1,3 @@
-//use to cancel or snooze alarm when triggered?
-export const SET_ALARM_ATTEMPT = "SET_ALARM_ATTEMPT";
-export const SET_ALARM_SUCCESS = "SET_ALARM_SUCCESS";
-export const SET_ALARM_ERROR = "SET_ALARM_ERROR";
-export const setALARM = value => dispatch => {
-  dispatch({ type: SET_ALARM_ATTEMPT });
-  //insert native library query here
-  dispatch({
-    type: SET_ALARM_SUCCESS,
-    value: value
-  });
-  //.catch(error => {
-  //dispatch({type: SET_ALARM_ERROR, error, error})
-  //})
-};
-
 export const SET_TIME_ATTEMPT = "SET_TIME_ATTEMPT";
 export const SET_TIME_SUCCESS = "SET_TIME_SUCCESS";
 export const SET_TIME_ERROR = "SET_TIME_ERROR";
@@ -31,27 +15,36 @@ export const setTime = (hour, mins, timeOfDay, modal) => dispatch => {
   //dispatch({type: SET_TIME_ERROR, error, error})
   //})
 };
-export const GET_ALARM_STATE_ATTEMPT = "GET_ALARM_STATE_ATTEMPT";
-export const GET_ALARM_STATE_SUCCESS = "GET_ALARM_STATE_SUCCESS";
-export const GET_ALARM_STATE_ERROR = "GET_ALARM_STATE_ERROR";
-export const getAlarmState = (roomId, propertyId) => dispatch => {
-  dispatch({ type: GET_ALARM_STATE_ATTEMPT });
+export const GET_ALARM_ATTEMPT = "GET_ALARM_ATTEMPT";
+export const GET_ALARM_SUCCESS = "GET_ALARM_SUCCESS";
+export const GET_ALARM_ERROR = "GET_ALARM_ERROR";
+export const getAlarm = () => dispatch => {
+  dispatch({ type: GET_ALARM_ATTEMPT });
   //need true url from ARIO
-  fetch(
-    `https://backend.ario.light/property/${propertyId}/room/${roomId}/alarm/`
-  )
-    .then(res => res.json())
-    .then(data => {
-      dispatch({
-        type: GET_ALARM_STATE_SUCCESS,
-        alarmtime: data.time,
-        alarmEnabled: data.enabled
-      });
-    })
-    .catch(err => {
-      dispatch({ type: GET_ALARM_STATE_ERROR, err });
-    });
+  // fetch(
+  //   `https://backend.ario.light/property/${propertyId}/room/${roomId}/alarm/`
+  // )
+  //   .then(res => res.json())
+  //   .then(data => {
+  dispatch({
+    type: GET_ALARM_SUCCESS,
+    alarmTime: data.time,
+    alarmEnabled: data.enabled
+  });
+  // })
+  // .catch(err => {
+  //   dispatch({ type: GET_ALARM_ERROR, err });
+  // });
 };
+
+export const setAlarm = ({ alarmEnabled }) => (dispatch, getState) => {
+  // dummy function - insert API integration here
+  dispatch({
+    type: GET_ALARM_SUCCESS,
+    alarmEnabled: alarmEnabled
+  });
+};
+
 export const GET_NAP_STATE_ATTEMPT = "GET_NAP_STATE_ATTEMPT";
 export const GET_NAP_STATE_SUCCESS = "GET_NAP_STATE_SUCCESS";
 export const GET_NAP_STATE_ERROR = "GET_NAP_STATE_ERROR";

@@ -5,9 +5,6 @@ import {
   SET_ALARM_ATTEMPT,
   SET_ALARM_SUCCESS,
   SET_ALARM_ERROR,
-  GET_ALARM_STATE_ATTEMPT,
-  GET_ALARM_STATE_SUCCESS,
-  GET_ALARM_STATE_ERROR,
   GET_NAP_STATE_ATTEMPT,
   GET_NAP_STATE_SUCCESS,
   GET_NAP_STATE_ERROR,
@@ -64,7 +61,7 @@ import {
 const DEFAULT_STATE = {
   wakeTime: null,
   sleepTime: null,
-  alarmSet: false,
+  alarmEnabled: false,
   alarmTriggered: false,
   alarmTime: null,
   alarmDuration: 9,
@@ -132,7 +129,6 @@ export default function reducer(state = DEFAULT_STATE, action) {
     const modal = action.modal;
     const momentTime = hour + ":" + minutes;
     if (modal === "wakeTime") {
-      console.log(momentTime);
       return {
         ...state,
         wakeTime: momentTime,
@@ -162,7 +158,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
       return {
         ...state,
         alarmTime: momentTime,
-        alarmSet: true,
+        alarmEnabled: true,
         userActions: [
           {
             action: action.type,
@@ -185,15 +181,16 @@ export default function reducer(state = DEFAULT_STATE, action) {
       };
     }
   }
+
   //error handling for UI changes
   //if (action.type === "SET_TIME_ERROR") {
   // return {...state, latestError: action.error}
   //}
 
   //if (action.type === "GET_ALARM_STATE_ATTEMPT") {}
-  if (action.type === "GET_ALARM_STATE_SUCCESS") {
+  if (action.type === GET_ALARM_SUCCESS) {
     return {
-      alarmTime: action.alarmTime,
+      ...state,
       alarmEnabled: action.alarmEnabled
     };
   }
