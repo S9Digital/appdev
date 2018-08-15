@@ -160,7 +160,13 @@ class Clock extends React.Component {
     return (
       <ClockContainer>
         <Container>
-          {/* interval could be lower, only updates every minute now */}
+          {/* silly but straightforward way to ignore AM/PM for centering purposes*/}
+          <Moment
+            style={{ opacity: 0 }}
+            interval={1000}
+            element={AmPmText}
+            format="A "
+          />
           <Moment interval={1000} element={TimeText} format="h:mm" />
           <Moment interval={1000} element={AmPmText} format=" A" />
         </Container>
