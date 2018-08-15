@@ -340,7 +340,11 @@ class Landing extends React.Component {
 
   render() {
     if (this.state.hardcodeModal) {
-      return this.renderModalContents(this.state.hardcodeModal);
+      return (
+        <View style={{ marginTop: 23, width: "100%" }}>
+          {this.renderModalContents(this.state.hardcodeModal)}
+        </View>
+      );
     }
     return (
       <Wrapper>

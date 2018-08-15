@@ -27,9 +27,24 @@ const Container = styled.View`
 const WheelContainer = styled.View`
   flex: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-grow: 1;
   justify-content: center;
+`;
+
+const separationDistance = 80;
+
+const Wheel = styled(WheelPicker)`
+  flex-grow: 1;
+  margin-left: -${separationDistance}px;
+`;
+
+const WheelLabel = styled.Text`
+  color: ${color.universalWhite};
+  align-self: center;
+  left: 90px;
+  position: absolute;
+  margin-right: ${separationDistance}px;
 `;
 
 class ClockScroller extends React.Component {
@@ -42,108 +57,25 @@ class ClockScroller extends React.Component {
     };
   }
 
-  scrollUp() {
-    const dataLength = this.props.data.length - 1;
-    const { itemsPerPage, page } = this.state;
-    let start = page + 1;
-    let end = page + 1 + itemsPerPage;
-    let newData = this.props.data.slice(start, end);
-    this.setState({ page: page + 1 });
-    if (end > dataLength + 1) {
-      newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
-      this.setState({ page: -2 });
-    }
-    if (start < 0) {
-      newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
-      this.setState({ page: -1 });
-    }
-    this.setState({ time: [...newData] });
-    this.props.onPick(this.state.time[0].key);
-  }
-
-  scrollDown() {
-    const dataLength = this.props.data.length - 1;
-    const { itemsPerPage, page } = this.state;
-    let start = page - 1;
-    let end = page + itemsPerPage - 1;
-    let newData = this.props.data.slice(start, end);
-    this.setState({ page: page - 1 });
-    if (start === dataLength - 1) {
-      newData = this.props.data.slice(-2).concat(this.props.data.slice(0, 1));
-      this.setState({ page: dataLength - 1 });
-    }
-    if (start === -1) {
-      newData = this.props.data.slice(-1).concat(this.props.data.slice(0, 2));
-      this.setState({ page: dataLength });
-    }
-    this.setState({ time: [...newData] });
-    this.props.onPick(this.state.time[0].key);
-  }
+  static defaultProps = {
+    wheelProps: {}
+  };
 
   render() {
     return (
-      <WheelPicker
-        isCyclic
-        isCurved
-        data={this.props.data.map(node => node.key)}
-        itemTextSize={60}
-        visibleItemCount={5}
-        isAtmospheric={true}
-        itemTextColor={color.universalWhite}
-        style={{ flexGrow: 1 }}
-      />
-    );
-  }
-
-  renderNah() {
-    return (
-      <Wrapper>
-        <TouchableOpacity onPress={() => this.scrollUp()}>
-          {/* <Button>
-            <ButtonContainer> */}
-          <Image
-            style={{ height: 50, width: 50 }}
-            source={require("../assets/arrow-up.png")}
-          />
-          {/* </ButtonContainer>
-          </Button> */}
-        </TouchableOpacity>
-        <WheelContainer>
-          <Container>
-            <FlatList
-              data={this.state.time}
-              showsVerticalScrollIndicator={false}
-              scrollEnabled={false}
-              pagingEnabled
-              renderItem={({ item }) => (
-                <View
-                  style={{
-                    flex: 1,
-                    margin: 5,
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <Text style={{ fontSize: 26, color: color.universalWhite }}>
-                    {item.key}
-                  </Text>
-                </View>
-              )}
-            />
-          </Container>
-        </WheelContainer>
-        <TouchableOpacity onPress={() => this.scrollDown()}>
-          {/* <Button>
-            <ButtonContainer> */}
-          <Image
-            style={{ height: 40, width: 40 }}
-            source={require("../assets/arrow-down.png")}
-          />
-          {/* </ButtonContainer>
-          </Button> */}
-        </TouchableOpacity>
-      </Wrapper>
+      <WheelContainer {...this.props}>
+        <Wheel
+          isCyclic
+          isCurved
+          data={this.props.data.map(node => node.key)}
+          itemTextSize={55}
+          visibleItemCount={5}
+          isAtmospheric={true}
+          itemTextColor={color.universalWhite}
+          {...this.props.wheelProps}
+        />
+        {this.props.label && <WheelLabel>{this.props.label}</WheelLabel>}
+      </WheelContainer>
     );
   }
 }

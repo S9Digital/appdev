@@ -36,7 +36,7 @@ const InfoText = styled.Text`
 `;
 
 const WheelLabel = styled(InfoText)`
-  margin-left: -40px;
+  flex-grow: 1;
 `;
 
 const TitleContainer = styled(Row)`
@@ -50,6 +50,17 @@ const ScrollContainer = styled(Row)`
   justify-content: center;
   margin: 30px 20px;
   flex-grow: 1;
+`;
+
+const highlightHeight = 50;
+
+const HighlightBar = styled(Row)`
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  border-radius: ${highlightHeight / 2}px;
+  margin-top: -${highlightHeight / 2 + 1}px;
+  height: ${highlightHeight}px;
 `;
 
 const AlarmContainer = styled(Row)`
@@ -93,18 +104,21 @@ class ClockAdjust extends React.Component {
   renderScroller() {
     return (
       <ScrollContainer>
+        <HighlightBar />
         <ClockScroller
           data={napHours}
           onPick={hour => this.setState({ selectedHour: hour })}
+          label={"hours"}
+          wheelProps={{}}
           //value={parseInt(this.state.selectedHour, 10)}
         />
-        <WheelLabel>hours</WheelLabel>
         <ClockScroller
           data={minutes}
           onPick={minute => this.setState({ selectedMinute: minute })}
+          label={"minutes"}
+          wheelProps={{}}
           //value={parseInt(this.state.selectedMinute, 10)}
         />
-        <WheelLabel>minutes</WheelLabel>
       </ScrollContainer>
     );
   }
