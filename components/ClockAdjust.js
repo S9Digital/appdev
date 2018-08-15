@@ -2,51 +2,79 @@ import React from "react";
 import { Text, View, Image, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Moment from "react-moment";
-import ClockScroller from "./ClockScroller";
+import ClockScroller, { scrollerTextSize } from "./ClockScroller";
 import { napHours, hours, minutes, timeOfDay } from "../constants";
 import { setTime } from "../actions/TimeActions";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
 import { color } from "../StyleVariables";
 
-const Container = styled.View`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${color.modalGrey};
-  width: 100%;
-  height: 100%;
-`;
 const Content = styled.View`
   flex: 1;
   display: flex;
+  background-color: ${color.modalGrey};
   justify-content: space-around;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
   flex-wrap: nowrap;
+  height: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
 `;
-const ScrollContainer = styled.View`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  height: 300px;
-  width: 500px;
-`;
-const AlarmContainer = styled.View`
-  flex: 1;
-  display: flex;
+
+const Row = styled.View`
   width: 400px;
-  height: 50px;
-  margin: 5px;
+  flex: 1;
+  align-items: center;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
 `;
+
+const InfoText = styled.Text`
+  font-size: 14px;
+  color: ${color.universalWhite};
+  font-weight: 400;
+  align-self: center;
+`;
+
+const ClockColon = styled.Text`
+  position: absolute;
+  font-size: ${scrollerTextSize - 10}px;
+  color: white;
+  top: 50%;
+  margin-top: -${scrollerTextSize - 18}px;
+  right: 0px;
+`;
+
+const TitleContainer = styled(Row)`
+  flex-grow: 0;
+  flex-basis: 40;
+  justify-content: flex-start;
+`;
+
+const ScrollContainer = styled(Row)`
+  align-items: stretch;
+  justify-content: center;
+  margin: 30px 20px;
+  flex-grow: 1;
+`;
+
+const highlightHeight = 50;
+
+const HighlightBar = styled(Row)`
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  border-radius: ${highlightHeight / 2}px;
+  margin-top: -${highlightHeight / 2 + 1}px;
+  height: ${highlightHeight}px;
+`;
+
+const AlarmContainer = styled(Row)`
+  flex-grow: 0;
+  flex-basis: 40px;
+  margin: 5px;
+  justify-content: space-between;
+`;
+
 const TimeButton = styled.View`
   height: 30px;
   width: 100px;
@@ -58,22 +86,16 @@ const TimeButton = styled.View`
   align-items: center;
   margin-right: 30px;
 `;
-const ButtonContainer = styled.View`
+
+const ButtonContainer = styled(Row)`
   flex: 1;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
-  width: 300px;
-  height: 30px;
+  flex-grow: 0;
+  flex-basis: 30px;
+  margin-top: 30px;
 `;
-const InfoText = styled.Text`
-  font-size: 14px;
-  color: ${color.universalWhite};
-  margin-right: 50px;
-  margin-bottom: 5px;
-`;
+
 class ClockAdjust extends React.Component {
   constructor(props) {
     super(props);
@@ -84,21 +106,80 @@ class ClockAdjust extends React.Component {
     };
   }
 
-  renderScroller() {
+  renderNap() {
     return (
       <ScrollContainer>
+        <HighlightBar />
         <ClockScroller
           data={napHours}
           onPick={hour => this.setState({ selectedHour: hour })}
+          label={"hours"}
+          wheelProps={{ isCyclic: false }}
+          style={
+            {
+              // backgroundColor: "rgba(255, 0, 0, 0.2)"
+            }
+          }
           //value={parseInt(this.state.selectedHour, 10)}
         />
-        <InfoText>hours</InfoText>
         <ClockScroller
           data={minutes}
           onPick={minute => this.setState({ selectedMinute: minute })}
+          label={"minutes"}
+          wheelProps={{ isCyclic: false }}
+          style={
+            {
+              // backgroundColor: "rgba(0, 0, 255, 0.2)"
+            }
+          }
           //value={parseInt(this.state.selectedMinute, 10)}
         />
-        <InfoText>minutes</InfoText>
+      </ScrollContainer>
+    );
+  }
+
+  renderTime() {
+    return (
+      <ScrollContainer>
+        <HighlightBar />
+        <ClockScroller
+          data={hours}
+          onPick={hour => this.setState({ selectedHour: hour })}
+          style={{
+            // backgroundColor: "rgba(255, 0, 0, 0.2)",
+            left: 0,
+            flexBasis: 150,
+            flexGrow: 0
+          }}
+          wheelProps={{ style: { marginLeft: 40 } }}
+          //value={parseInt(this.state.selectedHour, 10)}
+        >
+          <ClockColon>:</ClockColon>
+        </ClockScroller>
+        <ClockScroller
+          data={minutes}
+          onPick={minute => this.setState({ selectedMinute: minute })}
+          style={{
+            // backgroundColor: "rgba(0, 255, 0, 0.2)",
+            left: 0,
+            flexBasis: 150,
+            flexGrow: 0
+          }}
+          wheelProps={{ style: { marginRight: 50 } }}
+          //value={parseInt(this.state.selectedMinute, 10)}
+        />
+        <ClockScroller
+          data={timeOfDay}
+          onPick={minute => this.setState({ selectedMinute: minute })}
+          style={{
+            // backgroundColor: "rgba(0, 0, 255, 0.2)",
+            left: -50,
+            flexGrow: 0,
+            flexBasis: 75
+          }}
+          wheelProps={{ isCyclic: false }}
+          //value={parseInt(this.state.selectedMinute, 10)}
+        />
       </ScrollContainer>
     );
   }
@@ -132,11 +213,11 @@ class ClockAdjust extends React.Component {
   }
   renderAlarm() {
     return (
-      <AlarmContainer>
+      <AlarmContainer style={{ opacity: this.props.type === "nap" ? 1 : 0 }}>
         <InfoText>Select alarm sound</InfoText>
         <TouchableOpacity>
-          <InfoText>
-            Classic{" "}
+          <InfoText style={{ color: color.fadedWhite }}>
+            Classic{"    "}
             <Image
               style={{ width: 12, height: 12 }}
               source={require("../assets/arrow.png")}
@@ -146,35 +227,33 @@ class ClockAdjust extends React.Component {
       </AlarmContainer>
     );
   }
+
+  renderTitle() {
+    if (this.props.type === "nap") {
+      return <InfoText>Set nap duration</InfoText>;
+    } else if (this.props.type === "wakeTime") {
+      return <InfoText>Set wake time</InfoText>;
+    } else if (this.props.type === "sleepTime") {
+      return <InfoText>Set bedtime</InfoText>;
+    }
+  }
+
   render() {
     return (
-      <Container>
-        <Content>
-          <View
-            style={{
-              flex: 1,
-              width: 400,
-              height: 40,
-              flexWrap: "nowrap",
-              justifyContent: "flex-start",
-              alignItems: "flex-start"
-            }}
-          >
-            <InfoText>Set nap duration</InfoText>
-          </View>
-          {this.renderScroller()}
-          {this.renderAlarm()}
-          {this.renderButtons()}
-        </Content>
-      </Container>
+      <Content>
+        <TitleContainer>{this.renderTitle()}</TitleContainer>
+        {this.props.type === "nap" && this.renderNap()}
+        {this.props.type !== "nap" && this.renderTime()}
+        {this.renderAlarm()}
+        {this.renderButtons()}
+      </Content>
     );
   }
 }
 const mapStateToProps = state => ({
   alarmTime: state.alarmTime,
   wakeTime: state.wakeTime,
-  sleepTime: state.sleepTime,
-  modal: state.modal
+  sleepTime: state.sleepTime
 });
 const mapDispatchToProps = dispatch => ({
   setClockData: (hour, mins, timeOfDay, modal) => {
