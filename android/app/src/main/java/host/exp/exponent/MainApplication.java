@@ -10,6 +10,7 @@ import expolib_v1.okhttp3.OkHttpClient;
 
 // Needed for `react-native link`
 // import com.facebook.react.ReactApplication;
+import com.wheelpicker.WheelPickerPackage;
 import com.arioliving.wakelock.AndroidWakeLockPackage;
 import com.arioliving.accelerometer.AndroidAccelerometerPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends ExpoApplication {
 
         // Needed for `react-native link`
         // new MainReactPackage(),
+            new WheelPickerPackage(),
             new AndroidWakeLockPackage(),
             new AndroidAccelerometerPackage(),
             new LinearGradientPackage(),

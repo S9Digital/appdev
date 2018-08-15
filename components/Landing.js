@@ -168,30 +168,35 @@ class Landing extends React.Component {
     this.state = {
       modalVisibile: false,
       alarmEnabled: false
+      // in development, hot-reloading stuff in a modal breaks everything, see:
+      // https://github.com/facebook/react-native/issues/17986
+      // so if you need to hack on something in a modal you can set this variable
+      // to "alarm" or "lights" or whatever and we'll just render that to you instead
+      // hardcodeModal: "wakeTime"
     };
   }
-  componentDidMount() {}
+
+  renderModalContents(type) {
+    let modal;
+    if (type === "sounds") {
+      modal = <SleepSounds />;
+    } else if (type === "alarm") {
+      modal = <AlarmSettings />;
+    } else if (type === "lights") {
+      modal = <LightsAdjust />;
+    } else if (type === "weather") {
+      modal = <Weather />;
+    } else if (type === "snooze") {
+      modal = <Alarm />;
+    } else if (type === "sleepTime" || type === "wakeTime" || type === "nap") {
+      modal = <ClockAdjust type={type} />;
+    }
+    return modal;
+  }
+
   renderModalView() {
     //all sub components "routing" handled through here. prop string determines current modal
     if (this.props.modal !== null) {
-      let modal;
-      if (this.props.modal === "sounds") {
-        modal = <SleepSounds />;
-      } else if (this.props.modal === "alarm") {
-        modal = <AlarmSettings />;
-      } else if (this.props.modal === "lights") {
-        modal = <LightsAdjust />;
-      } else if (this.props.modal === "weather") {
-        modal = <Weather />;
-      } else if (this.props.modal === "snooze") {
-        modal = <Alarm />;
-      } else if (
-        this.props.modal === "sleepTime" ||
-        this.props.modal === "wakeTime" ||
-        this.props.modal === "nap"
-      ) {
-        modal = <ClockAdjust type={this.props.modal} />;
-      }
       return (
         <ModalContainer
           animationType="fade"
@@ -202,7 +207,7 @@ class Landing extends React.Component {
             this.props.modalClose();
           }}
         >
-          {modal}
+          {this.renderModalContents(this.props.modal)}
         </ModalContainer>
       );
     }
@@ -334,6 +339,9 @@ class Landing extends React.Component {
   }
 
   render() {
+    if (this.state.hardcodeModal) {
+      return this.renderModalContents(this.state.hardcodeModal);
+    }
     return (
       <Wrapper>
         {this.renderModalView()}

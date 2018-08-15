@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Moment from "react-moment";
 import { hours, minutes, timeOfDay } from "../constants";
 import { color } from "../StyleVariables";
+import { WheelPicker } from "react-native-wheel-picker-android";
 
 const Wrapper = styled.View`
   flex: 1;
@@ -80,6 +81,21 @@ class ClockScroller extends React.Component {
   }
 
   render() {
+    return (
+      <WheelPicker
+        isCyclic
+        isCurved
+        data={this.props.data.map(node => node.key)}
+        itemTextSize={60}
+        visibleItemCount={5}
+        isAtmospheric={true}
+        itemTextColor={color.universalWhite}
+        style={{ flexGrow: 1 }}
+      />
+    );
+  }
+
+  renderNah() {
     return (
       <Wrapper>
         <TouchableOpacity onPress={() => this.scrollUp()}>

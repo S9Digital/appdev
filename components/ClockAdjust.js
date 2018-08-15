@@ -9,44 +9,56 @@ import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
 import { color } from "../StyleVariables";
 
-const Container = styled.View`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${color.modalGrey};
-  width: 100%;
-  height: 100%;
-`;
 const Content = styled.View`
   flex: 1;
   display: flex;
+  background-color: ${color.modalGrey};
   justify-content: space-around;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
   flex-wrap: nowrap;
+  height: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
 `;
-const ScrollContainer = styled.View`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  height: 300px;
-  width: 500px;
-`;
-const AlarmContainer = styled.View`
-  flex: 1;
-  display: flex;
+
+const Row = styled.View`
   width: 400px;
-  height: 50px;
-  margin: 5px;
+  flex: 1;
+  align-items: center;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
 `;
+
+const InfoText = styled.Text`
+  font-size: 14px;
+  color: ${color.universalWhite};
+  font-weight: 400;
+  align-self: center;
+`;
+
+const WheelLabel = styled(InfoText)`
+  margin-left: -40px;
+`;
+
+const TitleContainer = styled(Row)`
+  flex-grow: 0;
+  flex-basis: 40;
+  justify-content: flex-start;
+`;
+
+const ScrollContainer = styled(Row)`
+  align-items: stretch;
+  justify-content: center;
+  margin: 30px 20px;
+  flex-grow: 1;
+`;
+
+const AlarmContainer = styled(Row)`
+  flex-grow: 0;
+  flex-basis: 40px;
+  margin: 5px;
+  justify-content: space-between;
+`;
+
 const TimeButton = styled.View`
   height: 30px;
   width: 100px;
@@ -58,22 +70,16 @@ const TimeButton = styled.View`
   align-items: center;
   margin-right: 30px;
 `;
-const ButtonContainer = styled.View`
+
+const ButtonContainer = styled(Row)`
   flex: 1;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
-  width: 300px;
-  height: 30px;
+  flex-grow: 0;
+  flex-basis: 30px;
+  margin-top: 30px;
 `;
-const InfoText = styled.Text`
-  font-size: 14px;
-  color: ${color.universalWhite};
-  margin-right: 50px;
-  margin-bottom: 5px;
-`;
+
 class ClockAdjust extends React.Component {
   constructor(props) {
     super(props);
@@ -92,13 +98,13 @@ class ClockAdjust extends React.Component {
           onPick={hour => this.setState({ selectedHour: hour })}
           //value={parseInt(this.state.selectedHour, 10)}
         />
-        <InfoText>hours</InfoText>
+        <WheelLabel>hours</WheelLabel>
         <ClockScroller
           data={minutes}
           onPick={minute => this.setState({ selectedMinute: minute })}
           //value={parseInt(this.state.selectedMinute, 10)}
         />
-        <InfoText>minutes</InfoText>
+        <WheelLabel>minutes</WheelLabel>
       </ScrollContainer>
     );
   }
@@ -135,8 +141,8 @@ class ClockAdjust extends React.Component {
       <AlarmContainer>
         <InfoText>Select alarm sound</InfoText>
         <TouchableOpacity>
-          <InfoText>
-            Classic{" "}
+          <InfoText style={{ color: color.fadedWhite }}>
+            Classic{"    "}
             <Image
               style={{ width: 12, height: 12 }}
               source={require("../assets/arrow.png")}
@@ -148,25 +154,14 @@ class ClockAdjust extends React.Component {
   }
   render() {
     return (
-      <Container>
-        <Content>
-          <View
-            style={{
-              flex: 1,
-              width: 400,
-              height: 40,
-              flexWrap: "nowrap",
-              justifyContent: "flex-start",
-              alignItems: "flex-start"
-            }}
-          >
-            <InfoText>Set nap duration</InfoText>
-          </View>
-          {this.renderScroller()}
-          {this.renderAlarm()}
-          {this.renderButtons()}
-        </Content>
-      </Container>
+      <Content>
+        <TitleContainer>
+          <InfoText>Set nap duration</InfoText>
+        </TitleContainer>
+        {this.renderScroller()}
+        {this.renderAlarm()}
+        {this.renderButtons()}
+      </Content>
     );
   }
 }

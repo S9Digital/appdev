@@ -112,6 +112,7 @@ apply from: 'expo.gradle'
 
 
 dependencies {
+    compile project(':react-native-wheel-picker-android')
     compile project(':react-native-android-wakelock')
     compile project(':react-native-android-accelerometer')
     compile project(':react-native-linear-gradient')
