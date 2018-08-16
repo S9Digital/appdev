@@ -175,7 +175,7 @@ class Landing extends React.Component {
       // https://github.com/facebook/react-native/issues/17986
       // so if you need to hack on something in a modal you can set this variable
       // to "alarm" or "lights" or whatever and we'll just render that to you instead
-      // hardcodeModal: "nap"
+      // hardcodeModal: "weather"
     };
   }
 

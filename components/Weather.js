@@ -25,17 +25,16 @@ const CurrentWrapper = styled.View`
   margin: 10px;
   height: 200px;
 `;
+const TileWrapper = styled.FlatList``;
 const WeatherTile = styled.View`
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 5px;
-  margin-top: 15px;
-  height: 200px;
-  width: 120px;
-  border: 1px solid ${color.universalWhite};
+  margin: 15px 5px;
+  align-self: flex-start;
+  padding: 10px;
   flex-wrap: nowrap;
 `;
 const WeatherText = styled.Text`
@@ -86,8 +85,8 @@ class Weather extends React.Component {
       <WeatherText>{item.weather}</WeatherText>
       <Image style={{ height: 46, width: 46 }} source={item.icon} />
       <WeatherText>rain {item.chanceRain}</WeatherText>
-      <WeatherText>H {item.high}</WeatherText>
-      <WeatherText>L {item.low}</WeatherText>
+      <WeatherText>H {item.high}°</WeatherText>
+      <WeatherText>L {item.low}°</WeatherText>
     </WeatherTile>
   );
   render() {
@@ -97,7 +96,7 @@ class Weather extends React.Component {
           <CurrentWrapper>
             <CurrentWeather />
           </CurrentWrapper>
-          <FlatList
+          <TileWrapper
             data={tempWeather}
             scrollEnabled={false}
             horizontal={true}
