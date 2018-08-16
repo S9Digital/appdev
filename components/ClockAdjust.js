@@ -259,7 +259,6 @@ class ClockAdjust extends React.Component {
     if (!this.state.hour) {
       return <Content />;
     }
-    console.log(this.state);
     return (
       <Content>
         <TitleContainer>{this.renderTitle()}</TitleContainer>
