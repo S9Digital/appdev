@@ -84,10 +84,10 @@ const DurationBar = styled.View`
 const ButtonContainer = styled.View`
   display: flex;
   flex: 1;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  width: 100px;
+  width: 400px;
 `;
 const Button = styled.View`
   border-radius: 30px;
@@ -95,7 +95,16 @@ const Button = styled.View`
   display: flex;
   flex: 1;
   justify-content: center;
+  flex-basis: 150px;
+  flex-grow: 0;
+  flex-shrink: 0;
   align-items: center;
+`;
+const PreviewButton = styled(Button)`
+  background-color: ${color.fadedBlack};
+`;
+const PreviewText = styled.Text`
+  color: ${color.universalWhite};
 `;
 const DurationThumb = styled.Text`
   align-self: center;
@@ -168,6 +177,17 @@ class SleepSounds extends React.Component {
           />
         </Duration>
         <ButtonContainer>
+          <PreviewButton>
+            <TouchableOpacity
+              onPress={() => {
+                this.setState({ playing: !this.state.playing });
+              }}
+            >
+              <PreviewText style={{ padding: 10 }}>
+                {this.state.playing ? "Stop Preview" : "Preview"}
+              </PreviewText>
+            </TouchableOpacity>
+          </PreviewButton>
           <Button>
             <TouchableOpacity
               onPress={() => {
