@@ -103,10 +103,14 @@ const PowerContainer = styled.View`
   margin: 20px;
   margin-bottom: 10px;
 `;
-const PowerButtonContainer = styled.View`
-  border-radius: 25px;
-  border: 3px solid ${color.powerRed};
+const PowerButtonContainer = styled.Image`
   padding: 10px;
+  width: 43;
+  height: 43;
+  padding: 10px;
+  position: absolute;
+  bottom: 20px;
+  margin-left: -17px;
 `;
 
 const CenterButton = styled.View`
@@ -253,14 +257,14 @@ class Landing extends React.Component {
         >
           <CenterButton>
             <PowerButtonContainer
-              style={{ marginLeft: -10, marginBottom: 2 }}
+              source={require("../assets/red-circle.png")}
+              style={{ left: 32 }}
               // onPress={() => System.getInstance().getWakeLock(false)}
-            >
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require("../assets/power.png")}
-              />
-            </PowerButtonContainer>
+            />
+            <Image
+              style={{ width: 20, height: 20, top: -12, left: -4 }}
+              source={require("../assets/power.png")}
+            />
             {/* <PowerTextContainer> */}
             <Text
               style={{
@@ -310,28 +314,21 @@ class Landing extends React.Component {
             width: 30
           }}
         >
-          <View
-            style={{
-              width: 43,
-              height: 43,
-              borderRadius: 25,
-              borderWidth: 3,
-              borderStyle: "solid",
-              borderColor: color.universalWhite,
-              padding: 10,
-              marginRight: 10,
-              marginBottom: 5
-            }}
-          />
-          <Text
-            style={{
-              color: "white",
-              fontSize: 14,
-              marginRight: 14
-            }}
-          >
-            Demo
-          </Text>
+          <CenterButton>
+            <PowerButtonContainer
+              source={require("../assets/white-circle.png")}
+              style={{ right: 11 }}
+            />
+            <Text
+              style={{
+                color: "white",
+                fontSize: 14,
+                marginRight: 14
+              }}
+            >
+              Demo
+            </Text>
+          </CenterButton>
         </PowerContainer>
       </BottomContainer>
     );
