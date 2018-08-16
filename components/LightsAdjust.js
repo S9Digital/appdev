@@ -21,6 +21,7 @@ import _ from "underscore";
 import Images from "../assets/Images";
 import LinearGradient from "react-native-linear-gradient";
 import { color } from "../StyleVariables";
+import { throttle } from "underscore";
 
 const Wrapper = styled.View`
   display: flex;
@@ -149,6 +150,15 @@ const Title = styled.Text`
   color: white;
   margin-bottom: 5px;
 `;
+
+const FadeBackground = styled.Image`
+  position: absolute;
+  width: 100%;
+  height: 25px;
+  border-radius: 13px;
+  top: 50px;
+`;
+
 class LightsAdjust extends React.Component {
   constructor(props) {
     super(props);
@@ -157,6 +167,12 @@ class LightsAdjust extends React.Component {
       brightnessValue: this.props.lightBrightness,
       scene: this.props.scene
     };
+    this.changeTone = throttle(toneValue => {
+      this.setState({ toneValue });
+    }, 500);
+    this.changeBrightness = throttle(brightnessValue => {
+      this.setState({ brightnessValue });
+    }, 500);
   }
   // componentDidMount() {
   //   //getLightState to gather device configuration from Ario backend
@@ -226,59 +242,45 @@ class LightsAdjust extends React.Component {
           <SliderContent>
             <Tone>
               <Title>Color</Title>
-              {/* <LinearGradient
-                colors={[
-                  color.sliderBlue,
-                  color.universalWhite,
-                  color.sliderYellow
-                ]}
-                start={{ x: 0, y: 1 }}
-                end={{ x: 1, y: 1 }}
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  flexWrap: "nowrap",
-                  width: 500,
-                  height: 30,
-                  borderRadius: 25,
-                  zIndex: 1
-                }}
-              /> */}
+              <FadeBackground
+                source={require("../assets/color-gradient.png")}
+              />
               <Slider
                 minimumTrackTintColor="rgb(202,207,218)"
                 maximumTrackTintColor="rgba(24,24,24,1)"
+                thumbTintColor="white"
+                trackStyle={{ height: 0 }}
+                thumbStyle={{
+                  height: 30,
+                  width: 30,
+                  borderRadius: 15
+                }}
+                style={{ width: 500, height: 50 }}
+                step={1}
+                value={this.state.toneValue}
+                onValueChange={this.changeTone}
+                maximumValue={100}
+              />
+            </Tone>
+            <Brightness>
+              <Title>Brightness</Title>
+              <FadeBackground
+                source={require("../assets/brightness-gradient.png")}
+              />
+              <Slider
+                minimumTrackTintColor="rgba(202,207,0, 0)"
+                maximumTrackTintColor="rgba(24,24,24,0)"
                 thumbTintColor="white"
                 thumbStyle={{
                   height: 30,
                   width: 30,
                   borderRadius: 15
                 }}
-                trackStyle={{
-                  height: 25,
-                  borderRadius: 20
-                }}
-                style={{ width: 500, height: 50 }}
-                step={1}
-                value={this.state.toneValue}
-                onValueChange={toneValue => this.setState({ toneValue })}
-                maximumValue={100}
-              />
-            </Tone>
-            <Brightness>
-              <Title>Brightness</Title>
-              <Slider
-                minimumTrackTintColor="rgb(202,207,218)"
-                maximumTrackTintColor="rgba(24,24,24,1)"
-                thumbTintColor="white"
-                thumbStyle={{ height: 30, width: 30, borderRadius: 15 }}
-                trackStyle={{ height: 25, borderRadius: 20 }}
+                trackStyle={{ height: 0 }}
                 style={{ width: 500, height: 50 }}
                 step={1}
                 value={this.state.brightnessValue}
-                onValueChange={brightnessValue =>
-                  this.setState({ brightnessValue })
-                }
+                onValueChange={this.changeBrightness}
                 maximumValue={100}
               />
               {/* <LinearGradient
