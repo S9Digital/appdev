@@ -6,6 +6,7 @@ import Moment from "react-moment";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
 import { color } from "../StyleVariables";
+import moment from "moment";
 
 const ClockContainer = styled.View`
   flex: 1;
@@ -61,16 +62,23 @@ const AmPmText = styled.Text`
   margin-bottom: 20px;
   margin-right: 15px;
 `;
-const AlarmTitle = styled.Text`
-  font-size: 16px;
-  color: ${color.universalWhite};
-  font-weight: bold;
-  margin: 5px;
-`;
-const AlarmText = styled.Text`
+const ClockText = styled.Text`
   font-size: 16px;
   color: ${color.fadedWhite};
   margin: 5px;
+  width: 150px;
+  position: absolute;
+  text-align: center;
+  ${props => (props.right ? "right: 0" : "left: 0")};
+  ${props => (props.right ? "margin-right: -45px" : "margin-left: -45px")};
+`;
+const AlarmText = styled(ClockText)`
+  top: 5px;
+`;
+const AlarmTitle = styled(ClockText)`
+  color: ${color.universalWhite};
+  bottom: 5px;
+  font-weight: bold;
 `;
 const IconBorder = styled.View`
   border-radius: 15px;
@@ -95,11 +103,23 @@ class Clock extends React.Component {
   }
 
   renderLightBar() {
+    let wakeText = "OFF";
+    if (this.props.wakeTime !== null) {
+      wakeText = moment(this.props.wakeTime)
+        .utc()
+        .format("h:mmA");
+    }
+    let sleepText = "OFF";
+    if (this.props.sleepTime !== null) {
+      sleepText = moment(this.props.sleepTime)
+        .utc()
+        .format("h:mmA");
+    }
     return (
       <BarContainer>
         <TextBarTop>
           <AlarmTitle>Wake</AlarmTitle>
-          <AlarmTitle>Bedtime</AlarmTitle>
+          <AlarmTitle right>Bedtime</AlarmTitle>
         </TextBarTop>
         <LinearGradient
           colors={[color.sliderBlue, color.universalWhite, color.sliderYellow]}
@@ -136,12 +156,8 @@ class Clock extends React.Component {
           </TouchableOpacity>
         </LinearGradient>
         <TextBarBottom>
-          <AlarmText>
-            {this.props.wakeTime ? this.props.wakeTime : "OFF"}
-          </AlarmText>
-          <AlarmText>
-            {this.props.sleepTime ? this.props.sleepTime : "OFF"}
-          </AlarmText>
+          <AlarmText>{wakeText}</AlarmText>
+          <AlarmText right>{sleepText}</AlarmText>
         </TextBarBottom>
         <Text
           style={{
