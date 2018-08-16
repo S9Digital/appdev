@@ -64,16 +64,16 @@ export const hours = [
 ];
 
 export const napHours = [
-  { key: "00" },
-  { key: "01" },
-  { key: "02" },
-  { key: "03" },
-  { key: "04" },
-  { key: "05" },
-  { key: "06" },
-  { key: "07" },
-  { key: "08" },
-  { key: "09" },
+  { key: "0" },
+  { key: "1" },
+  { key: "2" },
+  { key: "3" },
+  { key: "4" },
+  { key: "5" },
+  { key: "6" },
+  { key: "7" },
+  { key: "8" },
+  { key: "9" },
   { key: "10" },
   { key: "11" },
   { key: "12" }

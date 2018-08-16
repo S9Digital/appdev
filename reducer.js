@@ -59,8 +59,9 @@ import {
 
 //
 const DEFAULT_STATE = {
-  wakeTime: null,
+  wakeTime: 57000000,
   sleepTime: null,
+  napTime: null,
   alarmEnabled: false,
   alarmTriggered: false,
   alarmTime: null,
@@ -76,7 +77,6 @@ const DEFAULT_STATE = {
   preset: null,
   lightPower: false,
   lightSchedule: null,
-  napEnd: null,
   napSound: false,
   timerEnd: null,
   timerLights: false,
@@ -123,15 +123,12 @@ export default function reducer(state = DEFAULT_STATE, action) {
   //if loading animation is needed for slow data calls
   //if (action.type === "SET_TIME_ATTEMPT") {}
   if (action.type === "SET_TIME_SUCCESS") {
-    const hour = action.hour;
-    const minutes = action.minutes;
-    const timeOfDay = action.timeOfDay;
     const modal = action.modal;
-    const momentTime = hour + ":" + minutes;
+    const time = action.time;
     if (modal === "wakeTime") {
       return {
         ...state,
-        wakeTime: momentTime,
+        wakeTime: time,
         userActions: [
           {
             action: action.type,
@@ -144,7 +141,7 @@ export default function reducer(state = DEFAULT_STATE, action) {
     if (modal === "sleepTime") {
       return {
         ...state,
-        sleepTime: momentTime,
+        sleepTime: time,
         userActions: [
           {
             action: action.type,

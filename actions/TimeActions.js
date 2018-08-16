@@ -1,15 +1,15 @@
 export const SET_TIME_ATTEMPT = "SET_TIME_ATTEMPT";
 export const SET_TIME_SUCCESS = "SET_TIME_SUCCESS";
 export const SET_TIME_ERROR = "SET_TIME_ERROR";
-export const setTime = (hour, mins, timeOfDay, modal) => dispatch => {
+
+// newTime is a number, modal is a clock
+export const setTime = (newTime, modal) => dispatch => {
   dispatch({ type: SET_TIME_ATTEMPT });
-  //insert native library query here
+  //
   dispatch({
     type: SET_TIME_SUCCESS,
-    hour: hour,
-    minutes: mins,
-    modal: modal,
-    timeOfDay: timeOfDay
+    time: newTime,
+    modal
   });
   //.catch(error => {
   //dispatch({type: SET_TIME_ERROR, error, error})

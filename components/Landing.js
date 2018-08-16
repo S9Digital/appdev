@@ -19,7 +19,6 @@ import AlarmSettings from "./AlarmSettings";
 import Clock from "./Clock";
 import Alarm from "./Alarm";
 import CurrentWeather from "./CurrentWeather";
-import { hours, minutes, timeOfDay } from "../constants";
 import { setTime, modalOpen, returnHome } from "../actions/SystemActions";
 import { setAlarm } from "../actions/TimeActions";
 import { color } from "../StyleVariables";
@@ -172,7 +171,7 @@ class Landing extends React.Component {
       // https://github.com/facebook/react-native/issues/17986
       // so if you need to hack on something in a modal you can set this variable
       // to "alarm" or "lights" or whatever and we'll just render that to you instead
-      // hardcodeModal: "wakeTime"
+      // hardcodeModal: "nap"
     };
   }
 

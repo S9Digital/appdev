@@ -1,9 +1,5 @@
 import React from "react";
-import { Text, View, Image, TouchableOpacity, FlatList } from "react-native";
-import { connect } from "react-redux";
 import styled from "styled-components";
-import Moment from "react-moment";
-import { hours, minutes, timeOfDay } from "../constants";
 import { color } from "../StyleVariables";
 import { WheelPicker } from "react-native-wheel-picker-android";
 
@@ -32,7 +28,7 @@ const WheelLabel = styled.Text`
 
 export const scrollerTextSize = 55;
 
-class ClockScroller extends React.Component {
+export default class ClockScroller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,6 +43,14 @@ class ClockScroller extends React.Component {
   };
 
   render() {
+    // todo: this is O(n) inefficient and easily cacheable
+    let selectedItemPosition = null;
+    for (let i = 0; i < this.props.data.length; i += 1) {
+      if (this.props.data[i].key === this.props.value) {
+        selectedItemPosition = i;
+        break;
+      }
+    }
     return (
       <WheelContainer {...this.props}>
         <Wheel
@@ -58,7 +62,11 @@ class ClockScroller extends React.Component {
           isAtmospheric={true}
           itemTextColor={color.universalWhite}
           label={this.props.label}
+          onItemSelected={({ position }) => {
+            this.props.onSelect(this.props.data[position].key);
+          }}
           {...this.props.wheelProps}
+          selectedItemPosition={selectedItemPosition}
         />
         {this.props.label && <WheelLabel>{this.props.label}</WheelLabel>}
         {this.props.children}
@@ -66,15 +74,3 @@ class ClockScroller extends React.Component {
     );
   }
 }
-
-const mapStateToProps = (state, props) => ({
-  sleepTime: state.sleeptime,
-  wakeTime: state.wakeTime,
-  alarmTime: state.alarmTime
-});
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ClockScroller);

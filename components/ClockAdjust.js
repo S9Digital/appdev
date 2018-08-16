@@ -8,6 +8,8 @@ import { setTime } from "../actions/TimeActions";
 import { modalOpen, returnHome } from "../actions/SystemActions";
 import { connect } from "react-redux";
 import { color } from "../StyleVariables";
+import moment from "moment";
+import pad from "left-pad";
 
 const Content = styled.View`
   flex: 1;
@@ -99,11 +101,31 @@ const ButtonContainer = styled(Row)`
 class ClockAdjust extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedHour: "2",
-      selectedMinute: "01",
-      isDateTimePickerVisible: false
-    };
+    this.state = {};
+  }
+
+  componentWillReceiveProps(props) {
+    const m = moment(props.time).utc();
+    let hour = m.hour();
+    let minute = m.minute();
+    let timeOfDay = "AM";
+    if (this.props.type !== "nap") {
+      if (hour === 0) {
+        hour = 12;
+      } else if (hour >= 12) {
+        hour -= 12;
+        timeOfDay = "PM";
+      }
+    }
+    this.setState({
+      hour: `${hour}`,
+      minute: `${minute}`,
+      timeOfDay
+    });
+  }
+
+  componentDidMount() {
+    this.componentWillReceiveProps(this.props);
   }
 
   renderNap() {
@@ -112,7 +134,7 @@ class ClockAdjust extends React.Component {
         <HighlightBar />
         <ClockScroller
           data={napHours}
-          onPick={hour => this.setState({ selectedHour: hour })}
+          onSelect={hour => this.setState({ hour })}
           label={"hours"}
           wheelProps={{ isCyclic: false }}
           style={
@@ -124,7 +146,7 @@ class ClockAdjust extends React.Component {
         />
         <ClockScroller
           data={minutes}
-          onPick={minute => this.setState({ selectedMinute: minute })}
+          onSelect={minute => this.setState({ minute })}
           label={"minutes"}
           wheelProps={{ isCyclic: false }}
           style={
@@ -144,7 +166,7 @@ class ClockAdjust extends React.Component {
         <HighlightBar />
         <ClockScroller
           data={hours}
-          onPick={hour => this.setState({ selectedHour: hour })}
+          onSelect={hour => this.setState({ hour })}
           style={{
             // backgroundColor: "rgba(255, 0, 0, 0.2)",
             left: 0,
@@ -152,13 +174,13 @@ class ClockAdjust extends React.Component {
             flexGrow: 0
           }}
           wheelProps={{ style: { marginLeft: 40 } }}
-          //value={parseInt(this.state.selectedHour, 10)}
+          value={this.state.hour}
         >
           <ClockColon>:</ClockColon>
         </ClockScroller>
         <ClockScroller
           data={minutes}
-          onPick={minute => this.setState({ selectedMinute: minute })}
+          onSelect={minute => this.setState({ minute })}
           style={{
             // backgroundColor: "rgba(0, 255, 0, 0.2)",
             left: 0,
@@ -166,11 +188,11 @@ class ClockAdjust extends React.Component {
             flexGrow: 0
           }}
           wheelProps={{ style: { marginRight: 50 } }}
-          //value={parseInt(this.state.selectedMinute, 10)}
+          value={this.state.minute}
         />
         <ClockScroller
           data={timeOfDay}
-          onPick={minute => this.setState({ selectedMinute: minute })}
+          onSelect={timeOfDay => this.setState({ timeOfDay })}
           style={{
             // backgroundColor: "rgba(0, 0, 255, 0.2)",
             left: -50,
@@ -178,7 +200,7 @@ class ClockAdjust extends React.Component {
             flexBasis: 75
           }}
           wheelProps={{ isCyclic: false }}
-          //value={parseInt(this.state.selectedMinute, 10)}
+          value={this.state.timeOfDay}
         />
       </ScrollContainer>
     );
@@ -195,12 +217,7 @@ class ClockAdjust extends React.Component {
         {/* time of day not set up yet */}
         <TouchableOpacity
           onPress={() => {
-            this.props.setClockData(
-              this.state.selectedHour,
-              this.state.selectedMinute,
-              "AM",
-              this.props.modal
-            );
+            this.props.setClockData(this.state);
             this.props.modalClose();
           }}
         >
@@ -239,6 +256,10 @@ class ClockAdjust extends React.Component {
   }
 
   render() {
+    if (!this.state.hour) {
+      return <Content />;
+    }
+    console.log(this.state);
     return (
       <Content>
         <TitleContainer>{this.renderTitle()}</TitleContainer>
@@ -250,14 +271,38 @@ class ClockAdjust extends React.Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  alarmTime: state.alarmTime,
-  wakeTime: state.wakeTime,
-  sleepTime: state.sleepTime
-});
-const mapDispatchToProps = dispatch => ({
-  setClockData: (hour, mins, timeOfDay, modal) => {
-    return dispatch(setTime(hour, mins, timeOfDay, modal));
+
+const mapStateToProps = (state, props) => {
+  let time = null;
+  if (props.type === "nap") {
+    time = 0;
+  } else if (props.type === "wakeTime") {
+    time = state.wakeTime;
+  } else if (props.type === "sleepTime") {
+    time = state.sleepTime;
+  }
+  if (time === null) {
+    time = 0;
+  }
+  return { time };
+};
+
+const mapDispatchToProps = (dispatch, props) => ({
+  setClockData: ({ hour, minute, timeOfDay }) => {
+    hour = parseInt(hour);
+    minute = parseInt(minute);
+    const m = moment(0).utc();
+    if (props.type !== "nap") {
+      if (hour === 12) {
+        hour = 0;
+      }
+      if (timeOfDay === "PM") {
+        hour += 12;
+      }
+    }
+    m.hour(hour);
+    m.minute(minute);
+    return dispatch(setTime(m.toDate().getTime(), props.type));
   },
   modalOpen: component => {
     return dispatch(modalOpen(component));
