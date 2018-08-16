@@ -36,7 +36,7 @@
     "react-native-fs": "^2.11.15",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-modal-datetime-picker": "^6.0.0",
-    "react-native-slider": "^0.11.0",
+    "react-native-slider": "git+https://github.com/streamplace/react-native-slider.git#3e566841245a81ee03ac56c9b94fa8fc62d4e412",
     "react-native-wheel-picker-android": "^1.1.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",

@@ -19,6 +19,7 @@ import {
 import SoundScroller from "./SoundScroller";
 import { sleepSounds } from "../constants";
 import { color } from "../StyleVariables";
+import { throttle } from "underscore";
 
 const Container = styled.View`
   display: flex;
@@ -96,6 +97,12 @@ const Button = styled.View`
   justify-content: center;
   align-items: center;
 `;
+const DurationThumb = styled.Text`
+  align-self: center;
+  color: ${color.fadedGrey};
+  margin-top: 6px;
+  font-size: 12;
+`;
 
 const Title = styled.Text`
   font-size: 12;
@@ -105,13 +112,19 @@ const Title = styled.Text`
 class SleepSounds extends React.Component {
   constructor(props) {
     super(props);
+    this.setVolume = throttle(volumeValue => {
+      this.setState({ volumeValue });
+    }, 50);
     this.state = {
       selectedSound: this.props.alarmSoundId,
-      volumeValue: this.props.sleepSoundVolume,
-      durationValue: this.props.sleepSoundDuration
+      volumeValue: 0,
+      durationValue: 0
     };
   }
   render() {
+    let label = () => (
+      <DurationThumb>{this.state.durationValue}h</DurationThumb>
+    );
     return (
       <Container>
         <PresetsContainer>
@@ -134,7 +147,7 @@ class SleepSounds extends React.Component {
             style={{ width: 500, height: 50 }}
             step={1}
             value={this.state.volumeValue}
-            onValueChange={volumeValue => this.setState({ volumeValue })}
+            onValueChange={this.setVolume}
             maximumValue={100}
           />
         </Volume>
@@ -150,7 +163,8 @@ class SleepSounds extends React.Component {
             step={1}
             value={this.state.durationValue}
             onValueChange={durationValue => this.setState({ durationValue })}
-            maximumValue={100}
+            thumbContent={label}
+            maximumValue={12}
           />
         </Duration>
         <ButtonContainer>
